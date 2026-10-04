@@ -1,0 +1,3 @@
+[submodule "core"]
+	path = core
+	url = https://github.com/LAP87/OpenVRX-Core.git

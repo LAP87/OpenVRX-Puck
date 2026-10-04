@@ -1,0 +1,5 @@
+.venv/
+**/__pycache__/
+*.erc
+*.log
+*_sklib.py
