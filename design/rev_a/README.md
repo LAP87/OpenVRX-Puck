@@ -56,8 +56,8 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 | 3,3 V → 1,8 V ×2 (digital / analog) | Diodes **AP2112K-1.8TRG1**, SOT-23-5 | C176944 | 1 µF keramisk räcker. 0,12 W styck. Stiftning 1 = VIN, 2 = GND, 3 = EN (till VIN), 5 = VOUT. |
 | ESD på videoingångarna | onsemi **ESD9B5.0ST5G**, SOD-923, bidirektionell | C111566 | AC-kopplade mottagarutgångar går under 0 V. ~15 pF ger en pol vid ~280 MHz, ingen påverkan på video. |
 | Antialiasfilter | **0,47 µH** (0603, SRF > 100 MHz) i serie + **1 nF C0G** mot jord | att välja | Se nedan. |
-| Kristall | YXC **X32251431818MSB4SI**, 14,31818 MHz, CL 20 pF, ±10 ppm, SMD3225 | slå upp nr | TVP kräver ±50 ppm. |
-| Lastkondensatorer | **33 pF C0G** ×2 per kristall | basic | CL1 = CL2 = 2·20 pF − ~5 pF ströinduktans ≈ 35 pF. Trimmas efter uppmätt SCLK om det behövs. |
+| Kristall | YXC **X32251431818MSB4SI**, 14,31818 MHz, CL 20 pF, ±10 ppm (±20 ppm över −40…85 °C), SMD3225 | C34748 | TVP kräver ±50 ppm. |
+| Lastkondensatorer | **33 pF C0G** ×2 per kristall | basic | CL1 = CL2 = 2·20 pF − ~5 pF strökapacitans ≈ 35 pF. Trimmas efter uppmätt SCLK om det behövs. |
 | TVP5150AM1 | TVP5150AM1PBSR | C10013 | "Other Suppliers"; hur JLC hanterar dem är okontrollerat. |
 
 Alternativ som noterats: LCSC har en 14,31818 MHz-oscillator för **1,8 V** (C16851, CTS, ±25 ppm). Den gör en gemensam klocka till båda XTAL1 säker, om det någon gång behövs.
@@ -76,6 +76,10 @@ Mottagarens utgång (75 Ω) och spänningsdelaren 2 × 37,4 Ω ger filtret en k�
 | 27 MHz | −22,6 dB |
 
 Färgbärvågen (3,58/4,43 MHz) påverkas inte. En mottagare med nästan 0 Ω utgång ger högst +2,1 dB överslängning, mot 0,1 dB med 75 Ω. Ett 0 Ω-motstånd på spolens plats kopplar förbi filtret.
+
+## Livscykel
+
+Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECYCLE.md). Alla är aktiva. Risken är TVP5150AM1, som TI inte längre utvecklar något nytt för.
 
 ## Kontroller (tillägg)
 

@@ -64,7 +64,7 @@ def C(value, a, b, note='', fp=FP_0402C):
 
 
 def FB(a, b, note='ferrite bead 600 ohm @ 100 MHz, >= 200 mA'):
-    p = two_pin('FB', 'BLM18KG601SN1', FP_0603L, note)
+    p = two_pin('FB', 'BLM18KG601SN1D', FP_0603L, note)
     p[1] += a
     p[2] += b
     return p
@@ -300,8 +300,8 @@ def build():
                  footprint='Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm',
                  pins=[Pin(num=1, name='1', func=T.PASSIVE), Pin(num=2, name='GND', func=T.PASSIVE),
                        Pin(num=3, name='3', func=T.PASSIVE), Pin(num=4, name='GND2', func=T.PASSIVE)])
-        y.fields['note'] = ('YXC 14.31818 MHz, CL 20 pF, +-10 ppm, SMD3225-4P (TVP needs +-50 ppm); '
-                            'LCSC number to look up. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)')
+        y.fields['note'] = ('YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P '
+                            '(TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)')
         y[1] += x1
         y[3] += x2
         y[2] += GND

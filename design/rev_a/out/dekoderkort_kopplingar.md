@@ -234,25 +234,25 @@ _Resettable fuse for receiver B supply (SpeedyBee draws ~0.45 A at 5 V)_
 - 1 1: +5V
 - 2 2: +5V_RX_B
 
-## FB1 BLM18KG601SN1
+## FB1 BLM18KG601SN1D
 _ferrite bead 600 ohm @ 100 MHz, >= 200 mA_
 
 - 1 1: +1V8_A
 - 2 2: AVDD_A
 
-## FB2 BLM18KG601SN1
+## FB2 BLM18KG601SN1D
 _ferrite bead 600 ohm @ 100 MHz, >= 200 mA_
 
 - 1 1: +1V8_A
 - 2 2: PLL_AVDD_A
 
-## FB3 BLM18KG601SN1
+## FB3 BLM18KG601SN1D
 _ferrite bead 600 ohm @ 100 MHz, >= 200 mA_
 
 - 1 1: +1V8_A
 - 2 2: AVDD_B
 
-## FB4 BLM18KG601SN1
+## FB4 BLM18KG601SN1D
 _ferrite bead 600 ohm @ 100 MHz, >= 200 mA_
 
 - 1 1: +1V8_A
@@ -712,7 +712,7 @@ _TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); 
 - 32 CH_AVDD: AVDD_B
 
 ## Y1 X32251431818MSB4SI
-_YXC 14.31818 MHz, CL 20 pF, +-10 ppm, SMD3225-4P (TVP needs +-50 ppm); LCSC number to look up. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)_
+_YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P (TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)_
 
 - 1 1: XTAL1_A
 - 2 GND: GND
@@ -720,7 +720,7 @@ _YXC 14.31818 MHz, CL 20 pF, +-10 ppm, SMD3225-4P (TVP needs +-50 ppm); LCSC num
 - 4 GND2: GND
 
 ## Y2 X32251431818MSB4SI
-_YXC 14.31818 MHz, CL 20 pF, +-10 ppm, SMD3225-4P (TVP needs +-50 ppm); LCSC number to look up. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)_
+_YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P (TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)_
 
 - 1 1: XTAL1_B
 - 2 GND: GND
