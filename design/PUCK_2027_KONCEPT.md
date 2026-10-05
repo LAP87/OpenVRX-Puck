@@ -151,6 +151,19 @@ projektägaren frågade 2026-10-03 om skalet. Svar: inget skal ritas förrän eg
 
 **F4 5800 (standardkanalen) ligger 8,5 MHz från pixelklockans överton.** Det kan synas som ett svagt mönster vid svag signal. Mät det. Om det stör: välj en annan standardkanal, eller flytta SDRAM-klockan (den är fri att välja), eller sprid HDMI-kabeln bort från antennerna. TMDS-kabeln och HDMI-kontakten är troligen den starkaste strålaren.
 
+### Var våra klockor hamnar i mottagarens mellanfrekvens (räknat)
+
+RTC6715 blandar ner till 479–480 MHz och filtrerar där (filtret sitter på RX5808-modulen; dess bredd står inte i något datablad vi har, filterklassen har 20–24 MHz). De här övertonerna ligger i det bandet på **varje** kanal och är mycket lägre övertoner än de i tabellen ovan (18:e mot 215:e), alltså starkare vid källan:
+
+| Överton | Frekvens | Avstånd från mellanfrekvensen |
+|---|---|---|
+| 18 × 27 MHz (TVP SCLK, kortets oscillator) = 36 × 13,5 MHz (BT.656-data) | 486,0 MHz | +6 till +7 MHz |
+| 34 × 14,318 MHz (TVP-kristallen) | 486,8 MHz | +7 till +8 MHz |
+| 33 × 14,318 MHz = 35 × 13,5 MHz | 472,5 MHz | −6,5 till −7,5 MHz |
+| SDRAM 64,8 MHz, pixel 74,25 MHz | inga inom ±20 MHz | |
+
+TMDS-data är dessutom bredbandigt mellan bitklockans multiplar, inte bara spikar. Verkan är inte mätt: en störning här syns inte som mönster utan som kortare räckvidd, så den måste mätas vid svag signal. Underlag och åtgärder: navets `research/RF_DIVERSITY_OCH_EGENSTORNING_2026-10-05.md`, avsnitt 4.
+
 ### Inbyggt mätinstrument
 
 FPGA:n mäter redan "snö" per bildrad (HF-energin i `bt656_rx`, samma mått som mixern använder). Med en VTX på fast avstånd (eller med dämpare) och en stillastående kamera blir det ett jämförbart störmått:
@@ -158,6 +171,8 @@ FPGA:n mäter redan "snö" per bildrad (HF-energin i `bt656_rx`, samma mått som
 2. Slå av HDMI-utgången (mixer och SDRAM igång): skillnaden = HDMI:s bidrag.
 3. Byt kanal: F4 mot t.ex. A8 eller R7. Skillnaden visar övertonstreffar.
 4. Flytta mottagarna 5 / 10 / 20 cm bort; lägg på en skärmburk (koppartejp/bleckburk) över digitaldelen.
+5. Dekoderkortet av och på (dekodrarna hållna i reset, FPGA:n igång): skillnaden = bidraget från 27 och 14,318 MHz, det som hamnar i mellanfrekvensbandet.
+6. Gör mätningarna vid svag signal, helst kabelbundet (VTX i skärmad låda → dämpare → delare → båda mottagarna, strax över tröskeln). Vid stark signal syns inte en störning i mellanfrekvensbandet.
 
 (Verktyg finns sedan 2026-10-03: mätarsidan på OLED:n/OSD:n och mätloggen över USB, `gateware/tools/snowlog.py` med `--label` per testvillkor och `--summary`. Se `gateware/README.md`, avsnittet M6.)
 
