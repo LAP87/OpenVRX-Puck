@@ -171,7 +171,7 @@ FPGA:n mäter redan "snö" per bildrad (HF-energin i `bt656_rx`, samma mått som
 2. Slå av HDMI-utgången (mixer och SDRAM igång): skillnaden = HDMI:s bidrag.
 3. Byt kanal: F4 mot t.ex. A8 eller R7. Skillnaden visar övertonstreffar.
 4. Flytta mottagarna 5 / 10 / 20 cm bort; lägg på en skärmburk (koppartejp/bleckburk) över digitaldelen.
-5. Dekoderkortet av och på (dekodrarna hållna i reset, FPGA:n igång): skillnaden = bidraget från 27 och 14,318 MHz, det som hamnar i mellanfrekvensbandet.
+5. Dekoderkortets matning av och på, FPGA:n igång: skillnaden = bidraget från 27 och 14,318 MHz, det som hamnar i mellanfrekvensbandet. (Reset räcker inte som "av": om kristalloscillatorn går under reset är inte kontrollerat.)
 6. Gör mätningarna vid svag signal, helst kabelbundet (VTX i skärmad låda → dämpare → delare → båda mottagarna, strax över tröskeln). Vid stark signal syns inte en störning i mellanfrekvensbandet.
 
 (Verktyg finns sedan 2026-10-03: mätarsidan på OLED:n/OSD:n och mätloggen över USB, `gateware/tools/snowlog.py` med `--label` per testvillkor och `--summary`. Se `gateware/README.md`, avsnittet M6.)
