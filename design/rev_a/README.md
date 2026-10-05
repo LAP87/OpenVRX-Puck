@@ -1,8 +1,8 @@
 # Rev A — dekoderkort (2× TVP5150AM1)
 
-Status 2026-10-02: **schema som kod klart, ERC rent, inga komponenter valda till fullo, ingen layout, inget beställt.**
+Status 2026-10-05: **schema som kod, ERC rent, ingen layout, inget hårdvaruprov.** RESETB ligger på J6-18; genererade utdata och Core-submodulen ska följa samma version. Det här är ett konstruktionsunderlag, inte ett tillverkningsgodkännande.
 
-Varför ett dekoderkort och inte hela goggle-elektroniken: se `../../research/ALTERNATIVA_VAGAR_2026-10-02.md`. Dekoderdelen är gemensam för alla vägar med egen mixning. FPGA (GW2AR-18 eller GW5A-25) och HDMI-lösning (LT8618SX, ADV7513 eller direkt TMDS) väljs först när de är provade på devkort. Det här kortet fungerar med Tang Nano 20K i dag och med andra FPGA-kort via sladdar.
+Varför ett dekoderkort och inte hela goggle-elektroniken: se [navets vägval](https://github.com/LAP87/OpenVRX/blob/main/research/ALTERNATIVA_VAGAR_2026-10-02.md). Dekoderdelen är gemensam för vägar med egen mixning. Kopplingen är avsedd för Tang Nano 20K rev 3923 och andra FPGA-kort via korta ledningar; faktisk funktion och signalintegritet är ännu inte provade.
 
 ## Vad kortet gör
 
@@ -13,10 +13,10 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 5 V (från Tang J5-1 via lödbygel, eller egen kontakt) → 3,3 V LDO → 2× 1,8 V LDO (digital / analog via ferrit) ┘   = Tang Nano 20K J6 / J5
 ```
 
-- **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Koppla stift n till stift n (flatkabel eller dupont), så får du exakt M4-bitströmmens stift (`gateware/boards/m4_dual_mix.cst`). Skriptet kontrollerar det automatiskt.
+- **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Stift n till stift n ger M4:s signalplan (`../../core/gateware/boards/m4_dual_mix.cst`). Skriptet kontrollerar både stiftnummer och RESETB/SPI-funktion; kortrevision och kabeldragning kontrolleras på bänken.
 - Mottagarkontakterna (JST-PH 3-pol: +5 V, GND, CVBS) matar varsin mottagare via en 0,5 A PTC-säkring.
 - I2C: gemensam SCL, en SDA per dekoder (båda på B8h, som M4 förväntar sig). Med lödbygel JP1 och en flyttad pull-up kan de i stället dela en buss (B8h + BAh).
-- RESETB från FPGA:n, med 10 k pull-down så att dekodrarna hålls i reset med utgångarna i högimpedans tills FPGA:n släpper dem.
+- RESETB från FPGA:n på J6-18 (Tang-stift 18, som också driver kortets lysdiod 3). Ingen pull-down: lysdiodens 510 Ω mot 3,3 V skulle vinna ändå, och dekoderns utgångar är avstängda efter start tills register 03h skrivs. Tidigare låg RESETB på J6-10 (stift 25), som ligger i HDMI-banken och är skärmens CEC-ledning (Puck issue #1, Core issue #6).
 - Testpunkter: CVBS, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder.
 
 ## Filer
@@ -33,7 +33,11 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 
 1. **SKiDL ERC**: inga fel och inga varningar (medvetet oanslutna stift är markerade NC).
 2. **Databladsregler** (`design_checks`): alla 32 TVP-stift anslutna, rätt matning per stift (IO_DVDD 3,3 V, DVDD 1,8 V digital, CH_AVDD/PLL_AVDD 1,8 V bakom egna ferriter), ingen 3,3 V/5 V-del på XTAL1-näten, exakt en pull-up per I2C-linje.
-3. **Mot gateware**: varje signal på stiftlisterna jämförs med FPGA-stiften i `m4_dual_mix.cst` via Tang Nano 20K:s stiftlistetabell. Kontrollen är provad genom att byta plats på två datastift — då fallerar den med rätt meddelande.
+3. **Mot gateware**: varje dekodersignal på stiftlisterna jämförs med FPGA-stiften i `m4_dual_mix.cst`. Core kräver dessutom entydig direkt RESETB/SPI-tilldelning till LED3/4/5 i M3/M4/M6. Negativa kontroller byter RESETB mot `~cur`, flyttar en klockingång och tar bort kontraktskontrollen. Alla avvisas. En äldre Core utan kontraktet kan inte godkännas genom enbart stiftnummer.
+
+Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
+
+Utdata: 110 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
 
 ## Granskning
 
@@ -87,6 +91,7 @@ Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECY
 
 ## Öppna punkter
 
+- PTC:ns hold/trip mot faktisk mottagarlast och temperatur, TVP-temperaturklass, PLL-matningens avkoppling, ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
 - Layout: analog jord och retur nära ingången, kristall och REFP/REFM tätt intill respektive TVP, 0,1 µF vid varje matningsstift. Mekaniskt mått för att sätta kortet direkt på Tang Nano 20K som en "sköld" (båda stiftlisterna) är inte kontrollerat — därför sladdar i rev A.
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.

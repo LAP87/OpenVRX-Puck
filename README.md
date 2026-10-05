@@ -13,15 +13,15 @@ omni antennas.
 board (2x TVP5150AM1 to pin headers) that plugs into a Tang Nano 20K running
 [OpenVRX-Core](https://github.com/LAP87/OpenVRX-Core)'s `m6_puck_proto`. Its
 schematic exists as a script (SKiDL), passes ERC and is checked against the
-gateware pin plan. It has no KiCad project or layout yet, and nothing has
-been built.
+gateware pin plan and shared RESETB/SPI roles. It has no KiCad project or
+layout yet, and no hardware has been tested.
 
 ## Why
 
-Analog ground stations today are screens or closed goggle modules. A
-display-less puck can feed any modern display, and with two receivers and
-per-line mixing it can be cleaner than either receiver alone, at a few
-hundred microseconds of latency in low-latency mode.
+A display-less puck separates the receiver from the display. Per-line
+selection and blending are implemented in Core; real RF improvement and
+camera-to-display latency remain unmeasured. The current output is 720p,
+so compatibility with a chosen display must be checked before an XR build.
 
 ## Specifications (targets, not measured)
 
@@ -54,11 +54,12 @@ hundred microseconds of latency in low-latency mode.
 
 ```sh
 git clone --recurse-submodules https://github.com/LAP87/OpenVRX-Puck
-pip install skidl==2.3.0
-python design/rev_a/dekoderkort.py     # ERC, design rules, check against core/gateware pins
+pip install skidl==2.3.0 pytest==9.1.1
+python -m pytest -q tests
+python design/rev_a/dekoderkort.py     # ERC, design rules, Core pin and signal-role checks
 ```
 
-The schematic was generated with AI assistance (Claude) from the datasheets
+The schematic was generated with AI assistance from the datasheets
 and reviewed by the project owner and one external model. The plan is to
 redraw it in KiCad by hand before layout, which is also its most useful review.
 

@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "dekoderkort.py")
-    (date "10/04/2026 08:05 PM")
+    (date "10/05/2026 11:40 PM")
     (tool "SKiDL (2.3.0)")
     (sheet
       (number 1)
@@ -57,9 +57,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "6iuAA2VvjD")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C1"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -67,7 +65,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "87be9eae-2dae-531e-98b6-af3bd06917df"))
+      (tstamps "b514d237-c153-5f6d-afe2-53badf97a864"))
     (comp
       (ref "C10")
       (value "0.1u")
@@ -83,9 +81,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "1XlwWKcpzQ")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C10"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -93,7 +89,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "1ccb8cb3-1615-57a9-bd3b-50daefd79c8c"))
+      (tstamps "9ac3af44-dacb-5cab-9570-74696fc5614f"))
     (comp
       (ref "C11")
       (value "0.1u")
@@ -109,9 +105,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "sYSiUvWzuo")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C11"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -119,7 +113,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "96571635-a92b-5f42-b025-9f8ce2169f96"))
+      (tstamps "d4017ae0-ca40-581e-bf8a-e168323602ea"))
     (comp
       (ref "C12")
       (value "0.1u")
@@ -135,9 +129,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zWsA4SWHeL")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C12"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -145,7 +137,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7df4cf06-1c45-53b8-b3d9-e2e6528daafb"))
+      (tstamps "2932345d-4f49-56ea-874e-6a87a258356f"))
     (comp
       (ref "C13")
       (value "1u")
@@ -161,9 +153,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ONdPVFPM5l")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C13"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -171,7 +161,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3d7c7898-a1fc-5fa8-9a5b-1811eb7ff3ba"))
+      (tstamps "f1d7b8fb-84cd-50f9-836b-638468521141"))
     (comp
       (ref "C14")
       (value "1u")
@@ -187,9 +177,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "h91B_8q7a0")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C14"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -197,7 +185,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "bdd945fc-260f-5d64-8556-dfb23000ebd1"))
+      (tstamps "c946931e-80a5-5ed6-b53a-66445bf5e1a2"))
     (comp
       (ref "C15")
       (value "1u")
@@ -213,9 +201,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "syQ6ezQ1I6")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C15"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -223,7 +209,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7fd1cadf-b90b-5f3e-adfc-360fd84d0ac1"))
+      (tstamps "81f7537e-5712-5826-a661-cfd597efb63e"))
     (comp
       (ref "C16")
       (value "10u")
@@ -239,9 +225,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lgGhEIKRSr")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C16"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -249,7 +233,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "35d66824-9287-5468-b683-c73cd334ef57"))
+      (tstamps "4b26d887-351e-555f-a3fe-11622a5d6521"))
     (comp
       (ref "C17")
       (value "1n C0G")
@@ -265,9 +249,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "iAH974SbIg")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C17"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -275,7 +257,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "29961c03-3c7a-545c-a83e-8fbe2ae53e04"))
+      (tstamps "d451fe6b-cc1e-51ff-abd9-a1c674370629"))
     (comp
       (ref "C18")
       (value "0.1u")
@@ -291,9 +273,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "M4QePyYaxn")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C18"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -301,7 +281,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "656dc58c-ab20-5495-aa0b-34035623fb1e"))
+      (tstamps "65617007-c8f1-5598-9446-09da65da9bfc"))
     (comp
       (ref "C19")
       (value "0.1u")
@@ -317,9 +297,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ZMZpoOLSHZ")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C19"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -327,7 +305,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "dfd5bbd7-a2a8-5512-a25b-19d906b9d562"))
+      (tstamps "89c18bff-9d0a-560d-9afc-db5208f57a70"))
     (comp
       (ref "C2")
       (value "10u")
@@ -343,9 +321,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Nf31N8Sen_")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C2"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -353,7 +329,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6897859a-5fcf-59a3-b41a-74b8eddb2e06"))
+      (tstamps "507fddd0-e494-5270-a7e4-2511aa140519"))
     (comp
       (ref "C20")
       (value "33p C0G")
@@ -369,9 +345,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "8OQXiGCsuh")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C20"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -379,7 +353,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "daef2b6b-42bf-5e87-b998-8ae6a3aad38f"))
+      (tstamps "de69f183-3e24-5ca0-bc14-716aaad4df38"))
     (comp
       (ref "C21")
       (value "33p C0G")
@@ -395,9 +369,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "PeiSM61oaA")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C21"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -405,7 +377,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e83666d4-cd23-58c6-9727-fc10f8d3e5f8"))
+      (tstamps "ea3a15b0-5646-5a4b-ba8f-ee6aa1cf1128"))
     (comp
       (ref "C22")
       (value "0.1u")
@@ -421,9 +393,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "NyCOJJi_Lp")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C22"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -431,7 +401,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b651dda8-9d7b-5ffb-a51d-b797943c7e89"))
+      (tstamps "424c71f2-6ef1-5cf5-8bb2-ac922033ba2a"))
     (comp
       (ref "C23")
       (value "1u")
@@ -447,9 +417,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "IJbny2asmV")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C23"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -457,7 +425,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c5ef737b-fe6d-546f-8a9b-d63690d9386d"))
+      (tstamps "bec88687-5f6e-5537-8f36-ac7e90d623da"))
     (comp
       (ref "C24")
       (value "0.1u")
@@ -473,9 +441,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ffUTfrw1HU")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C24"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -483,7 +449,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6cf70eaa-0675-53c5-ae16-a9f7fc2b90d7"))
+      (tstamps "92603c51-dffb-5a22-9eb1-41f10e8591b4"))
     (comp
       (ref "C25")
       (value "0.1u")
@@ -499,9 +465,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Pr8LXEPMxt")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C25"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -509,7 +473,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2a9523a2-8e19-57e0-aa8d-a9b720a0486a"))
+      (tstamps "5bb14be5-7170-542d-aa85-064ae609b7d0"))
     (comp
       (ref "C26")
       (value "0.1u")
@@ -525,9 +489,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "OjF20xBqoO")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C26"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -535,7 +497,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ba39f409-029f-5a18-9c40-60dfb0282c85"))
+      (tstamps "9b754077-e010-51c5-b77f-b0ce541dfb80"))
     (comp
       (ref "C27")
       (value "1u")
@@ -551,9 +513,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "GVr1lU9brg")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C27"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -561,7 +521,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "d8059af6-e9df-530a-86e2-3ef9af79cb8f"))
+      (tstamps "ac97e086-8ca6-55be-95ba-594795c36921"))
     (comp
       (ref "C28")
       (value "1u")
@@ -577,9 +537,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "L5z1dUSxeu")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C28"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -587,7 +545,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b77129f5-6c64-5430-a78b-8fd1a1fabdec"))
+      (tstamps "0faa74ed-05dc-5c5f-930c-12c2975657d6"))
     (comp
       (ref "C29")
       (value "1u")
@@ -603,9 +561,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "8z5YRI6ys7")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C29"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -613,7 +569,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6aa65516-e5a4-5b73-93bd-23dc06a25d99"))
+      (tstamps "42a18f4b-6805-5250-adf1-cce8f3e818b6"))
     (comp
       (ref "C3")
       (value "10u")
@@ -629,9 +585,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Mh7lHRjaiQ")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C3"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -639,7 +593,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "22deaf22-6969-5477-96ce-808d2c1ca38a"))
+      (tstamps "299afff0-b6cf-50c0-a677-db76bcc001ee"))
     (comp
       (ref "C30")
       (value "10u")
@@ -655,9 +609,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "WrZQFkJGLL")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C30"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -665,7 +617,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "98d5384c-7642-5743-9351-947f2d456af3"))
+      (tstamps "0f47fd7b-2a97-5852-b486-b8f30dff5b1c"))
     (comp
       (ref "C31")
       (value "1n C0G")
@@ -681,9 +633,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "t7dKGWbGyq")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C31"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -691,7 +641,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cc9aba58-f257-5acb-8702-b2cbe278e329"))
+      (tstamps "5289590a-ce55-5ced-a9b8-bd07edd97a7b"))
     (comp
       (ref "C32")
       (value "0.1u")
@@ -707,9 +657,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "IjKMPoW1oh")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C32"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -717,7 +665,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "c695fdc6-3306-5e0b-8481-da8c0c852691"))
+      (tstamps "56cf75c2-48b9-5db5-aa55-062694a38170"))
     (comp
       (ref "C33")
       (value "0.1u")
@@ -733,9 +681,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wTzPDDSGKA")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C33"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -743,7 +689,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ed7fbd19-7b7b-53fd-9e32-38058b128277"))
+      (tstamps "f19d6a13-c73e-5ab6-acdc-db7f4f94afcf"))
     (comp
       (ref "C34")
       (value "33p C0G")
@@ -759,9 +705,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "JFvlFEfm_9")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C34"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -769,7 +713,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "703fe58b-513f-5031-99d9-1c7b9711b645"))
+      (tstamps "cb42239c-bffb-5edb-96be-dc594dcb07be"))
     (comp
       (ref "C35")
       (value "33p C0G")
@@ -785,9 +729,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "1fe6GpGOys")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C35"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -795,7 +737,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "fdac7a50-3b54-5124-9d7c-329b5a487909"))
+      (tstamps "83624d67-3a6f-5524-897e-8b70e39727c3"))
     (comp
       (ref "C4")
       (value "1u")
@@ -811,9 +753,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "CF997PwHH8")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C4"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -821,7 +761,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f6213ec5-b0bc-595f-99ce-7dcd455526bd"))
+      (tstamps "6f9a1813-19d4-5d20-adea-8868e7232e30"))
     (comp
       (ref "C5")
       (value "10u")
@@ -837,9 +777,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "LqKGzwf03g")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C5"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -847,7 +785,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "387df9d9-6913-5afc-ad21-9e1ea7c22ea8"))
+      (tstamps "1d55401a-d19b-530c-b57c-5c75b8c48e01"))
     (comp
       (ref "C6")
       (value "1u")
@@ -863,9 +801,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "7CMk7hsOi_")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C6"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -873,7 +809,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "89999613-5246-5a82-a189-6899de70ae77"))
+      (tstamps "a6fd326a-61cc-55ba-9b64-3e8df39c0c42"))
     (comp
       (ref "C7")
       (value "10u")
@@ -889,9 +825,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "a1DUehp0r0")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C7"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -899,7 +833,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9e8baeaa-c64a-5522-b4da-33f6556f6800"))
+      (tstamps "16338a68-8eed-55bf-a491-963475c6f7f3"))
     (comp
       (ref "C8")
       (value "0.1u")
@@ -915,9 +849,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "A16_MdU9lH")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C8"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -925,7 +857,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "369cdc5c-1b82-5e3e-bf2f-38c335f89922"))
+      (tstamps "5745235a-c3ad-560a-9498-c294be8e78c3"))
     (comp
       (ref "C9")
       (value "1u")
@@ -941,9 +873,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "IRkDZE00QG")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "C9"))
       (libsource
         (lib "NO_LIB")
         (part "C"))
@@ -951,7 +881,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "17993e29-e6f3-5098-a76d-b7620b1963ca"))
+      (tstamps "9ccc330f-2a4c-575c-9353-ad8096a286cf"))
     (comp
       (ref "D1")
       (value "ESD9B5.0ST5G")
@@ -967,9 +897,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2Z5L7zmhR7")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:268"))
+          (name "SKiDL Tag") "D1"))
       (libsource
         (lib "NO_LIB")
         (part "ESD"))
@@ -977,7 +905,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f2060218-b653-5097-82eb-9b251714f030"))
+      (tstamps "730dc923-5f42-5190-a58b-2dbed3a5d5b0"))
     (comp
       (ref "D2")
       (value "ESD9B5.0ST5G")
@@ -993,9 +921,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "G59RqzCEmr")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:268"))
+          (name "SKiDL Tag") "D2"))
       (libsource
         (lib "NO_LIB")
         (part "ESD"))
@@ -1003,7 +929,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "124db868-9864-5c72-922a-909b96cff85f"))
+      (tstamps "06934a86-3c08-5320-b71c-96bf0d33127c"))
     (comp
       (ref "F1")
       (value "0.5A PTC")
@@ -1019,9 +945,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "MOa3ZCzX6i")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "F1"))
       (libsource
         (lib "NO_LIB")
         (part "F"))
@@ -1029,7 +953,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e8f8e753-98ca-5026-b51c-bf538d7e187d"))
+      (tstamps "c8376089-30f9-5993-9f79-3ca96ebaa282"))
     (comp
       (ref "F2")
       (value "0.5A PTC")
@@ -1045,9 +969,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "adHPFDGAev")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "F2"))
       (libsource
         (lib "NO_LIB")
         (part "F"))
@@ -1055,7 +977,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "62b19b2d-5f1a-536d-81b7-248c753bd4c4"))
+      (tstamps "ca28ddcd-8ef6-5d51-abce-9da7a8ae6416"))
     (comp
       (ref "FB1")
       (value "BLM18KG601SN1D")
@@ -1071,9 +993,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "nOt8ZxXxwK")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "FB1"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -1081,7 +1001,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cc0d0839-3481-5b91-8262-215dfc2cb7bc"))
+      (tstamps "2c6633b6-e6cd-571f-8f63-797fcb82968b"))
     (comp
       (ref "FB2")
       (value "BLM18KG601SN1D")
@@ -1097,9 +1017,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "akOzbNGGb8")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "FB2"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -1107,7 +1025,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0fef3b32-4ec3-5648-ac55-31472a6288be"))
+      (tstamps "ecd1347e-d1f0-59d8-8bd7-d76ee26fa56f"))
     (comp
       (ref "FB3")
       (value "BLM18KG601SN1D")
@@ -1123,9 +1041,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zCf05qSMwa")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "FB3"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -1133,7 +1049,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6992e92c-3643-5b9a-8ea2-c1b31b160fd6"))
+      (tstamps "e466ec40-e7a7-5b8b-af89-bbab404793da"))
     (comp
       (ref "FB4")
       (value "BLM18KG601SN1D")
@@ -1149,9 +1065,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "yKsxDyPh5E")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "FB4"))
       (libsource
         (lib "NO_LIB")
         (part "FB"))
@@ -1159,7 +1073,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b54b1231-e5d5-5588-adc3-8df6860a0f67"))
+      (tstamps "d206e5a6-a381-5d2e-96bf-c01a2961444e"))
     (comp
       (ref "H1")
       (value "MountingHole_M2")
@@ -1173,9 +1087,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "qB9HERLpS1")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:354"))
+          (name "SKiDL Tag") "H1"))
       (libsource
         (lib "NO_LIB")
         (part "MH"))
@@ -1183,7 +1095,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "39e1c407-6727-5e37-9b3e-d2924b16e6e2"))
+      (tstamps "4346372e-b487-58d7-bb7a-35d182fa1b2e"))
     (comp
       (ref "H2")
       (value "MountingHole_M2")
@@ -1197,9 +1109,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "bzcHS1QJ1i")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:354"))
+          (name "SKiDL Tag") "H2"))
       (libsource
         (lib "NO_LIB")
         (part "MH"))
@@ -1207,7 +1117,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0f6153a3-461f-536d-8f7e-215b87ed398b"))
+      (tstamps "0edb43ef-5ede-5ff4-8b77-07bb3d82b998"))
     (comp
       (ref "H3")
       (value "MountingHole_M2")
@@ -1221,9 +1131,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zb9iG3Er8F")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:354"))
+          (name "SKiDL Tag") "H3"))
       (libsource
         (lib "NO_LIB")
         (part "MH"))
@@ -1231,7 +1139,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f4aa6ace-9ff2-53e2-998c-ca3500f84585"))
+      (tstamps "bd944ac4-6bb1-5a9e-8f09-1ff91f139dbd"))
     (comp
       (ref "H4")
       (value "MountingHole_M2")
@@ -1245,9 +1153,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "hoV7ryafKi")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:354"))
+          (name "SKiDL Tag") "H4"))
       (libsource
         (lib "NO_LIB")
         (part "MH"))
@@ -1255,7 +1161,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b8f0282b-e2a0-55a3-a756-241b2b492555"))
+      (tstamps "06da5295-48dd-5f5e-a314-66b923e79308"))
     (comp
       (ref "J1")
       (value "PWR_IN")
@@ -1271,9 +1177,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "DKFKZtkaVP")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:125"))
+          (name "SKiDL Tag") "J1"))
       (libsource
         (lib "NO_LIB")
         (part "PWR_IN"))
@@ -1281,7 +1185,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "35a1b125-ea7d-5731-b609-c997a80dae18"))
+      (tstamps "d7608689-a7d2-514c-aa16-0f8bde5cf213"))
     (comp
       (ref "J2")
       (value "PinHeader_1x20")
@@ -1297,9 +1201,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "XI7hdKhs4a")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:117"))
+          (name "SKiDL Tag") "J2"))
       (libsource
         (lib "NO_LIB")
         (part "CONN_1x20"))
@@ -1307,7 +1209,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a20f4a22-e959-5c58-b4a8-2258a59ec583"))
+      (tstamps "5e0b731b-c654-5cf6-8847-00f2f042255c"))
     (comp
       (ref "J3")
       (value "PinHeader_1x20")
@@ -1323,9 +1225,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "itaa1Lvi6m")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:117"))
+          (name "SKiDL Tag") "J3"))
       (libsource
         (lib "NO_LIB")
         (part "CONN_1x20"))
@@ -1333,7 +1233,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a8862342-9f43-5e78-9268-2de114b4e164"))
+      (tstamps "feeefe1a-2e42-5bb8-adfa-cd7486f50a6d"))
     (comp
       (ref "J4")
       (value "VIDEO_IN_A")
@@ -1349,9 +1249,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "KJnFzwdqMj")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:125"))
+          (name "SKiDL Tag") "J4"))
       (libsource
         (lib "NO_LIB")
         (part "VIDEO_IN_A"))
@@ -1359,7 +1257,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "fca25b45-2cd0-562a-8d41-c9fe80e5253f"))
+      (tstamps "c449faf0-e5d1-5f09-ba34-b969c94251c8"))
     (comp
       (ref "J5")
       (value "VIDEO_IN_B")
@@ -1375,9 +1273,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wdazY_xZ8v")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:125"))
+          (name "SKiDL Tag") "J5"))
       (libsource
         (lib "NO_LIB")
         (part "VIDEO_IN_B"))
@@ -1385,7 +1281,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ca8f23f1-d4c9-584b-bec0-f984964cdc79"))
+      (tstamps "f5689b7a-fac2-5a8c-aa11-b3b9d837b29f"))
     (comp
       (ref "JP1")
       (value "SolderJumper_2_Open")
@@ -1401,9 +1297,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2Sd38dx0rT")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "JP1"))
       (libsource
         (lib "NO_LIB")
         (part "JP"))
@@ -1411,7 +1305,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "469c02eb-7468-5dff-9173-a857c4885435"))
+      (tstamps "e6fccda1-6f87-5135-a30a-d131623c6d95"))
     (comp
       (ref "JP2")
       (value "SolderJumper_2_Bridged")
@@ -1427,9 +1321,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "L2gaRufOgL")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "JP2"))
       (libsource
         (lib "NO_LIB")
         (part "JP"))
@@ -1437,7 +1329,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "529a21e0-d86c-593d-b060-b968e9eca023"))
+      (tstamps "360e8fc6-6e94-50cb-a9ac-f565b48f0f48"))
     (comp
       (ref "L1")
       (value "0.47uH")
@@ -1453,9 +1345,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Q5ySpmRXOP")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "L1"))
       (libsource
         (lib "NO_LIB")
         (part "L"))
@@ -1463,7 +1353,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "35518fa7-d904-5c4e-b6b9-36b4c7a9ab4c"))
+      (tstamps "93000a52-ef31-54a2-8496-9943a6f92870"))
     (comp
       (ref "L2")
       (value "0.47uH")
@@ -1479,9 +1369,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "AnTPp2FiQ8")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "L2"))
       (libsource
         (lib "NO_LIB")
         (part "L"))
@@ -1489,7 +1377,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "8f66504a-0b0e-5d85-961c-9ed1e56ae908"))
+      (tstamps "7be8511f-6b87-5b39-a83c-5ca9a614e6f5"))
     (comp
       (ref "R1")
       (value "4.7k")
@@ -1505,9 +1393,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "onbOA8apA7")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R1"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1515,35 +1401,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "afa4ff4f-8816-507c-8b89-c11efc5c6430"))
+      (tstamps "91628e47-8f83-5ba1-abed-4cb134d83eea"))
     (comp
       (ref "R10")
-      (value "33")
-      (description "")
-      (footprint "Resistor_SMD:R_0402_1005Metric")
-      (fields
-        (field
-          (name "note") "series termination A D0")
-        (field
-          (name "Description"))
-        (field
-          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
-        (field
-          (name "Datasheet"))
-        (field
-          (name "SKiDL Tag") "axZrWapeSf")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
-      (libsource
-        (lib "NO_LIB")
-        (part "R"))
-      (sheetpath
-        (names "/")
-        (tstamps "/"))
-      (component_classes)
-      (tstamps "ae9bed47-89e2-57ff-a3f3-a93fffdc9894"))
-    (comp
-      (ref "R11")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1557,9 +1417,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rnJylkgRDp")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R10"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1567,9 +1425,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b291dd05-8a46-54ab-8929-aa27f8339f3a"))
+      (tstamps "99b6d9e4-efbb-57f3-bc7c-dc7822d36beb"))
     (comp
-      (ref "R12")
+      (ref "R11")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1583,9 +1441,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ehHyOFbBNP")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R11"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1593,9 +1449,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4d21676c-2f61-5376-9554-87c33cd03118"))
+      (tstamps "146f51db-bb3a-5131-afc8-7744106d2cfe"))
     (comp
-      (ref "R13")
+      (ref "R12")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1609,9 +1465,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "yJ4rBcjDYi")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R12"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1619,9 +1473,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7b720380-4cf8-51cc-8e36-814a77a53d96"))
+      (tstamps "9f75750b-4097-5a2a-b9eb-5e3f319978ce"))
     (comp
-      (ref "R14")
+      (ref "R13")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1635,9 +1489,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "5Lj0yJBy5n")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R13"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1645,9 +1497,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "2954ccf9-1155-5fb7-8fd5-1184068b3921"))
+      (tstamps "2e9cb324-63c9-5ad4-ba1a-b618f4020bea"))
     (comp
-      (ref "R15")
+      (ref "R14")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1661,9 +1513,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "x3ArQx0lQd")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R14"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1671,9 +1521,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e8c15497-2bd8-5207-94b6-0581d1134181"))
+      (tstamps "fc87fb8d-6ec9-5f6a-ba62-fc9d37c462e7"))
     (comp
-      (ref "R16")
+      (ref "R15")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1687,9 +1537,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "cyqAaWKMAi")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R15"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1697,9 +1545,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9307e806-6883-5e72-b1ca-3063dc20a380"))
+      (tstamps "17eaf0a6-9932-5348-b523-0122128974c2"))
     (comp
-      (ref "R17")
+      (ref "R16")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1713,9 +1561,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "T231QbkvSd")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R16"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1723,9 +1569,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "cd84a3f5-fcc4-5bf2-b7f9-c3b6362be5c5"))
+      (tstamps "0ffe9dd6-18d7-5bd8-8f5c-a4cd816c10e4"))
     (comp
-      (ref "R18")
+      (ref "R17")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1739,9 +1585,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "mhDB9CcbrB")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R17"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1749,9 +1593,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "57634607-b974-51e7-b0ec-3bc84f80a892"))
+      (tstamps "47689824-ff01-5dd6-9338-a42dda36a2ce"))
     (comp
-      (ref "R19")
+      (ref "R18")
       (value "DNP 10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1765,9 +1609,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "lb_VTeKaNP")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R18"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1775,35 +1617,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0ceae308-0fb6-5a8a-9964-709bb5f75e97"))
+      (tstamps "e4735f31-c71b-5536-824e-0b76945c5495"))
     (comp
-      (ref "R2")
-      (value "10k")
-      (description "")
-      (footprint "Resistor_SMD:R_0402_1005Metric")
-      (fields
-        (field
-          (name "note") "holds both TVPs in reset (outputs Hi-Z) until the FPGA releases RESETB")
-        (field
-          (name "Description"))
-        (field
-          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
-        (field
-          (name "Datasheet"))
-        (field
-          (name "SKiDL Tag") "eDqeB9h892")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
-      (libsource
-        (lib "NO_LIB")
-        (part "R"))
-      (sheetpath
-        (names "/")
-        (tstamps "/"))
-      (component_classes)
-      (tstamps "a280718d-b7f3-5d4e-9994-7e9adf754722"))
-    (comp
-      (ref "R20")
+      (ref "R19")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1817,9 +1633,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "nxRUsJBCa0")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R19"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1827,9 +1641,33 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0814a1d7-979b-5849-8bc1-1d1d58851ad1"))
+      (tstamps "0ead03f1-50b6-599b-864c-cf54dd0f7185"))
     (comp
-      (ref "R21")
+      (ref "R2")
+      (value "4.7k")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "I2C SDA pull-up")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R2"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "91c587b0-c855-58aa-84a9-2ba4ce88549e"))
+    (comp
+      (ref "R20")
       (value "37.4")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1843,9 +1681,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "bdBTkUSlYn")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R20"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1853,9 +1689,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ad9e40a0-1d74-5827-9cd9-7555eb775051"))
+      (tstamps "6d059f79-f7fb-532a-98db-972feb6a8e76"))
     (comp
-      (ref "R22")
+      (ref "R21")
       (value "37.4")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1869,9 +1705,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "UBkKboTeRZ")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R21"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1879,9 +1713,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "d6840e1e-17cd-5cba-a3cb-a5b487fbb152"))
+      (tstamps "c1d03f1d-6f40-597c-ab3d-c264934f0117"))
     (comp
-      (ref "R23")
+      (ref "R22")
       (value "100k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1895,9 +1729,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wn94tMzbfx")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R22"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1905,9 +1737,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9795bb30-317d-5ab7-8bae-862e3675dbed"))
+      (tstamps "d4537170-d531-5db3-93c4-874ba3ead571"))
     (comp
-      (ref "R24")
+      (ref "R23")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1921,9 +1753,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "zI49iMDnAu")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R23"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1931,9 +1761,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9da71670-db1a-5808-8861-5151c6e90ae5"))
+      (tstamps "1abe2392-84c4-5963-bbc8-555b73bed1d8"))
     (comp
-      (ref "R25")
+      (ref "R24")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1947,9 +1777,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "iNYuP3K0xC")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R24"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1957,9 +1785,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "406e8f6c-083a-58f1-9094-22814500a712"))
+      (tstamps "76126967-3058-5beb-8348-178721f5f1ea"))
     (comp
-      (ref "R26")
+      (ref "R25")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1973,9 +1801,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "naYelff4UJ")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R25"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -1983,9 +1809,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "475e5195-607c-5dc2-80e2-8e495bdcbd10"))
+      (tstamps "3bf9feaf-e237-51fc-902e-4d347ea8727d"))
     (comp
-      (ref "R27")
+      (ref "R26")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -1999,9 +1825,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ZZRDXl_2bY")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R26"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2009,9 +1833,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "09892e4c-10e9-531f-a5cf-4fddc490167f"))
+      (tstamps "35cd32e0-2eec-5ec5-b4e8-e5bbdbdb9060"))
     (comp
-      (ref "R28")
+      (ref "R27")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2025,9 +1849,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "azBzd3Damk")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R27"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2035,9 +1857,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a40d32b9-590a-5ef3-a755-9b71648d4898"))
+      (tstamps "7b63e68b-3b47-5fd3-988e-1f6c73de73f1"))
     (comp
-      (ref "R29")
+      (ref "R28")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2051,9 +1873,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "shY4O30dbw")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R28"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2061,7 +1881,31 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "923daf68-a41d-519c-9cbd-949bce68e940"))
+      (tstamps "61b48c9f-00ee-57f6-8009-23b11a90f392"))
+    (comp
+      (ref "R29")
+      (value "33")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "series termination B D4")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R29"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "9571d8c5-ef1a-5d96-957f-33028cb8d5c4"))
     (comp
       (ref "R3")
       (value "4.7k")
@@ -2077,9 +1921,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "nUKlh34pvq")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R3"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2087,35 +1929,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "7049fca7-d64e-580e-b5a6-2c6f0353c96f"))
+      (tstamps "9000ab58-0faa-55db-ba96-c3a9c048b920"))
     (comp
       (ref "R30")
-      (value "33")
-      (description "")
-      (footprint "Resistor_SMD:R_0402_1005Metric")
-      (fields
-        (field
-          (name "note") "series termination B D4")
-        (field
-          (name "Description"))
-        (field
-          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
-        (field
-          (name "Datasheet"))
-        (field
-          (name "SKiDL Tag") "Z3qassABqD")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
-      (libsource
-        (lib "NO_LIB")
-        (part "R"))
-      (sheetpath
-        (names "/")
-        (tstamps "/"))
-      (component_classes)
-      (tstamps "8a3e58f0-b33f-529e-8b5f-51a409ba49f4"))
-    (comp
-      (ref "R31")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2129,9 +1945,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "XQd52U22R5")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R30"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2139,9 +1953,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "d155f300-2fd6-5790-8bd1-4e5b8935ef89"))
+      (tstamps "f064446f-1abb-5ab7-9657-2f2853315805"))
     (comp
-      (ref "R32")
+      (ref "R31")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2155,9 +1969,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "XZiWQFBOb6")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R31"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2165,9 +1977,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "81c957e8-adb7-5250-9c65-59e34ece1386"))
+      (tstamps "65cc3c35-189e-570b-b5bc-3cd7dc2d2aef"))
     (comp
-      (ref "R33")
+      (ref "R32")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2181,9 +1993,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "GJ5UW_rVBA")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R32"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2191,9 +2001,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "4aced0ad-cada-5745-b69c-9c9b4b8cc318"))
+      (tstamps "6858d70f-fc35-59bd-9cb9-213e09f59676"))
     (comp
-      (ref "R34")
+      (ref "R33")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2207,9 +2017,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "3YDH8qvUD0")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R33"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2217,9 +2025,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "1cff9f6e-6f88-53c4-bb9d-0fe456d5ad0d"))
+      (tstamps "19f11603-7b26-5e94-8b85-b12459e3b930"))
     (comp
-      (ref "R35")
+      (ref "R34")
       (value "DNP 10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2233,9 +2041,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "wjLG2qlYUG")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R34"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2243,9 +2049,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "eb305e94-f373-5734-a16a-283b09aaf167"))
+      (tstamps "dd53b138-82c8-526a-9975-c748cd9d6290"))
     (comp
-      (ref "R36")
+      (ref "R35")
       (value "33")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2259,9 +2065,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "qhH2u2Q_Gx")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R35"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2269,35 +2073,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "f5aa2b2b-e881-5f23-a967-3ac0537ca58f"))
+      (tstamps "c18b3153-aa22-515a-8b39-79a9493340a7"))
     (comp
       (ref "R4")
-      (value "4.7k")
-      (description "")
-      (footprint "Resistor_SMD:R_0402_1005Metric")
-      (fields
-        (field
-          (name "note") "I2C SDA pull-up")
-        (field
-          (name "Description"))
-        (field
-          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
-        (field
-          (name "Datasheet"))
-        (field
-          (name "SKiDL Tag") "u11bzLkNTR")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
-      (libsource
-        (lib "NO_LIB")
-        (part "R"))
-      (sheetpath
-        (names "/")
-        (tstamps "/"))
-      (component_classes)
-      (tstamps "46e77b34-5b9d-580b-928b-47bf33c0f04b"))
-    (comp
-      (ref "R5")
       (value "37.4")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2311,9 +2089,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "HAE3oMwoSN")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R4"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2321,9 +2097,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "a315d173-3052-56e8-bed5-c793072bbf0c"))
+      (tstamps "a3a00a8b-c8d1-582e-9de2-300987de8d24"))
     (comp
-      (ref "R6")
+      (ref "R5")
       (value "37.4")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2337,9 +2113,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "5lVezs4ps4")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R5"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2347,9 +2121,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9c8ccc2e-735e-575c-99b2-3183b70571ca"))
+      (tstamps "29f79588-e279-5ce8-b215-982a9074cc1e"))
     (comp
-      (ref "R7")
+      (ref "R6")
       (value "100k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2363,9 +2137,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "KMlfGLuVa1")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R6"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2373,9 +2145,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "09f531d5-3bec-515e-ab4f-dcfefacafa97"))
+      (tstamps "380e2b43-9216-5117-9f41-94795d9c3e8a"))
     (comp
-      (ref "R8")
+      (ref "R7")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2389,9 +2161,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "2kA_ZaP2Dc")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R7"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2399,9 +2169,9 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "6ef57c97-c5c9-5a76-a123-eb7eeeb2dc3e"))
+      (tstamps "45fbc468-780f-56f4-b6ba-53310b6a0e74"))
     (comp
-      (ref "R9")
+      (ref "R8")
       (value "10k")
       (description "")
       (footprint "Resistor_SMD:R_0402_1005Metric")
@@ -2415,9 +2185,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "7ud7dBqV0Q")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:46"))
+          (name "SKiDL Tag") "R8"))
       (libsource
         (lib "NO_LIB")
         (part "R"))
@@ -2425,7 +2193,31 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "48d89a27-652b-5ac0-bdec-c30d023df411"))
+      (tstamps "d4602b99-fd19-5b52-9a62-e3fbb9d2ed0c"))
+    (comp
+      (ref "R9")
+      (value "33")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "series termination A D0")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R9"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "abe8364b-5ed9-593a-a990-c9655e96dd67"))
     (comp
       (ref "TP1")
       (value "TestPoint")
@@ -2439,9 +2231,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "smfFACWq1_")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:287"))
+          (name "SKiDL Tag") "TP1"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2449,7 +2239,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "1576dc96-9afd-5650-8fd7-036dc578db96"))
+      (tstamps "ec7b7017-d3a1-52a1-ab31-ef99bc577234"))
     (comp
       (ref "TP10")
       (value "TestPoint")
@@ -2463,9 +2253,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "tvw7rI_vBe")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP10"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2473,7 +2261,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "1e7cf7ba-c75a-5aaa-b7f8-ddf7b5b68a8c"))
+      (tstamps "96ec807f-2b34-5ae2-8bad-1cdcc5458929"))
     (comp
       (ref "TP11")
       (value "TestPoint")
@@ -2487,9 +2275,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rdFv9e2fcG")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP11"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2497,7 +2283,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "48833ca9-f18e-506b-9f10-d71d4dc3d768"))
+      (tstamps "3265b5e2-52a3-522b-b83b-27c31fe5dc6a"))
     (comp
       (ref "TP12")
       (value "TestPoint")
@@ -2511,9 +2297,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "WV1FtNCMIp")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:349"))
+          (name "SKiDL Tag") "TP12"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2521,7 +2305,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "fb046dba-8444-5ff5-81c4-177d10d5b4f4"))
+      (tstamps "625a4a54-4c87-5eaf-acad-993133a498ab"))
     (comp
       (ref "TP2")
       (value "TestPoint")
@@ -2535,9 +2319,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "rQHWCckN03")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP2"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2545,7 +2327,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "88787d5e-fc4b-5785-afad-a7e500f8d477"))
+      (tstamps "21c4b62b-8c2d-56ee-9b42-d10ab095f277"))
     (comp
       (ref "TP3")
       (value "TestPoint")
@@ -2559,9 +2341,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "D9AHRxMDxp")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP3"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2569,7 +2349,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "3a640c34-257c-5dd8-8eac-a336a2e880b4"))
+      (tstamps "a276100e-c6a6-5278-88b4-43d6f23fc86c"))
     (comp
       (ref "TP4")
       (value "TestPoint")
@@ -2583,9 +2363,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "N04NN1fIZf")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP4"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2593,7 +2371,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "ec1d57a7-7b27-513f-af5f-b77a07fe7b79"))
+      (tstamps "2b772136-9490-52ee-a6b6-3823f884de0d"))
     (comp
       (ref "TP5")
       (value "TestPoint")
@@ -2607,9 +2385,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "vgf8ZLSMdY")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP5"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2617,7 +2393,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "0c3ed589-1142-56f6-8a0b-2d6a5dc3620e"))
+      (tstamps "3ef9c998-1bfd-52d6-903a-2314b2d59b7d"))
     (comp
       (ref "TP6")
       (value "TestPoint")
@@ -2631,9 +2407,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "9p9lNYYhly")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:349"))
+          (name "SKiDL Tag") "TP6"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2641,7 +2415,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "dc3cc989-f826-5aac-b867-8fb7482baef4"))
+      (tstamps "09741339-fe92-5d8d-9626-685dbcd30d75"))
     (comp
       (ref "TP7")
       (value "TestPoint")
@@ -2655,9 +2429,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "3Lm17l_Vc_")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:287"))
+          (name "SKiDL Tag") "TP7"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2665,7 +2437,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "85e9edd9-8d0f-599f-9c53-617ffa16f93b"))
+      (tstamps "47117044-94ce-5dd7-abf9-83e3ef59bacb"))
     (comp
       (ref "TP8")
       (value "TestPoint")
@@ -2679,9 +2451,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "1wU4WFus5A")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP8"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2689,7 +2459,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "e62c0627-14f2-5df4-898c-c30f28142c8b"))
+      (tstamps "dbebd152-e861-5059-b279-ee96be584c75"))
     (comp
       (ref "TP9")
       (value "TestPoint")
@@ -2703,9 +2473,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Te1nLQCMWq")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:324"))
+          (name "SKiDL Tag") "TP9"))
       (libsource
         (lib "NO_LIB")
         (part "TP"))
@@ -2713,7 +2481,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b311aa43-9656-58a1-a309-0ba20cf51e20"))
+      (tstamps "9850fe91-cf09-54be-87a9-d3a0cc96fc3e"))
     (comp
       (ref "U1")
       (value "AP7361C-33E-13")
@@ -2729,9 +2497,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "Kjp7lUbNpM")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:96"))
+          (name "SKiDL Tag") "U1"))
       (libsource
         (lib "NO_LIB")
         (part "LDO_AP7361C"))
@@ -2739,7 +2505,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "484a77d5-b643-5e6c-adc7-84f44b59caeb"))
+      (tstamps "f8fce87b-acde-5341-b554-4e93a034d648"))
     (comp
       (ref "U2")
       (value "AP2112K-1.8TRG1")
@@ -2755,9 +2521,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "kv8UFU5Doq")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:107"))
+          (name "SKiDL Tag") "U2"))
       (libsource
         (lib "NO_LIB")
         (part "LDO_AP2112K"))
@@ -2765,7 +2529,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "27eaa1cb-1eef-59da-a10f-51b4cf3b0249"))
+      (tstamps "7a03e947-39e7-5554-99eb-b5f6bb184fae"))
     (comp
       (ref "U3")
       (value "AP2112K-1.8TRG1")
@@ -2781,9 +2545,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "UDwcWOLCEe")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:107"))
+          (name "SKiDL Tag") "U3"))
       (libsource
         (lib "NO_LIB")
         (part "LDO_AP2112K"))
@@ -2791,7 +2553,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "9df7bae5-5912-554e-99e3-ba5a1851bb0d"))
+      (tstamps "d29b9cd6-156c-5987-b6f9-a6a085b1d5a7"))
     (comp
       (ref "U4")
       (value "TVP5150AM1PBSR")
@@ -2807,9 +2569,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "8EQ5dV36ie")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:85"))
+          (name "SKiDL Tag") "U4"))
       (libsource
         (lib "NO_LIB")
         (part "TVP5150AM1PBS"))
@@ -2817,7 +2577,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "b122d80f-3533-532f-9087-13cc63cf0456"))
+      (tstamps "b2699459-f172-5b2a-8b70-5ef993fb2f77"))
     (comp
       (ref "U5")
       (value "TVP5150AM1PBSR")
@@ -2833,9 +2593,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "mE1TDbEmJo")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:85"))
+          (name "SKiDL Tag") "U5"))
       (libsource
         (lib "NO_LIB")
         (part "TVP5150AM1PBS"))
@@ -2843,7 +2601,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "20626b91-3770-5f91-a9d7-2dbbf26448ff"))
+      (tstamps "6254ed11-c784-58f8-9988-ecfc74740e7c"))
     (comp
       (ref "Y1")
       (value "X32251431818MSB4SI")
@@ -2859,9 +2617,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "K1ZWEqyXl6")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:299"))
+          (name "SKiDL Tag") "Y1"))
       (libsource
         (lib "NO_LIB")
         (part "XTAL"))
@@ -2869,7 +2625,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "22a51c1a-66c1-5a91-a81a-52e50bf177a0"))
+      (tstamps "16065f77-888c-5c63-a606-c18b9cba74b5"))
     (comp
       (ref "Y2")
       (value "X32251431818MSB4SI")
@@ -2885,9 +2641,7 @@
         (field
           (name "Datasheet"))
         (field
-          (name "SKiDL Tag") "ABbSi6jD1Y")
-        (field
-          (name "SKiDL Line") "dekoderkort.py:299"))
+          (name "SKiDL Tag") "Y2"))
       (libsource
         (lib "NO_LIB")
         (part "XTAL"))
@@ -2895,7 +2649,7 @@
         (names "/")
         (tstamps "/"))
       (component_classes)
-      (tstamps "41c4f29c-67d4-566b-a10f-594b9970e3c7")))
+      (tstamps "e36ef54b-b856-56cf-a554-6852f96095bd")))
   (nets
     (net
       (code 1)
@@ -2982,11 +2736,15 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R19")
+        (ref "R18")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R24")
+        (ref "R2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R23")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -2994,15 +2752,11 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R35")
+        (ref "R34")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R4")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "R8")
+        (ref "R7")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -3226,7 +2980,7 @@
       (name "A_SCLK_U")
       (class "Default")
       (node
-        (ref "R20")
+        (ref "R19")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3238,7 +2992,7 @@
       (name "A_YOUT0_U")
       (class "Default")
       (node
-        (ref "R10")
+        (ref "R9")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3250,7 +3004,7 @@
       (name "A_YOUT1_U")
       (class "Default")
       (node
-        (ref "R11")
+        (ref "R10")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3262,7 +3016,7 @@
       (name "A_YOUT2_U")
       (class "Default")
       (node
-        (ref "R12")
+        (ref "R11")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3274,7 +3028,7 @@
       (name "A_YOUT3_U")
       (class "Default")
       (node
-        (ref "R13")
+        (ref "R12")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3286,7 +3040,7 @@
       (name "A_YOUT4_U")
       (class "Default")
       (node
-        (ref "R14")
+        (ref "R13")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3298,7 +3052,7 @@
       (name "A_YOUT5_U")
       (class "Default")
       (node
-        (ref "R15")
+        (ref "R14")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3310,7 +3064,7 @@
       (name "A_YOUT6_U")
       (class "Default")
       (node
-        (ref "R16")
+        (ref "R15")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3322,15 +3076,15 @@
       (name "A_YOUT7_I2CSEL_U")
       (class "Default")
       (node
+        (ref "R16")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
         (ref "R17")
         (pin "1")
         (pintype "PASSIVE"))
       (node
         (ref "R18")
-        (pin "1")
-        (pintype "PASSIVE"))
-      (node
-        (ref "R19")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3342,7 +3096,7 @@
       (name "B_SCLK_U")
       (class "Default")
       (node
-        (ref "R36")
+        (ref "R35")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3354,7 +3108,7 @@
       (name "B_YOUT0_U")
       (class "Default")
       (node
-        (ref "R26")
+        (ref "R25")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3366,7 +3120,7 @@
       (name "B_YOUT1_U")
       (class "Default")
       (node
-        (ref "R27")
+        (ref "R26")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3378,7 +3132,7 @@
       (name "B_YOUT2_U")
       (class "Default")
       (node
-        (ref "R28")
+        (ref "R27")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3390,7 +3144,7 @@
       (name "B_YOUT3_U")
       (class "Default")
       (node
-        (ref "R29")
+        (ref "R28")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3402,7 +3156,7 @@
       (name "B_YOUT4_U")
       (class "Default")
       (node
-        (ref "R30")
+        (ref "R29")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3414,7 +3168,7 @@
       (name "B_YOUT5_U")
       (class "Default")
       (node
-        (ref "R31")
+        (ref "R30")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3426,7 +3180,7 @@
       (name "B_YOUT6_U")
       (class "Default")
       (node
-        (ref "R32")
+        (ref "R31")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3438,15 +3192,15 @@
       (name "B_YOUT7_I2CSEL_U")
       (class "Default")
       (node
+        (ref "R32")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
         (ref "R33")
         (pin "1")
         (pintype "PASSIVE"))
       (node
         (ref "R34")
-        (pin "1")
-        (pintype "PASSIVE"))
-      (node
-        (ref "R35")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3466,7 +3220,7 @@
         (pin "3")
         (pintype "PASSIVE"))
       (node
-        (ref "R5")
+        (ref "R4")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3518,7 +3272,7 @@
         (pin "3")
         (pintype "PASSIVE"))
       (node
-        (ref "R21")
+        (ref "R20")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3534,11 +3288,11 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R5")
+        (ref "R4")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R6")
+        (ref "R5")
         (pin "1")
         (pintype "PASSIVE")))
     (net
@@ -3550,11 +3304,11 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R21")
+        (ref "R20")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R22")
+        (ref "R21")
         (pin "1")
         (pintype "PASSIVE")))
     (net
@@ -3742,31 +3496,27 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R18")
+        (ref "R17")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R2")
+        (ref "R21")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R22")
+        (ref "R24")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R25")
+        (ref "R33")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R34")
+        (ref "R5")
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R6")
-        (pin "2")
-        (pintype "PASSIVE"))
-      (node
-        (ref "R9")
+        (ref "R8")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -3886,7 +3636,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R3")
+        (ref "R2")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3906,7 +3656,7 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R4")
+        (ref "R3")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3918,7 +3668,7 @@
       (name "INTREQ_A")
       (class "Default")
       (node
-        (ref "R9")
+        (ref "R8")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3930,7 +3680,7 @@
       (name "INTREQ_B")
       (class "Default")
       (node
-        (ref "R25")
+        (ref "R24")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3942,7 +3692,7 @@
       (name "PDN_A")
       (class "Default")
       (node
-        (ref "R8")
+        (ref "R7")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3954,7 +3704,7 @@
       (name "PDN_B")
       (class "Default")
       (node
-        (ref "R24")
+        (ref "R23")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -4066,7 +3816,7 @@
         (pin "8")
         (pintype "PASSIVE"))
       (node
-        (ref "R10")
+        (ref "R9")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4078,7 +3828,7 @@
         (pin "9")
         (pintype "PASSIVE"))
       (node
-        (ref "R11")
+        (ref "R10")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4090,7 +3840,7 @@
         (pin "11")
         (pintype "PASSIVE"))
       (node
-        (ref "R12")
+        (ref "R11")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4102,7 +3852,7 @@
         (pin "12")
         (pintype "PASSIVE"))
       (node
-        (ref "R13")
+        (ref "R12")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4114,7 +3864,7 @@
         (pin "13")
         (pintype "PASSIVE"))
       (node
-        (ref "R14")
+        (ref "R13")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4126,7 +3876,7 @@
         (pin "14")
         (pintype "PASSIVE"))
       (node
-        (ref "R15")
+        (ref "R14")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4138,7 +3888,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R16")
+        (ref "R15")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4150,7 +3900,7 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "R17")
+        (ref "R16")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4162,7 +3912,7 @@
         (pin "5")
         (pintype "PASSIVE"))
       (node
-        (ref "R20")
+        (ref "R19")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -4178,7 +3928,7 @@
         (pin "3")
         (pintype "PASSIVE"))
       (node
-        (ref "R26")
+        (ref "R25")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4190,7 +3940,7 @@
         (pin "5")
         (pintype "PASSIVE"))
       (node
-        (ref "R27")
+        (ref "R26")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4202,7 +3952,7 @@
         (pin "6")
         (pintype "PASSIVE"))
       (node
-        (ref "R28")
+        (ref "R27")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4214,7 +3964,7 @@
         (pin "10")
         (pintype "PASSIVE"))
       (node
-        (ref "R29")
+        (ref "R28")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4226,7 +3976,7 @@
         (pin "12")
         (pintype "PASSIVE"))
       (node
-        (ref "R30")
+        (ref "R29")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4238,7 +3988,7 @@
         (pin "13")
         (pintype "PASSIVE"))
       (node
-        (ref "R31")
+        (ref "R30")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4250,7 +4000,7 @@
         (pin "14")
         (pintype "PASSIVE"))
       (node
-        (ref "R32")
+        (ref "R31")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4262,7 +4012,7 @@
         (pin "17")
         (pintype "PASSIVE"))
       (node
-        (ref "R33")
+        (ref "R32")
         (pin "2")
         (pintype "PASSIVE")))
     (net
@@ -4274,7 +4024,7 @@
         (pin "4")
         (pintype "PASSIVE"))
       (node
-        (ref "R36")
+        (ref "R35")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -4287,11 +4037,7 @@
       (class "Default")
       (node
         (ref "J2")
-        (pin "10")
-        (pintype "PASSIVE"))
-      (node
-        (ref "R2")
-        (pin "1")
+        (pin "18")
         (pintype "PASSIVE"))
       (node
         (ref "U4")
@@ -4334,7 +4080,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R7")
+        (ref "R6")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -4354,7 +4100,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R23")
+        (ref "R22")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -4374,7 +4120,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R7")
+        (ref "R6")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -4394,7 +4140,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "R23")
+        (ref "R22")
         (pin "2")
         (pintype "PASSIVE"))
       (node
