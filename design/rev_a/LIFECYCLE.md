@@ -4,7 +4,8 @@ Kontrollerad 2026-10-04 mot tillverkarnas sidor, Digi-Key och LCSC. Gör om kont
 
 | Del | Tillverkare | Status | Anmärkning |
 |---|---|---|---|
-| TVP5150AM1PBSR (U4, U5) | Texas Instruments | **Active**, med förbehåll | TI: "does not have ongoing design support from TI for new projects". Ingen PCN eller sista-köpdatum hittad. Kretsen hela rev A vilar på. |
+| TVP5150AM1IPBSR (U4, U5) | Texas Instruments | Inte kontrollerad | Schemat bytte 2026-10-06 till I-klassen (−40…85 °C, Puck #3). Kontrollen nedan gjordes på den kommersiella PBSR; gör om den för IPBSR, och kontrollera att den säljs i små volymer. |
+| TVP5150AM1PBSR | Texas Instruments | **Active**, med förbehåll | TI: "does not have ongoing design support from TI for new projects". Ingen PCN eller sista-köpdatum hittad. Kretsen hela rev A vilar på; reserv om I-klassen inte går att få. |
 | AP7361C-33E-13 (U1) | Diodes Inc. | Active | |
 | AP2112K-1.8TRG1 (U2, U3) | Diodes Inc. | Active | Pinkompatibla kopior finns från andra tillverkare; behövs inte nu. |
 | ESD9B5.0ST5G (D1, D2) | onsemi | Active | SZ-varianten (fordonsklassad) är också Active. |
