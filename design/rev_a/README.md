@@ -81,6 +81,10 @@ Mottagarens utgång (75 Ω) och spänningsdelaren 2 × 37,4 Ω ger filtret en k�
 
 Färgbärvågen (3,58/4,43 MHz) påverkas inte. En mottagare med nästan 0 Ω utgång ger högst +2,1 dB överslängning, mot 0,1 dB med 75 Ω. Ett 0 Ω-motstånd på spolens plats kopplar förbi filtret.
 
+## Ingångsdelaren, alternativ för starka videonivåer
+
+2 × 37,4 Ω (figur 6-1) är kvar. Om en mottagare ger för hög videonivå kan 47 Ω i serie och 27 Ω mot jord användas (TI SLEU044) på samma 0402-platser. Summan är 74 Ω, en fortfarande rimlig 75 Ω-avslutning, men delningen går från 0,50 till 0,36 (−8,8 dB mot −6 dB). Källimpedansen in i antialiasfiltret sjunker från ca 28 till ca 22 Ω, så filtret bör räknas om om det monteras. Inget av detta är provat.
+
 ## PLL-matningen
 
 Varje dekoders PLL_AVDD ligger bakom en egen ferrit och hade bara 0,1 µF efter den. Pärlan är induktiv långt under sina 100 MHz och en liten keramikkondensator har nästan ingen ESR, så de bildar en svagt dämpad LC. Därför finns nu även 4,7 µF efter pärlan (4–10 µF duger), med 0,1 µF kvar vid stiftet. Värdet är en bedömning, inte uppmätt eller simulerat.

@@ -289,8 +289,12 @@ def build():
                               'bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)')
         esd['K'] += cvbs
         esd['A'] += GND
-        R('37.4', cvbs, mid, f'fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination ({ch})')
-        R('37.4', mid, GND, f'fig. 6-1 R2/R6: shunt half ({ch})')
+        # Kept at 37.4/37.4 ohm (fig. 6-1). Alternative for hot video levels (receiver output that clips the
+        # TVP5150's input range): 47 ohm series / 27 ohm shunt, from TI SLEU044. That is 74 ohm in total, still a
+        # fair 75 ohm termination, but the gain drops from 0.50 to 0.36. The AAF source impedance then falls from
+        # ~28 to ~22 ohm, so recheck the 0.47 uH / 1 nF filter if it is fitted. Same 0402 positions, no re-layout.
+        R('37.4', cvbs, mid, f'fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination ({ch}); 47 ohm = hot-video alternative (SLEU044)')
+        R('37.4', mid, GND, f'fig. 6-1 R2/R6: shunt half ({ch}); 27 ohm = hot-video alternative (SLEU044)')
         # anti-aliasing filter (fig. 6-1 note F), 2nd-order LC from the ~28 ohm Thevenin source of the
         # divider: f0 7.3 MHz, Q 0.77 -> flat to 4.2 MHz, -1 dB @ 6 MHz, -10.6 dB @ 13.5 MHz, -22.6 dB @ 27 MHz
         # (design/rev_a/README.md). A 0 ohm in the L position bypasses it.

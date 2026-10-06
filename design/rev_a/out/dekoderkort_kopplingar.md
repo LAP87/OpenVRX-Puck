@@ -435,13 +435,13 @@ _I2C SDA pull-up_
 - 2 2: +3V3
 
 ## R20 37.4
-_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B)_
+_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B); 47 ohm = hot-video alternative (SLEU044)_
 
 - 1 1: CVBS_B
 - 2 2: CVBS_DIV_B
 
 ## R21 37.4
-_fig. 6-1 R2/R6: shunt half (B)_
+_fig. 6-1 R2/R6: shunt half (B); 27 ohm = hot-video alternative (SLEU044)_
 
 - 1 1: CVBS_DIV_B
 - 2 2: GND
@@ -537,13 +537,13 @@ _series termination B SCLK_
 - 2 2: TVPB_SCLK
 
 ## R4 37.4
-_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A)_
+_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A); 47 ohm = hot-video alternative (SLEU044)_
 
 - 1 1: CVBS_A
 - 2 2: CVBS_DIV_A
 
 ## R5 37.4
-_fig. 6-1 R2/R6: shunt half (A)_
+_fig. 6-1 R2/R6: shunt half (A); 27 ohm = hot-video alternative (SLEU044)_
 
 - 1 1: CVBS_DIV_A
 - 2 2: GND

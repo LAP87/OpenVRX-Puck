@@ -1721,7 +1721,7 @@
       (footprint "Resistor_SMD:R_0402_1005Metric")
       (fields
         (field
-          (name "note") "fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B)")
+          (name "note") "fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B); 47 ohm = hot-video alternative (SLEU044)")
         (field
           (name "Description"))
         (field
@@ -1745,7 +1745,7 @@
       (footprint "Resistor_SMD:R_0402_1005Metric")
       (fields
         (field
-          (name "note") "fig. 6-1 R2/R6: shunt half (B)")
+          (name "note") "fig. 6-1 R2/R6: shunt half (B); 27 ohm = hot-video alternative (SLEU044)")
         (field
           (name "Description"))
         (field
@@ -2129,7 +2129,7 @@
       (footprint "Resistor_SMD:R_0402_1005Metric")
       (fields
         (field
-          (name "note") "fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A)")
+          (name "note") "fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A); 47 ohm = hot-video alternative (SLEU044)")
         (field
           (name "Description"))
         (field
@@ -2153,7 +2153,7 @@
       (footprint "Resistor_SMD:R_0402_1005Metric")
       (fields
         (field
-          (name "note") "fig. 6-1 R2/R6: shunt half (A)")
+          (name "note") "fig. 6-1 R2/R6: shunt half (A); 27 ohm = hot-video alternative (SLEU044)")
         (field
           (name "Description"))
         (field
