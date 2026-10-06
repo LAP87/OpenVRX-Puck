@@ -366,9 +366,9 @@ TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25
            15: 17, 16: 20, 17: 19, 18: 18}
 TANG_J5 = {3: 76, 4: 80, 5: 42, 6: 41, 7: 56, 8: 54, 9: 51, 10: 48, 11: 55, 12: 49, 13: 86, 14: 79, 17: 72, 18: 71,
            19: 53, 20: 52}
-# board net -> port name in gateware/boards/m4_dual_mix.cst (RESETB is led[3], constrained in tangnano20k.cst)
+# board net -> port name in gateware/boards/m4_dual_mix.cst (RESETB is the tvp_resetb port on pin 18, the LED3 pin)
 NET_TO_PORT = {'TVPA_SCLK': 'tvpa_sclk', 'TVPB_SCLK': 'tvpb_sclk', 'I2C_SCL': 'i2c_scl', 'I2C_SDA_A': 'i2c_sda_a',
-               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'led[3]',
+               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'tvp_resetb',
                **{f'TVP{c}_D{i}': f'tvp{c.lower()}_d[{i}]' for c in 'AB' for i in range(8)}}
 
 
@@ -390,8 +390,10 @@ def check_against_gateware(circuit, gw=None):
         spec = importlib.util.spec_from_file_location('board_contract', contract)
         checker = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(checker)
+        board = (gw / 'boards' / 'tangnano20k.cst').read_text()
         for top in ('m3_probe', 'm4_dual_mix', 'm6_puck_proto'):
-            problems += checker.shared_output_problems((gw / 'top' / f'{top}.v').read_text(), top)
+            problems += checker.shared_output_problems((gw / 'top' / f'{top}.v').read_text(), top,
+                                                       board + (gw / 'boards' / f'{top}.cst').read_text())
     for part in circuit.parts:
         if part.name != 'CONN_1x20':
             continue
