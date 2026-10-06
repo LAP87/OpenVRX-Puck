@@ -175,7 +175,10 @@ def build():
 
     # ---- shared I2C clock and reset from the FPGA
     R('4.7k', SCL, V3, 'I2C SCL pull-up')
-    R('10k', RESETB, GND, 'holds both TVPs in reset (outputs Hi-Z) until the FPGA releases RESETB')
+    # RESETB comes from Tang pin 18 (J6-18), which also drives the board's LED3 through 510 ohm to 3.3 V,
+    # so a pull-down here cannot hold it low before configuration (OpenVRX-Puck issue #1). Not needed:
+    # the TVP's outputs stay disabled after power-on until register 03h is written, and the FPGA pulses
+    # RESETB before initialising. (Pin 25 = J6-10 was used before: it is in the HDMI bank and is the CEC line.)
 
     # ---- FPGA headers, numbered like Tang Nano 20K J6 / J5 (v3921 schematic)
     j6 = header_1x20('Mirror of Tang Nano 20K J6: connect pin n to J6-n')
@@ -195,7 +198,7 @@ def build():
         'B': dict(j=j5, sclk=4, d=[3, 5, 6, 10, 12, 13, 14, 17], sda=9),
     }
     j6[3] += SCL
-    j6[10] += RESETB
+    j6[18] += RESETB
     j6[20] += GND
     # 5 V from the Tang Nano 20K (its USB) through a solder jumper. Open JP2 when this board is
     # fed from J1 instead — e.g. when the two receivers (~0.45 A each) would overload the
@@ -208,10 +211,11 @@ def build():
     jp2[2] += V5
     j5[2] += GND
     j5[15] += GND
-    # deliberately unconnected: J6-6/7 and J6-15..18 are LED pins on the Tang Nano 20K,
-    # J6-19 / J5-16 are its 3.3 V outputs (this board makes its own 3.3 V), J5-7/8/11
-    # are FPGA configuration pins, J5-18..20 unused
-    for n in (6, 7, 15, 16, 17, 18, 19):
+    # deliberately unconnected: J6-6/7/15 are LED pins on the Tang Nano 20K, J6-10 is pin 25 (HDMI CEC),
+    # J6-16/17 carry the RX5808 SPI SEL/DATA (wired straight to the receivers), J6-19 / J5-16 are the
+    # Tang's 3.3 V outputs (this board makes its own 3.3 V), J5-7/8/11 are FPGA configuration pins,
+    # J5-18..20 unused (J5-18 is the RX5808 SPI clock)
+    for n in (6, 7, 10, 15, 16, 17, 19):
         j6[n] += NC
     for n in (7, 8, 11, 16, 18, 19, 20):
         j5[n] += NC
@@ -356,26 +360,38 @@ def build():
 
 
 # ---------------------------------------------------------------- checks + outputs
-# Tang Nano 20K header position -> FPGA pin (Sipeed schematic v3921, page 2)
-TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25, 11: 26, 12: 29, 13: 30, 14: 31}
+# Tang Nano 20K header position -> FPGA pin (Sipeed v3921 page 2; unchanged positions on 3923).
+# M3/M4/M6 require revision 3923 because earlier BL616 connections conflict with these signals.
+TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25, 11: 26, 12: 29, 13: 30, 14: 31,
+           15: 17, 16: 20, 17: 19, 18: 18}
 TANG_J5 = {3: 76, 4: 80, 5: 42, 6: 41, 7: 56, 8: 54, 9: 51, 10: 48, 11: 55, 12: 49, 13: 86, 14: 79, 17: 72, 18: 71,
            19: 53, 20: 52}
-# board net -> port name in gateware/boards/m4_dual_mix.cst
+# board net -> port name in gateware/boards/m4_dual_mix.cst (RESETB is led[3], constrained in tangnano20k.cst)
 NET_TO_PORT = {'TVPA_SCLK': 'tvpa_sclk', 'TVPB_SCLK': 'tvpb_sclk', 'I2C_SCL': 'i2c_scl', 'I2C_SDA_A': 'i2c_sda_a',
-               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'tvp_resetb',
+               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'led[3]',
                **{f'TVP{c}_D{i}': f'tvp{c.lower()}_d[{i}]' for c in 'AB' for i in range(8)}}
 
 
-def check_against_gateware(circuit):
+def check_against_gateware(circuit, gw=None):
     """Header pin n on this board must carry the signal the M4 bitstream expects on J6-n / J5-n."""
     import re
     root = Path(__file__).resolve().parents[2]
-    gw = root / 'core' / 'gateware'                  # OpenVRX-Core as a git submodule
+    gw = Path(gw) if gw is not None else root / 'core' / 'gateware'
     if not gw.exists():
         gw = root / 'gateware'                       # original single-tree layout
-    cst = (gw / 'boards' / 'm4_dual_mix.cst').read_text()
+    cst = (gw / 'boards' / 'tangnano20k.cst').read_text() + (gw / 'boards' / 'm4_dual_mix.cst').read_text()
     port_pin = {m[0]: int(m[1]) for m in re.findall(r'IO_LOC\s+"([^"]+)"\s+(\d+);', cst)}
     problems, seen = [], set()
+    contract = gw / 'tools' / 'board_contract.py'
+    if not contract.is_file():
+        problems.append('pinned Core lacks the shared-output contract; update the core submodule')
+    else:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('board_contract', contract)
+        checker = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(checker)
+        for top in ('m3_probe', 'm4_dual_mix', 'm6_puck_proto'):
+            problems += checker.shared_output_problems((gw / 'top' / f'{top}.v').read_text(), top)
     for part in circuit.parts:
         if part.name != 'CONN_1x20':
             continue
@@ -445,7 +461,7 @@ def write_reports(circuit):
             key = (p.name, str(p.value), p.footprint, p.fields.get('note', '') if p.name not in ('R', 'C') else '')
         groups[key].append(p.ref)
     with (OUT / 'dekoderkort_bom.csv').open('w', newline='') as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator='\n')
         w.writerow(['qty', 'refs', 'part', 'value', 'footprint', 'note'])
         for (name, value, fp, note), refs in sorted(groups.items(), key=lambda kv: (kv[0][0], kv[0][1])):
             w.writerow([len(refs), ' '.join(sorted(refs, key=lambda r: (r.rstrip('0123456789'), int(''.join(c for c in r if c.isdigit()) or 0)))),
@@ -470,15 +486,25 @@ def main():
     import builtins
     circuit = builtins.default_circuit
     problems = design_checks(circuit)
-    erc_log = OUT / 'dekoderkort_erc.log'
-    OUT.mkdir(parents=True, exist_ok=True)
-    ERC()
-    generate_netlist(file_=str(OUT / 'dekoderkort.net'))
-    write_reports(circuit)
-    print(f'{len(circuit.parts)} parts, {len([n for n in circuit.nets if n.pins])} nets -> {OUT}')
     if problems:
         print('DESIGN CHECK FAILED:\n  ' + '\n  '.join(problems))
+        return 1                         # do not replace accepted outputs with a mismatched design
+    OUT.mkdir(parents=True, exist_ok=True)
+    ERC()
+    from skidl.logger import erc_logger
+    if erc_logger.error.count or erc_logger.warning.count:
+        print('ERC failed; outputs were not regenerated')
         return 1
+    # Stable identifiers make schematic changes reviewable instead of random tag churn.
+    # KiCad requires an empty root hierarchy. SKiDL warns about its empty tag;
+    # leave it empty rather than changing the generated hierarchy.
+    for part in circuit.parts:
+        part.tag = part.ref
+    for net in circuit.nets:
+        net.tag = net.name
+    generate_netlist(file_=str(OUT / 'dekoderkort.net'), track_src=False, track_abs_path=False)
+    write_reports(circuit)
+    print(f'{len(circuit.parts)} parts, {len([n for n in circuit.nets if n.pins])} nets -> {OUT}')
     print('design checks passed')
     return 0
 

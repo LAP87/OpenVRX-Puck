@@ -276,7 +276,7 @@ _Mirror of Tang Nano 20K J6: connect pin n to J6-n_
 - 7 7: __NOCONNECT
 - 8 8: TVPA_D0
 - 9 9: TVPA_D1
-- 10 10: TVP_RESETB
+- 10 10: __NOCONNECT
 - 11 11: TVPA_D2
 - 12 12: TVPA_D3
 - 13 13: TVPA_D4
@@ -284,7 +284,7 @@ _Mirror of Tang Nano 20K J6: connect pin n to J6-n_
 - 15 15: __NOCONNECT
 - 16 16: __NOCONNECT
 - 17 17: __NOCONNECT
-- 18 18: __NOCONNECT
+- 18 18: TVP_RESETB
 - 19 19: __NOCONNECT
 - 20 20: GND
 
@@ -357,214 +357,208 @@ _I2C SCL pull-up_
 - 2 2: +3V3
 
 ## R10 33
-_series termination A D0_
-
-- 1 1: A_YOUT0_U
-- 2 2: TVPA_D0
-
-## R11 33
 _series termination A D1_
 
 - 1 1: A_YOUT1_U
 - 2 2: TVPA_D1
 
-## R12 33
+## R11 33
 _series termination A D2_
 
 - 1 1: A_YOUT2_U
 - 2 2: TVPA_D2
 
-## R13 33
+## R12 33
 _series termination A D3_
 
 - 1 1: A_YOUT3_U
 - 2 2: TVPA_D3
 
-## R14 33
+## R13 33
 _series termination A D4_
 
 - 1 1: A_YOUT4_U
 - 2 2: TVPA_D4
 
-## R15 33
+## R14 33
 _series termination A D5_
 
 - 1 1: A_YOUT5_U
 - 2 2: TVPA_D5
 
-## R16 33
+## R15 33
 _series termination A D6_
 
 - 1 1: A_YOUT6_U
 - 2 2: TVPA_D6
 
-## R17 33
+## R16 33
 _series termination A D7_
 
 - 1 1: A_YOUT7_I2CSEL_U
 - 2 2: TVPA_D7
 
-## R18 10k
+## R17 10k
 _I2CSEL low = B8h (A)_
 
 - 1 1: A_YOUT7_I2CSEL_U
 - 2 2: GND
 
-## R19 DNP 10k
+## R18 DNP 10k
 _fit instead of the pull-down for BAh (A)_
 
 - 1 1: A_YOUT7_I2CSEL_U
 - 2 2: +3V3
 
-## R2 10k
-_holds both TVPs in reset (outputs Hi-Z) until the FPGA releases RESETB_
-
-- 1 1: TVP_RESETB
-- 2 2: GND
-
-## R20 33
+## R19 33
 _series termination A SCLK_
 
 - 1 1: A_SCLK_U
 - 2 2: TVPA_SCLK
 
-## R21 37.4
-_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B)_
-
-- 1 1: CVBS_B
-- 2 2: CVBS_DIV_B
-
-## R22 37.4
-_fig. 6-1 R2/R6: shunt half (B)_
-
-- 1 1: CVBS_DIV_B
-- 2 2: GND
-
-## R23 100k
-_parallel resistor across crystal (B, fig. 6-1 note E)_
-
-- 1 1: XTAL1_B
-- 2 2: XTAL2_B
-
-## R24 10k
-_PDN high = always on (B, fig. 6-1 note C)_
-
-- 1 1: PDN_B
-- 2 2: +3V3
-
-## R25 10k
-_pin 27 must not float; 10 k pull-down while the output is disabled (B, note H)_
-
-- 1 1: INTREQ_B
-- 2 2: GND
-
-## R26 33
-_series termination B D0_
-
-- 1 1: B_YOUT0_U
-- 2 2: TVPB_D0
-
-## R27 33
-_series termination B D1_
-
-- 1 1: B_YOUT1_U
-- 2 2: TVPB_D1
-
-## R28 33
-_series termination B D2_
-
-- 1 1: B_YOUT2_U
-- 2 2: TVPB_D2
-
-## R29 33
-_series termination B D3_
-
-- 1 1: B_YOUT3_U
-- 2 2: TVPB_D3
-
-## R3 4.7k
+## R2 4.7k
 _I2C SDA pull-up_
 
 - 1 1: I2C_SDA_A
 - 2 2: +3V3
 
-## R30 33
+## R20 37.4
+_fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (B)_
+
+- 1 1: CVBS_B
+- 2 2: CVBS_DIV_B
+
+## R21 37.4
+_fig. 6-1 R2/R6: shunt half (B)_
+
+- 1 1: CVBS_DIV_B
+- 2 2: GND
+
+## R22 100k
+_parallel resistor across crystal (B, fig. 6-1 note E)_
+
+- 1 1: XTAL1_B
+- 2 2: XTAL2_B
+
+## R23 10k
+_PDN high = always on (B, fig. 6-1 note C)_
+
+- 1 1: PDN_B
+- 2 2: +3V3
+
+## R24 10k
+_pin 27 must not float; 10 k pull-down while the output is disabled (B, note H)_
+
+- 1 1: INTREQ_B
+- 2 2: GND
+
+## R25 33
+_series termination B D0_
+
+- 1 1: B_YOUT0_U
+- 2 2: TVPB_D0
+
+## R26 33
+_series termination B D1_
+
+- 1 1: B_YOUT1_U
+- 2 2: TVPB_D1
+
+## R27 33
+_series termination B D2_
+
+- 1 1: B_YOUT2_U
+- 2 2: TVPB_D2
+
+## R28 33
+_series termination B D3_
+
+- 1 1: B_YOUT3_U
+- 2 2: TVPB_D3
+
+## R29 33
 _series termination B D4_
 
 - 1 1: B_YOUT4_U
 - 2 2: TVPB_D4
 
-## R31 33
-_series termination B D5_
-
-- 1 1: B_YOUT5_U
-- 2 2: TVPB_D5
-
-## R32 33
-_series termination B D6_
-
-- 1 1: B_YOUT6_U
-- 2 2: TVPB_D6
-
-## R33 33
-_series termination B D7_
-
-- 1 1: B_YOUT7_I2CSEL_U
-- 2 2: TVPB_D7
-
-## R34 10k
-_I2CSEL low = B8h (B)_
-
-- 1 1: B_YOUT7_I2CSEL_U
-- 2 2: GND
-
-## R35 DNP 10k
-_fit instead of the pull-down for BAh (B)_
-
-- 1 1: B_YOUT7_I2CSEL_U
-- 2 2: +3V3
-
-## R36 33
-_series termination B SCLK_
-
-- 1 1: B_SCLK_U
-- 2 2: TVPB_SCLK
-
-## R4 4.7k
+## R3 4.7k
 _I2C SDA pull-up_
 
 - 1 1: I2C_SDA_B
 - 2 2: +3V3
 
-## R5 37.4
+## R30 33
+_series termination B D5_
+
+- 1 1: B_YOUT5_U
+- 2 2: TVPB_D5
+
+## R31 33
+_series termination B D6_
+
+- 1 1: B_YOUT6_U
+- 2 2: TVPB_D6
+
+## R32 33
+_series termination B D7_
+
+- 1 1: B_YOUT7_I2CSEL_U
+- 2 2: TVPB_D7
+
+## R33 10k
+_I2CSEL low = B8h (B)_
+
+- 1 1: B_YOUT7_I2CSEL_U
+- 2 2: GND
+
+## R34 DNP 10k
+_fit instead of the pull-down for BAh (B)_
+
+- 1 1: B_YOUT7_I2CSEL_U
+- 2 2: +3V3
+
+## R35 33
+_series termination B SCLK_
+
+- 1 1: B_SCLK_U
+- 2 2: TVPB_SCLK
+
+## R4 37.4
 _fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A)_
 
 - 1 1: CVBS_A
 - 2 2: CVBS_DIV_A
 
-## R6 37.4
+## R5 37.4
 _fig. 6-1 R2/R6: shunt half (A)_
 
 - 1 1: CVBS_DIV_A
 - 2 2: GND
 
-## R7 100k
+## R6 100k
 _parallel resistor across crystal (A, fig. 6-1 note E)_
 
 - 1 1: XTAL1_A
 - 2 2: XTAL2_A
 
-## R8 10k
+## R7 10k
 _PDN high = always on (A, fig. 6-1 note C)_
 
 - 1 1: PDN_A
 - 2 2: +3V3
 
-## R9 10k
+## R8 10k
 _pin 27 must not float; 10 k pull-down while the output is disabled (A, note H)_
 
 - 1 1: INTREQ_A
 - 2 2: GND
+
+## R9 33
+_series termination A D0_
+
+- 1 1: A_YOUT0_U
+- 2 2: TVPA_D0
 
 ## TP1 TestPoint
 
