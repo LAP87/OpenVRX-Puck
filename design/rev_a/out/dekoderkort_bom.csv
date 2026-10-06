@@ -8,8 +8,8 @@ qty,refs,part,value,footprint,note
 1,J2,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J6: connect pin n to J6-n
 1,J3,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J5: connect pin n to J5-n
 2,D1 D2,ESD,ESD9B5.0ST5G,Diode_SMD:D_SOD-923,"LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)"
-1,F1,F,0.5A PTC,Fuse:Fuse_1206_3216Metric,Resettable fuse for receiver A supply (SpeedyBee draws ~0.45 A at 5 V)
-1,F2,F,0.5A PTC,Fuse:Fuse_1206_3216Metric,Resettable fuse for receiver B supply (SpeedyBee draws ~0.45 A at 5 V)
+1,F1,F,0.75A hold PTC,Fuse:Fuse_1206_3216Metric,"Resettable fuse for receiver A supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint"
+1,F2,F,0.75A hold PTC,Fuse:Fuse_1206_3216Metric,"Resettable fuse for receiver B supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint"
 4,FB1 FB2 FB3 FB4,FB,BLM18KG601SN1D,Inductor_SMD:L_0603_1608Metric,"ferrite bead 600 ohm @ 100 MHz, >= 200 mA"
 1,JP2,JP,SolderJumper_2_Bridged,Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm,5 V from Tang Nano 20K J5-1 (closed by default); open when powering from J1
 1,JP1,JP,SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,"Close to join SDA_A/SDA_B into one bus (then set decoder B to BAh, see R I2CSEL)"

@@ -263,8 +263,12 @@ def build():
         jin[1] += v5rx
         jin[2] += GND
         jin[3] += cvbs
-        f = two_pin('F', '0.5A PTC', 'Fuse:Fuse_1206_3216Metric',
-                    f'Resettable fuse for receiver {ch} supply (SpeedyBee draws ~0.45 A at 5 V)')
+        # Hold current, not trip: the receiver draws ~0.45 A. A 0.5 A hold part is derated to ~0.44 A at 40 C
+        # and ~0.35 A at 60 C (Bourns MF-NSMF curves, as cited in the review of #2), which is below the load.
+        # 0.75 A hold scales to roughly 0.66 A / 0.53 A on the same curve (estimate, not read from a datasheet).
+        f = two_pin('F', '0.75A hold PTC', 'Fuse:Fuse_1206_3216Metric',
+                    f'Resettable fuse for receiver {ch} supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); '
+                    'check that the chosen series is available in 1206, else change footprint')
         f[1] += V5
         f[2] += v5rx
         v5rx.drive = POWER

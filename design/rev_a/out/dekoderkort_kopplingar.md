@@ -222,14 +222,14 @@ _LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on
 - 1 K: CVBS_B
 - 2 A: GND
 
-## F1 0.5A PTC
-_Resettable fuse for receiver A supply (SpeedyBee draws ~0.45 A at 5 V)_
+## F1 0.75A hold PTC
+_Resettable fuse for receiver A supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint_
 
 - 1 1: +5V
 - 2 2: +5V_RX_A
 
-## F2 0.5A PTC
-_Resettable fuse for receiver B supply (SpeedyBee draws ~0.45 A at 5 V)_
+## F2 0.75A hold PTC
+_Resettable fuse for receiver B supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint_
 
 - 1 1: +5V
 - 2 2: +5V_RX_B

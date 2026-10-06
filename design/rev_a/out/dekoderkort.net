@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "dekoderkort.py")
-    (date "10/05/2026 11:40 PM")
+    (date "10/06/2026 11:30 AM")
     (tool "SKiDL (2.3.0)")
     (sheet
       (number 1)
@@ -932,12 +932,12 @@
       (tstamps "06934a86-3c08-5320-b71c-96bf0d33127c"))
     (comp
       (ref "F1")
-      (value "0.5A PTC")
+      (value "0.75A hold PTC")
       (description "")
       (footprint "Fuse:Fuse_1206_3216Metric")
       (fields
         (field
-          (name "note") "Resettable fuse for receiver A supply (SpeedyBee draws ~0.45 A at 5 V)")
+          (name "note") "Resettable fuse for receiver A supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint")
         (field
           (name "Description"))
         (field
@@ -956,12 +956,12 @@
       (tstamps "c8376089-30f9-5993-9f79-3ca96ebaa282"))
     (comp
       (ref "F2")
-      (value "0.5A PTC")
+      (value "0.75A hold PTC")
       (description "")
       (footprint "Fuse:Fuse_1206_3216Metric")
       (fields
         (field
-          (name "note") "Resettable fuse for receiver B supply (SpeedyBee draws ~0.45 A at 5 V)")
+          (name "note") "Resettable fuse for receiver B supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint")
         (field
           (name "Description"))
         (field
