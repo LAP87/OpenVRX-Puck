@@ -91,7 +91,7 @@ Varje dekoders PLL_AVDD ligger bakom en egen ferrit och hade bara 0,1 µF efter 
 
 ## Livscykel
 
-Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECYCLE.md). Alla är aktiva. Risken är TVP5150AM1, som TI inte längre utvecklar något nytt för.
+Grundkontrollen är från 2026-10-04. Industrivarianten TVP5150AM1IPBSR kontrollerades hos TI 2026-10-06 och är Active: [LIFECYCLE.md](LIFECYCLE.md). Leverantör och småvolymstillgång för den är fortfarande okontrollerade; hela BOM:en ska kontrolleras igen före kortbeställning.
 
 ## Kontroller (tillägg)
 

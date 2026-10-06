@@ -1,10 +1,10 @@
 # Rev A: komponenternas livscykel
 
-Kontrollerad 2026-10-04 mot tillverkarnas sidor, Digi-Key och LCSC. Gör om kontrollen innan kort beställs.
+Grundkontroll 2026-10-04. Den nya industrivarianten TVP5150AM1IPBSR kontrollerades separat hos TI 2026-10-06. Övriga rader är från grundkontrollen; gör om hela kontrollen innan kort beställs.
 
 | Del | Tillverkare | Status | Anmärkning |
 |---|---|---|---|
-| TVP5150AM1IPBSR (U4, U5) | Texas Instruments | Inte kontrollerad | Schemat bytte 2026-10-06 till I-klassen (−40…85 °C, Puck #3). Kontrollen nedan gjordes på den kommersiella PBSR; gör om den för IPBSR, och kontrollera att den säljs i små volymer. |
+| TVP5150AM1IPBSR (U4, U5) | Texas Instruments | **Active**, kontrollerad 2026-10-06 | TI:s sida för det exakta artikelnumret anger Active och märkning `5150I`. Databladet anger TQFP-32 och −40…85 °C. Småvolymstillgång är fortfarande okontrollerad. |
 | TVP5150AM1PBSR | Texas Instruments | **Active**, med förbehåll | TI: "does not have ongoing design support from TI for new projects". Ingen PCN eller sista-köpdatum hittad. Kretsen hela rev A vilar på; reserv om I-klassen inte går att få. |
 | AP7361C-33E-13 (U1) | Diodes Inc. | Active | |
 | AP2112K-1.8TRG1 (U2, U3) | Diodes Inc. | Active | Pinkompatibla kopior finns från andra tillverkare; behövs inte nu. |
@@ -15,6 +15,8 @@ Kontrollerad 2026-10-04 mot tillverkarnas sidor, Digi-Key och LCSC. Gör om kont
 Övrigt är generiska delar (motstånd, kondensatorer, PTC-säkringar, 0,47 µH-spolar, stiftlister, JST PH) som finns från många tillverkare.
 
 ## Risk: TVP5150AM1
+
+Kontrollen av IPBSR gäller tillverkarstatus, kapsel och temperaturområde. Primärkällor: [TI:s status för TVP5150AM1IPBSR](https://www.ti.com/quality-reliability-packaging-download/es-mx/report?opn=TVP5150AM1IPBSR) och [SLES209E, avsnitt 1.7 och Package Option Addendum](https://www.ti.com/lit/gpn/tvp5150am1). Ingen efterföljare väljs i detta pass.
 
 Statusen är Active, men TI utvecklar inget nytt för kretsen. Det brukar komma före NRND och sista köp. Åtgärder:
 
