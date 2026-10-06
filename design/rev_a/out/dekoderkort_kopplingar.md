@@ -633,8 +633,8 @@ _LCSC C176944. 3.3 V -> 1.8 V analog (2x CH_AVDD + PLL_AVDD), ~78 mA max (0.12 W
 - 4 NC: —
 - 5 VOUT: +1V8_A
 
-## U4 TVP5150AM1PBSR
-_TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A_
+## U4 TVP5150AM1IPBSR
+_TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A_
 
 - 1 AIP1A: AIP1A_A
 - 2 AIP1B: AIP1B_A
@@ -669,8 +669,8 @@ _TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); 
 - 31 CH_AGND: GND
 - 32 CH_AVDD: AVDD_A
 
-## U5 TVP5150AM1PBSR
-_TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B_
+## U5 TVP5150AM1IPBSR
+_TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B_
 
 - 1 AIP1A: AIP1A_B
 - 2 AIP1B: AIP1B_B

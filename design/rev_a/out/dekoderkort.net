@@ -2556,12 +2556,12 @@
       (tstamps "d29b9cd6-156c-5987-b6f9-a6a085b1d5a7"))
     (comp
       (ref "U4")
-      (value "TVP5150AM1PBSR")
+      (value "TVP5150AM1IPBSR")
       (description "")
       (footprint "Package_QFP:TQFP-32_5x5mm_P0.5mm")
       (fields
         (field
-          (name "note") "TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A")
+          (name "note") "TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A")
         (field
           (name "Description"))
         (field
@@ -2580,12 +2580,12 @@
       (tstamps "b2699459-f172-5b2a-8b70-5ef993fb2f77"))
     (comp
       (ref "U5")
-      (value "TVP5150AM1PBSR")
+      (value "TVP5150AM1IPBSR")
       (description "")
       (footprint "Package_QFP:TQFP-32_5x5mm_P0.5mm")
       (fields
         (field
-          (name "note") "TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B")
+          (name "note") "TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B")
         (field
           (name "Description"))
         (field

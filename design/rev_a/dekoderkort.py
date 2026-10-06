@@ -82,10 +82,14 @@ def tvp5150am1():
         (25, 'HSYNC', T.OUTPUT), (26, 'AVID', T.OUTPUT), (27, 'INTREQ_GPCL_VBLK', T.OUTPUT), (28, 'PDN', T.INPUT),
         (29, 'REFP', T.PASSIVE), (30, 'REFM', T.PASSIVE), (31, 'CH_AGND', T.PWRIN), (32, 'CH_AVDD', T.PWRIN),
     ]
-    p = Part(tool=SKIDL, name='TVP5150AM1PBS', ref_prefix='U', value='TVP5150AM1PBSR',
+    # Industrial grade (-40..85 C) instead of the commercial TVP5150AM1PBSR (0..70 C): the board sits in a
+    # closed housing next to two receivers and an FPGA board, where 70 C is not a comfortable ceiling.
+    # Same die, same 32-TQFP pinout; only the temperature screening and the ordering code differ (Puck #3).
+    p = Part(tool=SKIDL, name='TVP5150AM1PBS', ref_prefix='U', value='TVP5150AM1IPBSR',
              footprint='Package_QFP:TQFP-32_5x5mm_P0.5mm',
              pins=[Pin(num=n, name=nm, func=f) for n, nm, f in pins])
-    p.fields['note'] = 'TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md)'
+    p.fields['note'] = ('TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code '
+                        'and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md)')
     return p
 
 

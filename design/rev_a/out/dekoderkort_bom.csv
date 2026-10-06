@@ -27,8 +27,8 @@ qty,refs,part,value,footprint,note
 3,R1 R2 R3,R,4.7k,Resistor_SMD:R_0402_1005Metric,
 2,R18 R34,R,DNP 10k,Resistor_SMD:R_0402_1005Metric,
 12,TP1 TP2 TP3 TP4 TP5 TP6 TP7 TP8 TP9 TP10 TP11 TP12,TP,TestPoint,TestPoint:TestPoint_Pad_D1.0mm,
-1,U4,TVP5150AM1PBS,TVP5150AM1PBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A"
-1,U5,TVP5150AM1PBS,TVP5150AM1PBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1PBSR, LCSC C10013 (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B"
+1,U4,TVP5150AM1PBS,TVP5150AM1IPBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A"
+1,U5,TVP5150AM1PBS,TVP5150AM1IPBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B"
 1,J4,VIDEO_IN_A,VIDEO_IN_A,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,"Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS"
 1,J5,VIDEO_IN_B,VIDEO_IN_B,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,"Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS"
 2,Y1 Y2,XTAL,X32251431818MSB4SI,Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm,"YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P (TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)"

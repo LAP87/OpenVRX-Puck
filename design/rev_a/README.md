@@ -62,7 +62,7 @@ Utdata: 110 delar, 83 anslutna nät. Två körningar gav samma innehåll när ge
 | Antialiasfilter | **0,47 µH** (0603, SRF > 100 MHz) i serie + **1 nF C0G** mot jord | att välja | Se nedan. |
 | Kristall | YXC **X32251431818MSB4SI**, 14,31818 MHz, CL 20 pF, ±10 ppm (±20 ppm över −40…85 °C), SMD3225 | C34748 | TVP kräver ±50 ppm. |
 | Lastkondensatorer | **33 pF C0G** ×2 per kristall | basic | CL1 = CL2 = 2·20 pF − ~5 pF strökapacitans ≈ 35 pF. Trimmas efter uppmätt SCLK om det behövs. |
-| TVP5150AM1 | TVP5150AM1PBSR | C10013 | "Other Suppliers"; hur JLC hanterar dem är okontrollerat. |
+| TVP5150AM1 | TVP5150AM1**I**PBSR (industriklass, −40…85 °C) | — | Bytt från handelsklassen PBSR (0…70 °C) i Puck #3: kortet sitter i ett slutet hus bredvid två mottagare och ett FPGA-kort. C10013 gäller handelsklassen och är inte kontrollerat för I-klassen; leverantör och lagerstatus okontrollerade. |
 
 Alternativ som noterats: LCSC har en 14,31818 MHz-oscillator för **1,8 V** (C16851, CTS, ±25 ppm). Den gör en gemensam klocka till båda XTAL1 säker, om det någon gång behövs.
 
@@ -91,7 +91,7 @@ Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECY
 
 ## Öppna punkter
 
-- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. TVP-temperaturklass, PLL-matningens avkoppling, ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
+- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. PLL-matningens avkoppling, ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
 - Layout: analog jord och retur nära ingången, kristall och REFP/REFM tätt intill respektive TVP, 0,1 µF vid varje matningsstift. Mekaniskt mått för att sätta kortet direkt på Tang Nano 20K som en "sköld" (båda stiftlisterna) är inte kontrollerat — därför sladdar i rev A.
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.
