@@ -175,7 +175,10 @@ def build():
 
     # ---- shared I2C clock and reset from the FPGA
     R('4.7k', SCL, V3, 'I2C SCL pull-up')
-    R('10k', RESETB, GND, 'holds both TVPs in reset (outputs Hi-Z) until the FPGA releases RESETB')
+    # RESETB comes from Tang pin 18 (J6-18), which also drives the board's LED3 through 510 ohm to 3.3 V,
+    # so a pull-down here cannot hold it low before configuration (OpenVRX-Puck issue #1). Not needed:
+    # the TVP's outputs stay disabled after power-on until register 03h is written, and the FPGA pulses
+    # RESETB before initialising. (Pin 25 = J6-10 was used before: it is in the HDMI bank and is the CEC line.)
 
     # ---- FPGA headers, numbered like Tang Nano 20K J6 / J5 (v3921 schematic)
     j6 = header_1x20('Mirror of Tang Nano 20K J6: connect pin n to J6-n')
@@ -195,7 +198,7 @@ def build():
         'B': dict(j=j5, sclk=4, d=[3, 5, 6, 10, 12, 13, 14, 17], sda=9),
     }
     j6[3] += SCL
-    j6[10] += RESETB
+    j6[18] += RESETB
     j6[20] += GND
     # 5 V from the Tang Nano 20K (its USB) through a solder jumper. Open JP2 when this board is
     # fed from J1 instead — e.g. when the two receivers (~0.45 A each) would overload the
@@ -208,10 +211,11 @@ def build():
     jp2[2] += V5
     j5[2] += GND
     j5[15] += GND
-    # deliberately unconnected: J6-6/7 and J6-15..18 are LED pins on the Tang Nano 20K,
-    # J6-19 / J5-16 are its 3.3 V outputs (this board makes its own 3.3 V), J5-7/8/11
-    # are FPGA configuration pins, J5-18..20 unused
-    for n in (6, 7, 15, 16, 17, 18, 19):
+    # deliberately unconnected: J6-6/7/15 are LED pins on the Tang Nano 20K, J6-10 is pin 25 (HDMI CEC),
+    # J6-16/17 carry the RX5808 SPI SEL/DATA (wired straight to the receivers), J6-19 / J5-16 are the
+    # Tang's 3.3 V outputs (this board makes its own 3.3 V), J5-7/8/11 are FPGA configuration pins,
+    # J5-18..20 unused (J5-18 is the RX5808 SPI clock)
+    for n in (6, 7, 10, 15, 16, 17, 19):
         j6[n] += NC
     for n in (7, 8, 11, 16, 18, 19, 20):
         j5[n] += NC
@@ -357,12 +361,13 @@ def build():
 
 # ---------------------------------------------------------------- checks + outputs
 # Tang Nano 20K header position -> FPGA pin (Sipeed schematic v3921, page 2)
-TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25, 11: 26, 12: 29, 13: 30, 14: 31}
+TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25, 11: 26, 12: 29, 13: 30, 14: 31,
+           15: 17, 16: 20, 17: 19, 18: 18}
 TANG_J5 = {3: 76, 4: 80, 5: 42, 6: 41, 7: 56, 8: 54, 9: 51, 10: 48, 11: 55, 12: 49, 13: 86, 14: 79, 17: 72, 18: 71,
            19: 53, 20: 52}
-# board net -> port name in gateware/boards/m4_dual_mix.cst
+# board net -> port name in gateware/boards/m4_dual_mix.cst (RESETB is led[3], constrained in tangnano20k.cst)
 NET_TO_PORT = {'TVPA_SCLK': 'tvpa_sclk', 'TVPB_SCLK': 'tvpb_sclk', 'I2C_SCL': 'i2c_scl', 'I2C_SDA_A': 'i2c_sda_a',
-               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'tvp_resetb',
+               'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'led[3]',
                **{f'TVP{c}_D{i}': f'tvp{c.lower()}_d[{i}]' for c in 'AB' for i in range(8)}}
 
 
@@ -373,7 +378,7 @@ def check_against_gateware(circuit):
     gw = root / 'core' / 'gateware'                  # OpenVRX-Core as a git submodule
     if not gw.exists():
         gw = root / 'gateware'                       # original single-tree layout
-    cst = (gw / 'boards' / 'm4_dual_mix.cst').read_text()
+    cst = (gw / 'boards' / 'tangnano20k.cst').read_text() + (gw / 'boards' / 'm4_dual_mix.cst').read_text()
     port_pin = {m[0]: int(m[1]) for m in re.findall(r'IO_LOC\s+"([^"]+)"\s+(\d+);', cst)}
     problems, seen = [], set()
     for part in circuit.parts:

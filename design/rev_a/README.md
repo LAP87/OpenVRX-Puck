@@ -16,7 +16,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 - **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Koppla stift n till stift n (flatkabel eller dupont), så får du exakt M4-bitströmmens stift (`gateware/boards/m4_dual_mix.cst`). Skriptet kontrollerar det automatiskt.
 - Mottagarkontakterna (JST-PH 3-pol: +5 V, GND, CVBS) matar varsin mottagare via en 0,5 A PTC-säkring.
 - I2C: gemensam SCL, en SDA per dekoder (båda på B8h, som M4 förväntar sig). Med lödbygel JP1 och en flyttad pull-up kan de i stället dela en buss (B8h + BAh).
-- RESETB från FPGA:n, med 10 k pull-down så att dekodrarna hålls i reset med utgångarna i högimpedans tills FPGA:n släpper dem.
+- RESETB från FPGA:n på J6-18 (Tang-stift 18, som också driver kortets lysdiod 3). Ingen pull-down: lysdiodens 510 Ω mot 3,3 V skulle vinna ändå, och dekoderns utgångar är avstängda efter start tills register 03h skrivs. Tidigare låg RESETB på J6-10 (stift 25), som ligger i HDMI-banken och är skärmens CEC-ledning (Puck issue #1, Core issue #6).
 - Testpunkter: CVBS, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder.
 
 ## Filer
