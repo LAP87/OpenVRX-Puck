@@ -366,6 +366,13 @@ def build():
         tps = Part(tool=SKIDL, name='TP', ref_prefix='TP', value='TestPoint',
                    footprint='TestPoint:TestPoint_Pad_D1.0mm', pins=[Pin(num=1, name='1', func=T.PASSIVE)])
         tps[1] += sclk
+        # Ground pad beside this header, close to the 27 MHz SCLK pin (Puck #3): a scope ground spring or a
+        # short return wire here keeps the probe loop small. Without it the nearest ground to measure SCLK
+        # against is a header pin or the far connector, and the long ground lead shows ringing that is not there.
+        tpg = Part(tool=SKIDL, name='TP', ref_prefix='TP', value='TestPoint_GND',
+                   footprint='TestPoint:TestPoint_Pad_D1.0mm', pins=[Pin(num=1, name='1', func=T.PASSIVE)])
+        tpg.fields['note'] = f'GND pad next to header {j.ref} (SCLK {ch}): probe ground for the 27 MHz clock'
+        tpg[1] += GND
 
     for k in range(4):
         Part(tool=SKIDL, name='MH', ref_prefix='H', value='MountingHole_M2', footprint='MountingHole:MountingHole_2.2mm_M2',

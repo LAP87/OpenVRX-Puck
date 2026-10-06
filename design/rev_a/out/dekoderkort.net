@@ -2355,6 +2355,52 @@
       (component_classes)
       (tstamps "625a4a54-4c87-5eaf-acad-993133a498ab"))
     (comp
+      (ref "TP13")
+      (value "TestPoint")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D1.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP13"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "43e73621-8df7-586f-9dd0-4fde0b9213c8"))
+    (comp
+      (ref "TP14")
+      (value "TestPoint_GND")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+      (fields
+        (field
+          (name "note") "GND pad next to header J3 (SCLK B): probe ground for the 27 MHz clock")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D1.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP14"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "d65c6246-ec18-5b5d-bdaa-42ed9f327646"))
+    (comp
       (ref "TP2")
       (value "TestPoint")
       (description "")
@@ -2466,10 +2512,12 @@
       (tstamps "09741339-fe92-5d8d-9626-685dbcd30d75"))
     (comp
       (ref "TP7")
-      (value "TestPoint")
+      (value "TestPoint_GND")
       (description "")
       (footprint "TestPoint:TestPoint_Pad_D1.0mm")
       (fields
+        (field
+          (name "note") "GND pad next to header J2 (SCLK A): probe ground for the 27 MHz clock")
         (field
           (name "Description"))
         (field
@@ -3016,7 +3064,7 @@
       (name "AVID_B")
       (class "Default")
       (node
-        (ref "TP11")
+        (ref "TP12")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3324,7 +3372,7 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
-        (ref "TP7")
+        (ref "TP8")
         (pin "1")
         (pintype "PASSIVE")))
     (net
@@ -3376,7 +3424,7 @@
       (name "FID_GLCO_B")
       (class "Default")
       (node
-        (ref "TP8")
+        (ref "TP9")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3576,6 +3624,14 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
+        (ref "TP14")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP7")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
         (ref "U1")
         (pin "2")
         (pintype "POWER-IN"))
@@ -3652,7 +3708,7 @@
       (name "HSYNC_B")
       (class "Default")
       (node
-        (ref "TP10")
+        (ref "TP11")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -4092,7 +4148,7 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
-        (ref "TP12")
+        (ref "TP13")
         (pin "1")
         (pintype "PASSIVE")))
     (net
@@ -4128,7 +4184,7 @@
       (name "VSYNC_PALI_B")
       (class "Default")
       (node
-        (ref "TP9")
+        (ref "TP10")
         (pin "1")
         (pintype "PASSIVE"))
       (node

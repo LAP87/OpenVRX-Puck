@@ -17,7 +17,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 - Mottagarkontakterna (JST-PH 3-pol: +5 V, GND, CVBS) matar varsin mottagare via en PTC-säkring med minst 0,75 A *hold*-ström (inte trip). Mottagaren drar ca 0,45 A; en 0,5 A-del klarar enligt Bourns MF-NSMF-kurvan bara ca 0,44 A vid 40 °C och 0,35 A vid 60 °C. Serien och 1206-footprinten är ännu inte kontrollerade.
 - I2C: gemensam SCL, en SDA per dekoder (båda på B8h, som M4 förväntar sig). Med lödbygel JP1 och en flyttad pull-up kan de i stället dela en buss (B8h + BAh).
 - RESETB från FPGA:n på J6-18 (Tang-stift 18, som också driver kortets lysdiod 3). Ingen pull-down: lysdiodens 510 Ω mot 3,3 V skulle vinna ändå, och dekoderns utgångar är avstängda efter start tills register 03h skrivs. Tidigare låg RESETB på J6-10 (stift 25), som ligger i HDMI-banken och är skärmens CEC-ledning (Puck issue #1, Core issue #6).
-- Testpunkter: CVBS, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder.
+- Testpunkter: CVBS, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder. Dessutom en jordpad vid vardera stiftlist (TP för GND), nära SCLK-stiftet: en mätprobs jordfjäder eller en kort returtråd där ger liten slinga när 27 MHz-klockan mäts.
 
 ## Filer
 
@@ -37,7 +37,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 
 Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
 
-Utdata: 112 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
+Utdata: 114 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
 
 ## Granskning
 
@@ -95,7 +95,7 @@ Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECY
 
 ## Öppna punkter
 
-- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
+- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. ESD-kedja behöver granskas före layout (Puck #2–#3).
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
 - Layout: analog jord och retur nära ingången, kristall och REFP/REFM tätt intill respektive TVP, 0,1 µF vid varje matningsstift. Mekaniskt mått för att sätta kortet direkt på Tang Nano 20K som en "sköld" (båda stiftlisterna) är inte kontrollerat — därför sladdar i rev A.
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.

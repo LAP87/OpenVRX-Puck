@@ -578,15 +578,24 @@ _series termination A D0_
 
 ## TP10 TestPoint
 
-- 1 1: HSYNC_B
+- 1 1: VSYNC_PALI_B
 
 ## TP11 TestPoint
 
-- 1 1: AVID_B
+- 1 1: HSYNC_B
 
 ## TP12 TestPoint
 
+- 1 1: AVID_B
+
+## TP13 TestPoint
+
 - 1 1: TVPB_SCLK
+
+## TP14 TestPoint_GND
+_GND pad next to header J3 (SCLK B): probe ground for the 27 MHz clock_
+
+- 1 1: GND
 
 ## TP2 TestPoint
 
@@ -608,17 +617,18 @@ _series termination A D0_
 
 - 1 1: TVPA_SCLK
 
-## TP7 TestPoint
+## TP7 TestPoint_GND
+_GND pad next to header J2 (SCLK A): probe ground for the 27 MHz clock_
 
-- 1 1: CVBS_B
+- 1 1: GND
 
 ## TP8 TestPoint
 
-- 1 1: FID_GLCO_B
+- 1 1: CVBS_B
 
 ## TP9 TestPoint
 
-- 1 1: VSYNC_PALI_B
+- 1 1: FID_GLCO_B
 
 ## U1 AP7361C-33E-13
 _LCSC C500795. 5 V -> 3.3 V for TVP IO_DVDD, pull-ups and both 1.8 V LDOs (~170 mA: 0.29 W, +32 C at 110 C/W)_
