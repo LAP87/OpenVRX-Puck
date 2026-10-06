@@ -245,6 +245,11 @@ def build():
         C('0.1u', avdd, GND, f'CH_AVDD {ch}')
         C('1u', avdd, GND, f'CH_AVDD {ch} (fig. 6-1 C3)', FP_0603C)
         C('0.1u', pavdd, GND, f'PLL_AVDD {ch}, C0G preferred')
+        # A ferrite followed only by 0.1 uF is a lightly damped LC: the bead is inductive well below its
+        # 100 MHz rating and the small ceramic has almost no ESR, so it can ring and peak (Puck #3).
+        # A larger capacitor after the bead lowers the filter's characteristic impedance and keeps the
+        # supply node stiff at the PLL's loop frequencies. The 0.1 uF stays for the high frequencies.
+        C('4.7u', pavdd, GND, f'PLL_AVDD {ch} bulk after the ferrite (4.7-10 uF, damps the bead/0.1 uF LC)', FP_0603C)
         C('0.1u', V18D, GND, f'DVDD {ch}')
         C('0.1u', V3, GND, f'IO_DVDD {ch} (fig. 6-1 C10)')
 

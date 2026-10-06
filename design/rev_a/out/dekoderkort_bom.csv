@@ -1,10 +1,11 @@
 qty,refs,part,value,footprint,note
-12,C8 C10 C11 C12 C18 C19 C22 C24 C25 C26 C32 C33,C,0.1u,Capacitor_SMD:C_0402_1005Metric,
-6,C2 C3 C5 C7 C16 C30,C,10u,Capacitor_SMD:C_0805_2012Metric,
-2,C17 C31,C,1n C0G,Capacitor_SMD:C_0402_1005Metric,
-10,C4 C6 C9 C13 C14 C15 C23 C27 C28 C29,C,1u,Capacitor_SMD:C_0603_1608Metric,
+12,C8 C10 C12 C13 C19 C20 C23 C25 C27 C28 C34 C35,C,0.1u,Capacitor_SMD:C_0402_1005Metric,
+6,C2 C3 C5 C7 C17 C32,C,10u,Capacitor_SMD:C_0805_2012Metric,
+2,C18 C33,C,1n C0G,Capacitor_SMD:C_0402_1005Metric,
+10,C4 C6 C9 C14 C15 C16 C24 C29 C30 C31,C,1u,Capacitor_SMD:C_0603_1608Metric,
 1,C1,C,22u,Capacitor_SMD:C_0805_2012Metric,
-4,C20 C21 C34 C35,C,33p C0G,Capacitor_SMD:C_0402_1005Metric,
+4,C21 C22 C36 C37,C,33p C0G,Capacitor_SMD:C_0402_1005Metric,
+2,C11 C26,C,4.7u,Capacitor_SMD:C_0603_1608Metric,
 1,J2,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J6: connect pin n to J6-n
 1,J3,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J5: connect pin n to J5-n
 2,D1 D2,ESD,ESD9B5.0ST5G,Diode_SMD:D_SOD-923,"LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)"

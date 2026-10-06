@@ -12,59 +12,59 @@ _PLL_AVDD A, C0G preferred_
 - 1 1: PLL_AVDD_A
 - 2 2: GND
 
-## C11 0.1u
+## C11 4.7u
+_PLL_AVDD A bulk after the ferrite (4.7-10 uF, damps the bead/0.1 uF LC)_
+
+- 1 1: PLL_AVDD_A
+- 2 2: GND
+
+## C12 0.1u
 _DVDD A_
 
 - 1 1: +1V8_D
 - 2 2: GND
 
-## C12 0.1u
+## C13 0.1u
 _IO_DVDD A (fig. 6-1 C10)_
 
 - 1 1: +3V3
 - 2 2: GND
 
-## C13 1u
+## C14 1u
 _REFP A_
 
 - 1 1: REFP_A
 - 2 2: GND
 
-## C14 1u
+## C15 1u
 _REFM A_
 
 - 1 1: REFM_A
 - 2 2: GND
 
-## C15 1u
+## C16 1u
 _REFP-REFM A_
 
 - 1 1: REFP_A
 - 2 2: REFM_A
 
-## C16 10u
+## C17 10u
 _receiver A supply_
 
 - 1 1: +5V_RX_A
 - 2 2: GND
 
-## C17 1n C0G
+## C18 1n C0G
 _AAF capacitor (A), C0G/NP0_
 
 - 1 1: CVBS_AAF_A
 - 2 2: GND
 
-## C18 0.1u
+## C19 0.1u
 _AC coupling to AIP1A (A, fig. 6-1 C4/C5)_
 
 - 1 1: CVBS_AAF_A
 - 2 2: AIP1A_A
-
-## C19 0.1u
-_AIP1B unused (A): 0.1 uF to AGND per table 2-1_
-
-- 1 1: AIP1B_A
-- 2 2: GND
 
 ## C2 10u
 _LDO in (>= 1 uF ceramic)_
@@ -72,65 +72,65 @@ _LDO in (>= 1 uF ceramic)_
 - 1 1: +5V
 - 2 2: GND
 
-## C20 33p C0G
+## C20 0.1u
+_AIP1B unused (A): 0.1 uF to AGND per table 2-1_
+
+- 1 1: AIP1B_A
+- 2 2: GND
+
+## C21 33p C0G
 _CL1 A: 2*20 pF - ~5 pF stray; trim after measuring SCLK frequency_
 
 - 1 1: XTAL1_A
 - 2 2: GND
 
-## C21 33p C0G
+## C22 33p C0G
 _CL2 A_
 
 - 1 1: XTAL2_A
 - 2 2: GND
 
-## C22 0.1u
+## C23 0.1u
 _CH_AVDD B_
 
 - 1 1: AVDD_B
 - 2 2: GND
 
-## C23 1u
+## C24 1u
 _CH_AVDD B (fig. 6-1 C3)_
 
 - 1 1: AVDD_B
 - 2 2: GND
 
-## C24 0.1u
+## C25 0.1u
 _PLL_AVDD B, C0G preferred_
 
 - 1 1: PLL_AVDD_B
 - 2 2: GND
 
-## C25 0.1u
+## C26 4.7u
+_PLL_AVDD B bulk after the ferrite (4.7-10 uF, damps the bead/0.1 uF LC)_
+
+- 1 1: PLL_AVDD_B
+- 2 2: GND
+
+## C27 0.1u
 _DVDD B_
 
 - 1 1: +1V8_D
 - 2 2: GND
 
-## C26 0.1u
+## C28 0.1u
 _IO_DVDD B (fig. 6-1 C10)_
 
 - 1 1: +3V3
 - 2 2: GND
 
-## C27 1u
+## C29 1u
 _REFP B_
 
 - 1 1: REFP_B
 - 2 2: GND
-
-## C28 1u
-_REFM B_
-
-- 1 1: REFM_B
-- 2 2: GND
-
-## C29 1u
-_REFP-REFM B_
-
-- 1 1: REFP_B
-- 2 2: REFM_B
 
 ## C3 10u
 _LDO out (>= 2.2 uF ceramic)_
@@ -138,37 +138,49 @@ _LDO out (>= 2.2 uF ceramic)_
 - 1 1: +3V3
 - 2 2: GND
 
-## C30 10u
+## C30 1u
+_REFM B_
+
+- 1 1: REFM_B
+- 2 2: GND
+
+## C31 1u
+_REFP-REFM B_
+
+- 1 1: REFP_B
+- 2 2: REFM_B
+
+## C32 10u
 _receiver B supply_
 
 - 1 1: +5V_RX_B
 - 2 2: GND
 
-## C31 1n C0G
+## C33 1n C0G
 _AAF capacitor (B), C0G/NP0_
 
 - 1 1: CVBS_AAF_B
 - 2 2: GND
 
-## C32 0.1u
+## C34 0.1u
 _AC coupling to AIP1A (B, fig. 6-1 C4/C5)_
 
 - 1 1: CVBS_AAF_B
 - 2 2: AIP1A_B
 
-## C33 0.1u
+## C35 0.1u
 _AIP1B unused (B): 0.1 uF to AGND per table 2-1_
 
 - 1 1: AIP1B_B
 - 2 2: GND
 
-## C34 33p C0G
+## C36 33p C0G
 _CL1 B: 2*20 pF - ~5 pF stray; trim after measuring SCLK frequency_
 
 - 1 1: XTAL1_B
 - 2 2: GND
 
-## C35 33p C0G
+## C37 33p C0G
 _CL2 B_
 
 - 1 1: XTAL2_B

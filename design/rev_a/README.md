@@ -37,7 +37,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 
 Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
 
-Utdata: 110 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
+Utdata: 112 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
 
 ## Granskning
 
@@ -81,6 +81,10 @@ Mottagarens utgång (75 Ω) och spänningsdelaren 2 × 37,4 Ω ger filtret en k�
 
 Färgbärvågen (3,58/4,43 MHz) påverkas inte. En mottagare med nästan 0 Ω utgång ger högst +2,1 dB överslängning, mot 0,1 dB med 75 Ω. Ett 0 Ω-motstånd på spolens plats kopplar förbi filtret.
 
+## PLL-matningen
+
+Varje dekoders PLL_AVDD ligger bakom en egen ferrit och hade bara 0,1 µF efter den. Pärlan är induktiv långt under sina 100 MHz och en liten keramikkondensator har nästan ingen ESR, så de bildar en svagt dämpad LC. Därför finns nu även 4,7 µF efter pärlan (4–10 µF duger), med 0,1 µF kvar vid stiftet. Värdet är en bedömning, inte uppmätt eller simulerat.
+
 ## Livscykel
 
 Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECYCLE.md). Alla är aktiva. Risken är TVP5150AM1, som TI inte längre utvecklar något nytt för.
@@ -91,7 +95,7 @@ Alla delar med tillverkarnummer kontrollerades 2026-10-04: [LIFECYCLE.md](LIFECY
 
 ## Öppna punkter
 
-- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. PLL-matningens avkoppling, ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
+- PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. ESD-kedja och fler jordanslutningar behöver granskas före layout (Puck #2–#3).
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
 - Layout: analog jord och retur nära ingången, kristall och REFP/REFM tätt intill respektive TVP, 0,1 µF vid varje matningsstift. Mekaniskt mått för att sätta kortet direkt på Tang Nano 20K som en "sköld" (båda stiftlisterna) är inte kontrollerat — därför sladdar i rev A.
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.
