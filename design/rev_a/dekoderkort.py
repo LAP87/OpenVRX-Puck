@@ -179,10 +179,10 @@ def build():
 
     # ---- shared I2C clock and reset from the FPGA
     R('4.7k', SCL, V3, 'I2C SCL pull-up')
-    # RESETB comes from Tang pin 18 (J6-18), which also drives the board's LED3 through 510 ohm to 3.3 V,
-    # so a pull-down here cannot hold it low before configuration (OpenVRX-Puck issue #1). Not needed:
-    # the TVP's outputs stay disabled after power-on until register 03h is written, and the FPGA pulses
-    # RESETB before initialising. (Pin 25 = J6-10 was used before: it is in the HDMI bank and is the CEC line.)
+    # RESETB comes from Tang pin 18 (J6-18), which also drives LED3 through 510 ohm to 3.3 V; it is not
+    # held low before FPGA configuration. TVP outputs are undefined until reset. Current Core tvp_ctrl
+    # waits 20 ms after configuration, pulses RESETB low for 2 ms, then keeps YOUT disabled until 03h
+    # is written (see core/gateware/BRINGUP.md, section 5). (Pin 25 = J6-10 was used before: HDMI/CEC.)
 
     # ---- FPGA headers, numbered like Tang Nano 20K J6 / J5 (v3921 schematic)
     j6 = header_1x20('Mirror of Tang Nano 20K J6: connect pin n to J6-n')
@@ -192,7 +192,7 @@ def build():
     for s in sda:
         R('4.7k', s, V3, 'I2C SDA pull-up')
     jp = two_pin('JP', 'SolderJumper_2_Open', 'Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm',
-                 'Close to join SDA_A/SDA_B into one bus (then set decoder B to BAh, see R I2CSEL)')
+                 'Default open: split SDA, both decoders 5Ch. Shared SDA/5Ch+5Dh needs a separately verified two-address firmware configuration; current M3/M4/M6 do not support it.')
     jp[1] += sda[0]
     jp[2] += sda[1]
 
@@ -359,8 +359,8 @@ def build():
             u[nm] += near
             R('33', near, far, f'series termination {ch} D{bit}')
             j[h['d'][bit]] += far
-        # I2CSEL (sampled at reset): 10 k pull-down -> B8h on both (M4 uses split SDA);
-        # alternative pull-up footprint for BAh when sharing one SDA line
+        # I2CSEL (sampled at reset): 10 k pull-down -> 7-bit 5Ch / 8-bit B8h on both;
+        # the DNP pull-up would select 5Dh / BAh, but shared-SDA operation is unsupported by current M3/M4/M6.
         R('10k', Net.get(f'{ch}_YOUT7_I2CSEL_U'), GND, f'I2CSEL low = B8h ({ch})')
         R('DNP 10k', Net.get(f'{ch}_YOUT7_I2CSEL_U'), V3, f'fit instead of the pull-down for BAh ({ch})')
         sclk_u, sclk = Net(f'{ch}_SCLK_U'), Net(f'TVP{ch}_SCLK')
