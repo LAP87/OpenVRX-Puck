@@ -390,22 +390,30 @@ TANG_J6 = {1: 73, 2: 74, 3: 75, 4: 85, 5: 77, 6: 15, 7: 16, 8: 27, 9: 28, 10: 25
            15: 17, 16: 20, 17: 19, 18: 18}
 TANG_J5 = {3: 76, 4: 80, 5: 42, 6: 41, 7: 56, 8: 54, 9: 51, 10: 48, 11: 55, 12: 49, 13: 86, 14: 79, 17: 72, 18: 71,
            19: 53, 20: 52}
-# board net -> port name in gateware/boards/m4_dual_mix.cst (RESETB is the tvp_resetb port on pin 18, the LED3 pin)
+# board net -> port name shared by the supported M3/M4/M6 top-level constraints
 NET_TO_PORT = {'TVPA_SCLK': 'tvpa_sclk', 'TVPB_SCLK': 'tvpb_sclk', 'I2C_SCL': 'i2c_scl', 'I2C_SDA_A': 'i2c_sda_a',
                'I2C_SDA_B': 'i2c_sda_b', 'TVP_RESETB': 'tvp_resetb',
                **{f'TVP{c}_D{i}': f'tvp{c.lower()}_d[{i}]' for c in 'AB' for i in range(8)}}
+SUPPORTED_TOPS = ('m3_probe', 'm4_dual_mix', 'm6_puck_proto')
 
 
 def check_against_gateware(circuit, gw=None):
-    """Header pin n on this board must carry the signal the M4 bitstream expects on J6-n / J5-n."""
+    """Every supported top must put each schematic signal on its wired header pin."""
     import re
     root = Path(__file__).resolve().parents[2]
     gw = Path(gw) if gw is not None else root / 'core' / 'gateware'
     if not gw.exists():
         gw = root / 'gateware'                       # original single-tree layout
-    cst = (gw / 'boards' / 'tangnano20k.cst').read_text() + (gw / 'boards' / 'm4_dual_mix.cst').read_text()
-    port_pin = {m[0]: int(m[1]) for m in re.findall(r'IO_LOC\s+"([^"]+)"\s+(\d+);', cst)}
-    problems, seen = [], set()
+    problems = []
+    schematic_pins = defaultdict(list)
+    for part in circuit.parts:
+        if part.name != 'CONN_1x20':
+            continue
+        header_table = TANG_J6 if 'J6' in part.fields['note'] else TANG_J5
+        for header_pin in part.pins:
+            net = header_pin.net.name if header_pin.net is not None else None
+            if net in NET_TO_PORT:
+                schematic_pins[net].append(header_table.get(int(header_pin.num)))
     contract = gw / 'tools' / 'board_contract.py'
     if not contract.is_file():
         problems.append('pinned Core lacks the shared-output contract; update the core submodule')
@@ -415,25 +423,47 @@ def check_against_gateware(circuit, gw=None):
         checker = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(checker)
         board = (gw / 'boards' / 'tangnano20k.cst').read_text()
-        for top in ('m3_probe', 'm4_dual_mix', 'm6_puck_proto'):
-            problems += checker.shared_output_problems((gw / 'top' / f'{top}.v').read_text(), top,
-                                                       board + (gw / 'boards' / f'{top}.cst').read_text())
-    for part in circuit.parts:
-        if part.name != 'CONN_1x20':
-            continue
-        table = TANG_J6 if 'J6' in part.fields['note'] else TANG_J5
-        for pin in part.pins:
-            net = pin.net.name if pin.net is not None else None
-            if net in NET_TO_PORT:
-                port = NET_TO_PORT[net]
-                seen.add(port)
-                want = port_pin.get(port)
-                got = table.get(int(pin.num))
-                if want != got:
-                    problems.append(f'{net} on header pin {pin.num} = FPGA pin {got}, M4 expects {want}')
-    missing = set(NET_TO_PORT.values()) - seen
-    if missing:
-        problems.append(f'signals not on any header: {sorted(missing)}')
+        for top in SUPPORTED_TOPS:
+            top_cst_path = gw / 'boards' / f'{top}.cst'
+            top_src_path = gw / 'top' / f'{top}.v'
+            if not top_cst_path.is_file() or not top_src_path.is_file():
+                problems.append(f'{top}: missing supported top source or constraints')
+                continue
+            top_cst = top_cst_path.read_text()
+            problems += checker.shared_output_problems(top_src_path.read_text(), top, board + top_cst)
+
+            # Keep every IO_LOC occurrence so missing and duplicate decoder/board constraints
+            # cannot be hidden by a last-entry-wins dictionary comprehension.
+            locs = defaultdict(list)
+            all_locs = re.findall(r'IO_LOC\s+"([^"]+)"\s+(\d+);', top_cst)
+            for port, pin in all_locs:
+                locs[port].append(int(pin))
+            expected_pin_owners = defaultdict(list)
+            for net, port in NET_TO_PORT.items():
+                assigned = locs.get(port, [])
+                if len(assigned) != 1:
+                    state = 'missing' if not assigned else f'duplicate {assigned}'
+                    problems.append(f'{top}: {net} ({port}) has {state} pin constraints')
+                    continue
+                fpga_pin = assigned[0]
+                expected_pin_owners[fpga_pin].append(port)
+                # Find the schematic's connector assignment first, then translate that header
+                # position to the FPGA pin using the Tang Nano 20K connector map above.
+                expected = schematic_pins.get(net, [])
+                if len(expected) != 1 or expected[0] is None:
+                    state = 'missing' if not expected else f'ambiguous {expected}'
+                    problems.append(f'{top}: {net} has {state} schematic header pin mapping')
+                elif fpga_pin != expected[0]:
+                    problems.append(f'{top}: {net} on schematic header maps to FPGA pin '
+                                    f'{expected[0]}, {port} constraint says {fpga_pin}')
+
+            for fpga_pin, ports in expected_pin_owners.items():
+                if len(ports) > 1:
+                    problems.append(f'{top}: decoder/board ports {sorted(ports)} share FPGA pin {fpga_pin}')
+                other_ports = sorted(port for port, pins in locs.items()
+                                     if port not in ports and fpga_pin in pins)
+                if other_ports:
+                    problems.append(f'{top}: FPGA pin {fpga_pin} also constrained for {other_ports}')
     return problems
 
 

@@ -13,7 +13,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 5 V (från Tang J5-1 via lödbygel, eller egen kontakt) → 3,3 V LDO → 2× 1,8 V LDO (digital / analog via ferrit) ┘   = Tang Nano 20K J6 / J5
 ```
 
-- **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Stift n till stift n ger M4:s signalplan (`../../core/gateware/boards/m4_dual_mix.cst`). Skriptet kontrollerar både stiftnummer och RESETB/SPI-funktion; kortrevision och kabeldragning kontrolleras på bänken.
+- **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Stift n till stift n ger signalplanen för M3/M4/M6 (`../../core/gateware/boards/`). Skriptet kontrollerar hela dekoderkartan för varje topp, både stiftnummer och RESETB/SPI-funktion; kortrevision och kabeldragning kontrolleras på bänken.
 - Mottagarkontakterna (JST-PH 3-pol: +5 V, GND, CVBS) matar varsin mottagare via en PTC-säkring med minst 0,75 A *hold*-ström (inte trip). Mottagaren drar ca 0,45 A; en 0,5 A-del klarar enligt Bourns MF-NSMF-kurvan bara ca 0,44 A vid 40 °C och 0,35 A vid 60 °C. Serien och 1206-footprinten är ännu inte kontrollerade.
 - I2C: gemensam SCL, en SDA per dekoder (båda på B8h, som M4 förväntar sig). Med lödbygel JP1 och en flyttad pull-up kan de i stället dela en buss (B8h + BAh).
 - RESETB från FPGA:n på J6-18 (Tang-stift 18, som också driver kortets lysdiod 3). Ingen pull-down: lysdiodens 510 Ω mot 3,3 V skulle vinna ändå, och dekoderns utgångar är avstängda efter start tills register 03h skrivs. Tidigare låg RESETB på J6-10 (stift 25), som ligger i HDMI-banken och är skärmens CEC-ledning (Puck issue #1, Core issue #6).
@@ -33,7 +33,7 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 
 1. **SKiDL ERC**: inga fel och inga varningar (medvetet oanslutna stift är markerade NC).
 2. **Databladsregler** (`design_checks`): alla 32 TVP-stift anslutna, rätt matning per stift (IO_DVDD 3,3 V, DVDD 1,8 V digital, CH_AVDD/PLL_AVDD 1,8 V bakom egna ferriter), ingen 3,3 V/5 V-del på XTAL1-näten, exakt en pull-up per I2C-linje.
-3. **Mot gateware**: varje dekodersignal på stiftlisterna jämförs med FPGA-stiften i `m4_dual_mix.cst`. Core kräver dessutom entydig direkt RESETB/SPI-tilldelning till LED3/4/5 i M3/M4/M6. Negativa kontroller byter RESETB mot `~cur`, flyttar en klockingång och tar bort kontraktskontrollen. Alla avvisas. En äldre Core utan kontraktet kan inte godkännas genom enbart stiftnummer.
+3. **Mot gateware**: varje dekodersignal på stiftlisterna jämförs separat med FPGA-stiften i `m3_probe.cst`, `m4_dual_mix.cst` och `m6_puck_proto.cst`. Saknade, dubbla eller kolliderande relevanta stiftbegränsningar avvisas. Core kräver dessutom entydig direkt RESETB/SPI-tilldelning till LED3/4/5 i M3/M4/M6. Negativa kontroller lämnar RESETB oansluten, byter D0/D1 på M3/M6, flyttar båda klockor och alla I2C-signaler på varje topp, tar bort/dubblerar stiftbegränsningar och tar bort kontraktskontrollen. Alla avvisas. En äldre Core utan kontraktet kan inte godkännas genom enbart stiftnummer.
 
 Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
 
