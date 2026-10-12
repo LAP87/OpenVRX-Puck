@@ -1,6 +1,6 @@
 # Rev A — koncept för eget mixing- och HDMI-kort (utkast 2026-10-01)
 
-> **Ändrat 2026-10-02:** Rev A är nu ett **dekoderkort** (2× TVP5150AM1 → stiftlist), schema i `rev_a/` — se `rev_a/README.md`. FPGA och HDMI-utgång väljs efter prov på devkort; nya kandidater är **ADV7513** (fullt dokumenterad, LCSC-lager) och **GW5A-25 utan HDMI-sändare** (serialiserare 2 000 Mbit/s räcker för 1080p60), se `../research/ALTERNATIVA_VAGAR_2026-10-02.md`. Det här dokumentet beskriver det integrerade kortet, som nu blir rev B.
+> **Ändrat 2026-10-02:** Rev A är nu ett **dekoderkort** (2× TVP5150AM1 → stiftlist), schema i `rev_a/` — se `rev_a/README.md`. FPGA och HDMI-utgång väljs efter prov på devkort; nya kandidater är **ADV7513** (fullt dokumenterad) och **GW5A-25 utan HDMI-sändare** (serialiserare 2 000 Mbit/s räcker för 1080p60), se `../research/ALTERNATIVA_VAGAR_2026-10-02.md`. Det här dokumentet beskriver det integrerade kortet, som nu blir rev B.
 >
 > **Rättelse:** "en oscillator till båda XTAL1" nedan fungerar bara med en **1,8 V**-oscillator — XTAL1 tål högst 2,3 V (SLES209E, absoluta maxvärden). Dekoderkortet har en kristall per dekoder.
 
@@ -21,8 +21,8 @@ Status: koncept för diskussion. Inget schema ritat, inget beställt. Källor: `
 | Dekoder | **2× TI TVP5150AM1** (32-TQFP "PBS") | ACTIVE hos TI (ADI-alternativen är NRND); FPV-förebild (rrk1); sitter i projektägarens Moneagle. Två dekodrar behövs eftersom en TVP5150AM1 har två analoga ingångar (AIP1A/B) men bara **en** avkodare. |
 | Adresser | I2CSEL (YOUT7, stift 11) = 0 resp. 1 → B8h / BAh | Datablad: två TVP5150AM1 på samma I2C-buss. |
 | Klocka till dekodrar | 14,31818 MHz; antingen kristall per krets eller **en oscillator till båda XTAL1** (stift 5) | Datablad: XTAL1 kan drivas av oscillator. Gemensam referens förenklar och ger lika frekvens. |
-| FPGA | **Gowin GW2AR-LV18QN88C8/I7** | 20 736 LUT4, **64 Mbit SDR SDRAM i kapseln** (32 bit) → bildbuffert utan extern DDR-routning; QFN-88; samma krets som Tang Nano 20K. LCSC C380550: 125 st i eget lager, 43,81 USD. |
-| HDMI-utgång | **Extern HDMI-sändare Lontium LT8618SXB** (QFN64 9×9) | GW2AR:s serialiserare är specad till max **1 200 Mbit/s** (DS226, tabell 3-17, OSER10); 1080p60 TMDS kräver 1 485 Mbit/s. 720p60 (742,5) ryms men XR-glasögonen avvisar 720p. LT8618SX tar BT.1120/BT.656/RGB upp till 148,5 MHz DDR, 1,8/3,3 V I/O, I2C. LCSC C7424659 (Other Suppliers, 36 st, ≈ 5 USD). |
+| FPGA | **Gowin GW2AR-LV18QN88C8/I7** | 20 736 LUT4, **64 Mbit SDR SDRAM i kapseln** (32 bit) → bildbuffert utan extern DDR-routning; QFN-88; samma krets som Tang Nano 20K. LCSC C380550. |
+| HDMI-utgång | **Extern HDMI-sändare Lontium LT8618SXB** (QFN64 9×9) | GW2AR:s serialiserare är specad till max **1 200 Mbit/s** (DS226, tabell 3-17, OSER10); 1080p60 TMDS kräver 1 485 Mbit/s. 720p60 (742,5) ryms men XR-glasögonen avvisar 720p. LT8618SX tar BT.1120/BT.656/RGB upp till 148,5 MHz DDR, 1,8/3,3 V I/O, I2C. LCSC C7424659. |
 | Bildbuffert | Inbyggt 64 Mbit SDRAM; en PAL-bild 720×576 YUV 4:2:2 ≈ 0,8 MB → många bilder ryms | Tillåter trippelbuffert och deinterlacing. |
 | RF | **Inga mottagare på rev A-kortet.** Två CVBS-ingångar via kontakter; mottagarna (t.ex. RX5808-moduler eller färdiga moduler) på separat kort | Håller 5,8 GHz-RF borta från första digitalkortet; mottagarvalet kan ändras utan nytt huvudkort. |
 
@@ -60,15 +60,15 @@ flowchart LR
 
 Ström- och sekvenskrav för GW2AR och LT8618 ska läsas ur fullständiga datablad i schemafasen (öppen punkt).
 
-## Delförteckning (preliminär, LCSC 2026-10-01)
+## Delförteckning (preliminär, artikelnummer 2026-10-01)
 
-| Del | MPN | LCSC | Lager | Pris |
-|---|---|---|---|---|
-| FPGA | GW2AR-LV18QN88C8/I7 | C380550 | 125, LCSC eget | 43,81 USD |
-| Dekoder ×2 | TVP5150AM1PBSR / PBS | C10013 / C3824301 | Other Suppliers (2 477 st resp. flera tusen) | 3,74–10,82 USD |
-| HDMI-sändare | LT8618SXB | C7424659 | Other Suppliers, 36 st | ≈ 5,00 USD |
-| Oscillator | 14,31818 MHz | att välja | | |
-| SPI-flash, regulatorer, HDMI-kontakt, passiva | att välja (helst LCSC basic parts) | | | |
+| Del | MPN | LCSC |
+|---|---|---|
+| FPGA | GW2AR-LV18QN88C8/I7 | C380550 |
+| Dekoder ×2 | TVP5150AM1PBSR / PBS | C10013 / C3824301 |
+| HDMI-sändare | LT8618SXB | C7424659 |
+| Oscillator | 14,31818 MHz | att välja |
+| SPI-flash, regulatorer, HDMI-kontakt, passiva | att välja | |
 
 "Other Suppliers"-delar: hur JLCPCB hanterar dem vid bestyckning (global sourcing eller egen leverans) är **inte kontrollerat**.
 
