@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "dekoderkort.py")
-    (date "10/13/2026 09:13 AM")
+    (date "10/13/2026 12:40 PM")
     (tool "SKiDL (2.3.0)")
     (sheet
       (number 1)
@@ -1028,12 +1028,12 @@
       (tstamps "730dc923-5f42-5190-a58b-2dbed3a5d5b0"))
     (comp
       (ref "D2")
-      (value "ESD9B5.0ST5G")
+      (value "ESD9B3.3ST5G")
       (description "")
       (footprint "Diode_SMD:D_SOD-923")
       (fields
         (field
-          (name "note") "LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)")
+          (name "note") "second clamp after the divider (A): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare")
         (field
           (name "Description"))
         (field
@@ -1050,6 +1050,54 @@
         (tstamps "/"))
       (component_classes)
       (tstamps "06934a86-3c08-5320-b71c-96bf0d33127c"))
+    (comp
+      (ref "D3")
+      (value "ESD9B5.0ST5G")
+      (description "")
+      (footprint "Diode_SMD:D_SOD-923")
+      (fields
+        (field
+          (name "note") "LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Diode_SMD:D_SOD-923")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "D3"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ESD"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "a31abf81-24ee-5c50-91fe-d4cecac4e7dd"))
+    (comp
+      (ref "D4")
+      (value "ESD9B3.3ST5G")
+      (description "")
+      (footprint "Diode_SMD:D_SOD-923")
+      (fields
+        (field
+          (name "note") "second clamp after the divider (B): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Diode_SMD:D_SOD-923")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "D4"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ESD"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "c682bab4-dac7-5b3c-8973-4e75b77a32cd"))
     (comp
       (ref "F1")
       (value "0.75A hold PTC")
@@ -3604,7 +3652,7 @@
       (name "CVBS_B")
       (class "Default")
       (node
-        (ref "D2")
+        (ref "D3")
         (pin "1")
         (pintype "PASSIVE"))
       (node
@@ -3624,6 +3672,10 @@
       (name "CVBS_DIV_A")
       (class "Default")
       (node
+        (ref "D2")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
         (ref "L1")
         (pin "1")
         (pintype "PASSIVE"))
@@ -3639,6 +3691,10 @@
       (code 39)
       (name "CVBS_DIV_B")
       (class "Default")
+      (node
+        (ref "D4")
+        (pin "1")
+        (pintype "PASSIVE"))
       (node
         (ref "L2")
         (pin "1")
@@ -3829,6 +3885,14 @@
         (pintype "PASSIVE"))
       (node
         (ref "D2")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D3")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "D4")
         (pin "2")
         (pintype "PASSIVE"))
       (node

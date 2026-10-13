@@ -9,7 +9,9 @@ qty,refs,part,value,footprint,note
 2,C11 C26,C,4.7u,Capacitor_SMD:C_0603_1608Metric,
 1,J2,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J6: connect pin n to J6-n
 1,J3,CONN_1x20,PinHeader_1x20,Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical,Mirror of Tang Nano 20K J5: connect pin n to J5-n
-2,D1 D2,ESD,ESD9B5.0ST5G,Diode_SMD:D_SOD-923,"LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)"
+1,D2,ESD,ESD9B3.3ST5G,Diode_SMD:D_SOD-923,"second clamp after the divider (A): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare"
+1,D4,ESD,ESD9B3.3ST5G,Diode_SMD:D_SOD-923,"second clamp after the divider (B): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare"
+2,D1 D3,ESD,ESD9B5.0ST5G,Diode_SMD:D_SOD-923,"LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)"
 1,F1,F,0.75A hold PTC,Fuse:Fuse_1206_3216Metric,"Resettable fuse for receiver A supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint"
 1,F2,F,0.75A hold PTC,Fuse:Fuse_1206_3216Metric,"Resettable fuse for receiver B supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint"
 4,FB1 FB2 FB3 FB4,FB,BLM18KG601SN1D,Inductor_SMD:L_0603_1608Metric,"ferrite bead 600 ohm @ 100 MHz, >= 200 mA"

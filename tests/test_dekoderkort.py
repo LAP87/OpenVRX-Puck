@@ -20,7 +20,7 @@ def test_schema_gateware_contract_and_negative_controls(tmp_path):
     schema.build()
     circuit = builtins.default_circuit
     assert not schema.design_checks(circuit)
-    assert len(circuit.parts) == 124
+    assert len(circuit.parts) == 126    # 2026-10-13: a second ESD clamp per input after the divider
     isolated = tmp_path / 'gateware'
     for directory in ('boards', 'top', 'tools'):
         (isolated / directory).mkdir(parents=True)

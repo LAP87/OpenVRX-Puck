@@ -9,6 +9,7 @@ Grundkontroll 2026-10-04. Den nya industrivarianten TVP5150AM1IPBSR kontrollerad
 | AP7361C-33E-13 (U1) | Diodes Inc. | Active | |
 | AP2112K-1.8TRG1 (U2, U3) | Diodes Inc. | Active | Pinkompatibla kopior finns från andra tillverkare; behövs inte nu. |
 | ESD9B5.0ST5G (D1, D2) | onsemi | Active | SZ-varianten (fordonsklassad) är också Active. |
+| ESD9B3.3ST5G (D3, D4) | onsemi | **Active**, kontrollerad 2026-10-13 | Andra klampen efter delaren. onsemis produktsida anger Active för både vanlig och SZ-variant. |
 | BLM18KG601SN1D (FB1–FB4) | Murata | Active | BOM:en saknade förpackningssuffixet `D`; rättat. |
 | X32251431818MSB4SI (Y1, Y2) | YXC | Säljs (YXC publicerar ingen livscykel) | ±10 ppm vid 25 °C, ±20 ppm över −40…85 °C; TVP kräver ±50 ppm. Likvärdig YXC-del finns om den tar slut. LCSC-numret var inte ifyllt; rättat. |
 

@@ -320,6 +320,22 @@ def build():
         # ~28 to ~22 ohm, so recheck the 0.47 uH / 1 nF filter if it is fitted. Same 0402 positions, no re-layout.
         R('37.4', cvbs, mid, f'fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination ({ch}); 47 ohm = hot-video alternative (SLEU044)')
         R('37.4', mid, GND, f'fig. 6-1 R2/R6: shunt half ({ch}); 27 ohm = hot-video alternative (SLEU044)')
+        # Second clamp after the divider (review 2026-10-05, Puck #3; owner's decision 2026-10-12: fit it).
+        # D1/D2 at the connector clamp at 12.5-15 V for an 8 kV pulse, and the divider halves that: 6-7 V
+        # would reach the AAF and the coupling capacitor, in front of an input rated 2.0 V. A 3.3 V part of the
+        # same family here takes most of the pulse energy next to the decoder and halves the peak again;
+        # the rest is absorbed by the AAF inductor and the decoder's own input diodes. Not a full fix: the
+        # TI reference design has no clamp here, and the remaining peak still exceeds the pin rating, so
+        # the connector must not be plugged with the receiver powered from another ground. Bidirectional,
+        # since the AC-coupled receiver output swings below 0 V. ~15 pF at the ~18 ohm node: pole far
+        # above the video band. Leave unfitted (DNP) to compare on the bench.
+        esd2 = Part(tool=SKIDL, name='ESD', ref_prefix='D', value='ESD9B3.3ST5G',
+                    footprint='Diode_SMD:D_SOD-923',
+                    pins=[Pin(num=1, name='K', func=T.PASSIVE), Pin(num=2, name='A', func=T.PASSIVE)])
+        esd2.fields['note'] = (f'second clamp after the divider ({ch}): bidirectional 3.3 V, same family as D1/D2, '
+                               'onsemi Active 2026-10-13; fit, or leave off to compare')
+        esd2['K'] += mid
+        esd2['A'] += GND
         # anti-aliasing filter (fig. 6-1 note F), 2nd-order LC from the ~28 ohm Thevenin source of the
         # divider: f0 7.3 MHz, Q 0.77 -> flat to 4.2 MHz, -1 dB @ 6 MHz, -10.6 dB @ 13.5 MHz, -22.6 dB @ 27 MHz
         # (design/rev_a/README.md). A 0 ohm in the L position bypasses it.

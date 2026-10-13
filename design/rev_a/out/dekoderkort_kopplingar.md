@@ -246,10 +246,22 @@ _LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on
 - 1 K: CVBS_A
 - 2 A: GND
 
-## D2 ESD9B5.0ST5G
+## D2 ESD9B3.3ST5G
+_second clamp after the divider (A): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare_
+
+- 1 K: CVBS_DIV_A
+- 2 A: GND
+
+## D3 ESD9B5.0ST5G
 _LCSC C111566, bidirectional 5 V, ~15 pF (pole ~280 MHz at ~37 ohm: no effect on video); bidirectional because AC-coupled receiver outputs swing below 0 V (fig. 6-1 note G)_
 
 - 1 K: CVBS_B
+- 2 A: GND
+
+## D4 ESD9B3.3ST5G
+_second clamp after the divider (B): bidirectional 3.3 V, same family as D1/D2, onsemi Active 2026-10-13; fit, or leave off to compare_
+
+- 1 K: CVBS_DIV_B
 - 2 A: GND
 
 ## F1 0.75A hold PTC
