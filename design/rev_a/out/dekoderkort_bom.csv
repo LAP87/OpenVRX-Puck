@@ -1,5 +1,6 @@
 qty,refs,part,value,footprint,note
-12,C8 C10 C12 C13 C19 C20 C23 C25 C27 C28 C34 C35,C,0.1u,Capacitor_SMD:C_0402_1005Metric,
+1,U6,ADS1115,ADS1115IDGSR,Package_SO:VSSOP-10_3x3mm_P0.5mm,"TI ADS1115IDGSR: RSSI A on AIN0, RSSI B on AIN1, read once per field; 8-860 SPS, conversion time 1/DR. ADDR to GND = 48h (table 7-2). AIN2/AIN3 to GND and ALERT/RDY open (section 9.1.4). VDD 3.3 V like the I2C pull-ups"
+15,C8 C10 C12 C13 C19 C20 C23 C25 C27 C28 C34 C35 C38 C39 C40,C,0.1u,Capacitor_SMD:C_0402_1005Metric,
 6,C2 C3 C5 C7 C17 C32,C,10u,Capacitor_SMD:C_0805_2012Metric,
 2,C18 C33,C,1n C0G,Capacitor_SMD:C_0402_1005Metric,
 10,C4 C6 C9 C14 C15 C16 C24 C29 C30 C31,C,1u,Capacitor_SMD:C_0603_1608Metric,
@@ -13,7 +14,7 @@ qty,refs,part,value,footprint,note
 1,F2,F,0.75A hold PTC,Fuse:Fuse_1206_3216Metric,"Resettable fuse for receiver B supply, >= 0.75 A HOLD current (SpeedyBee draws ~0.45 A at 5 V); check that the chosen series is available in 1206, else change footprint"
 4,FB1 FB2 FB3 FB4,FB,BLM18KG601SN1D,Inductor_SMD:L_0603_1608Metric,"ferrite bead 600 ohm @ 100 MHz, >= 200 mA"
 1,JP2,JP,SolderJumper_2_Bridged,Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm,5 V from Tang Nano 20K J5-1 (closed by default); open when powering from J1
-1,JP1,JP,SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,"Close to join SDA_A/SDA_B into one bus (then set decoder B to BAh, see R I2CSEL)"
+1,JP1,JP,SolderJumper_2_Open,Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,"Default open: split SDA, both decoders 5Ch. Shared SDA/5Ch+5Dh needs a separately verified two-address firmware configuration; current M3/M4/M6 do not support it."
 1,L1,L,0.47uH,Inductor_SMD:L_0603_1608Metric,"AAF inductor (A): 0603, SRF > 100 MHz, DCR < 0.5 ohm; or 0 ohm to bypass"
 1,L2,L,0.47uH,Inductor_SMD:L_0603_1608Metric,"AAF inductor (B): 0603, SRF > 100 MHz, DCR < 0.5 ohm; or 0 ohm to bypass"
 1,U2,LDO_AP2112K,AP2112K-1.8TRG1,Package_TO_SOT_SMD:SOT-23-5,"LCSC C176944. 3.3 V -> 1.8 V digital (2x DVDD), ~66 mA max (0.12 W)"
@@ -21,17 +22,17 @@ qty,refs,part,value,footprint,note
 1,U1,LDO_AP7361C,AP7361C-33E-13,Package_TO_SOT_SMD:SOT-223-3_TabPin2,"LCSC C500795. 5 V -> 3.3 V for TVP IO_DVDD, pull-ups and both 1.8 V LDOs (~170 mA: 0.29 W, +32 C at 110 C/W)"
 4,H1 H2 H3 H4,MH,MountingHole_M2,MountingHole:MountingHole_2.2mm_M2,
 1,J1,PWR_IN,PWR_IN,Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,Optional 5 V input if not powered from header J5-1
-2,R6 R22,R,100k,Resistor_SMD:R_0402_1005Metric,
-6,R7 R8 R17 R23 R24 R33,R,10k,Resistor_SMD:R_0402_1005Metric,
+4,R6 R22 R36 R38,R,100k,Resistor_SMD:R_0402_1005Metric,
+8,R7 R8 R17 R23 R24 R33 R37 R39,R,10k,Resistor_SMD:R_0402_1005Metric,
 18,R9 R10 R11 R12 R13 R14 R15 R16 R19 R25 R26 R27 R28 R29 R30 R31 R32 R35,R,33,Resistor_SMD:R_0402_1005Metric,
 4,R4 R5 R20 R21,R,37.4,Resistor_SMD:R_0402_1005Metric,
 3,R1 R2 R3,R,4.7k,Resistor_SMD:R_0402_1005Metric,
 2,R18 R34,R,DNP 10k,Resistor_SMD:R_0402_1005Metric,
-12,TP1 TP2 TP3 TP4 TP5 TP6 TP8 TP9 TP10 TP11 TP12 TP13,TP,TestPoint,TestPoint:TestPoint_Pad_D1.0mm,
+14,TP1 TP2 TP3 TP4 TP5 TP6 TP8 TP9 TP10 TP11 TP12 TP13 TP15 TP16,TP,TestPoint,TestPoint:TestPoint_Pad_D1.0mm,
 1,TP7,TP,TestPoint_GND,TestPoint:TestPoint_Pad_D1.0mm,GND pad next to header J2 (SCLK A): probe ground for the 27 MHz clock
 1,TP14,TP,TestPoint_GND,TestPoint:TestPoint_Pad_D1.0mm,GND pad next to header J3 (SCLK B): probe ground for the 27 MHz clock
 1,U4,TVP5150AM1PBS,TVP5150AM1IPBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder A"
 1,U5,TVP5150AM1PBS,TVP5150AM1IPBSR,Package_QFP:TQFP-32_5x5mm_P0.5mm,"TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md); decoder B"
-1,J4,VIDEO_IN_A,VIDEO_IN_A,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,"Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS"
-1,J5,VIDEO_IN_B,VIDEO_IN_B,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,"Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS"
+1,J4,VIDEO_IN_A,VIDEO_IN_A,Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,"Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI"
+1,J5,VIDEO_IN_B,VIDEO_IN_B,Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical,"Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI"
 2,Y1 Y2,XTAL,X32251431818MSB4SI,Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm,"YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P (TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)"

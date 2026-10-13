@@ -32,6 +32,7 @@ so compatibility with a chosen display must be checked before an XR build.
 | Decoders | 2x TVP5150AM1 (rev A board) |
 | FPGA | Tang Nano 20K (GW2AR-18) for the prototype |
 | Output | HDMI 720p (buffered, or genlocked low-latency) |
+| RSSI | both receivers to an ADS1115 I2C ADC on the rev A board, read once per field |
 | UI | 2 buttons, 0.91" 128x32 OLED, on-screen menu, USB-UART measurement log |
 | Power | 2S 21700 Li-ion; USB-C PD in/out via IP2368 (planned) |
 | Enclosure | thin tough resin, internal shield can grounded to circuit ground |

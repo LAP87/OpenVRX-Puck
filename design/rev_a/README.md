@@ -14,10 +14,31 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 ```
 
 - **Stiftlisterna är numrerade som Tang Nano 20K:s J6 och J5.** Stift n till stift n ger signalplanen för M3/M4/M6 (`../../core/gateware/boards/`). Skriptet kontrollerar hela dekoderkartan för varje topp, både stiftnummer och RESETB/SPI-funktion; kortrevision och kabeldragning kontrolleras på bänken.
-- Mottagarkontakterna (JST-PH 3-pol: +5 V, GND, CVBS) matar varsin mottagare via en PTC-säkring med minst 0,75 A *hold*-ström (inte trip). Mottagaren drar ca 0,45 A; en 0,5 A-del klarar enligt Bourns MF-NSMF-kurvan bara ca 0,44 A vid 40 °C och 0,35 A vid 60 °C. Serien och 1206-footprinten är ännu inte kontrollerade.
+- Mottagarkontakterna (JST-PH 4-pol: +5 V, GND, CVBS, RSSI; till 2026-10-13 3-pol utan RSSI) matar varsin mottagare via en PTC-säkring med minst 0,75 A *hold*-ström (inte trip). Mottagaren drar ca 0,45 A; en 0,5 A-del klarar enligt Bourns MF-NSMF-kurvan bara ca 0,44 A vid 40 °C och 0,35 A vid 60 °C. Serien och 1206-footprinten är ännu inte kontrollerade.
 - I2C: gemensam SCL och separat SDA per dekoder är standardkopplingen: JP1 öppen, båda YOUT7/I2CSEL-strappade till 7-bitarsadress 5Ch (8-bitars skrivadress B8h). De nuvarande M3/M4/M6-bitströmmarna använder `SPLIT_SDA=1` och adresserna 5Ch/5Ch. Att stänga JP1 och strappa B till 5Dh (BAh) stöds inte av dessa bitströmmar; det kräver en separat verifierad tvåadresskonfiguration. Adressbytet ensamt räcker inte.
 - RESETB från FPGA:n på J6-18 (Tang-stift 18, som också driver kortets lysdiod 3). Lysdiodens 510 Ω mot 3,3 V innebär att RESETB inte hålls låg före FPGA-konfiguration. TVP-utgångarna är odefinierade tills en resetpuls har givits; nuvarande `tvp_ctrl` väntar 20 ms efter konfiguration, håller RESETB låg i 2 ms och lämnar sedan YOUT avstängda tills register 03h skrivs. Se [Core bring-up, avsnitt 5](../../core/gateware/BRINGUP.md#5-delade-stift-på-tang-nano-20k-rev-3923). Tidigare låg RESETB på J6-10 (stift 25), som ligger i HDMI-banken och är skärmens CEC-ledning (Puck issue #1, Core issue #6).
-- Testpunkter: CVBS, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder. Dessutom en jordpad vid vardera stiftlist (TP för GND), nära SCLK-stiftet: en mätprobs jordfjäder eller en kort returtråd där ger liten slinga när 27 MHz-klockan mäts.
+- RSSI från båda mottagarna till en I2C-ADC på dekoder A:s buss, se "RSSI" nedan.
+- Testpunkter: CVBS, RSSI, SCLK och de separata synksignalerna (HSYNC/VSYNC/AVID/FID) per dekoder. Dessutom en jordpad vid vardera stiftlist (TP för GND), nära SCLK-stiftet: en mätprobs jordfjäder eller en kort returtråd där ger liten slinga när 27 MHz-klockan mäts.
+
+## RSSI (tillagt 2026-10-13)
+
+Ägarens beslut 2026-10-13 (navets `docs/BESLUT_2026-10-12.md`, punkt 7): en I2C-ADC på rev A. Tang Nano 20K har ingen ADC, och mixern ser i dag fading först när raderna redan är förstörda. Lärdomarna från rx5808-pro-diversity och FENIX står i navets `research/RX5808_PRO_DIVERSITY_2026-10-13.md`.
+
+```
+mottagare A, stift 4 ─┬─ 100 kΩ ─ GND        ┌─ AIN0
+                      └─ 10 kΩ ─┬────────────┤
+                                 0,1 µF      │  ADS1115 (48h) ── SDA_A, SCL (dekoder A:s buss)
+mottagare B, stift 4  (samma) ───────────────┴─ AIN1         AIN2/AIN3 till GND, ALERT/RDY öppen
+```
+
+- **Krets:** TI ADS1115IDGSR, 16 bitar, 8–860 SPS, VSSOP-10. Den har fyra ingångar; två används. Stiftning, adress och regler för oanvända stift är kontrollerade mot TI SBAS444E (tabell 4-1, tabell 7-2, avsnitt 9.1.4). Databladet ingår inte i repot.
+- **Adress 48h** (ADDR till GND). Bussarna har redan dekodrarna på 5Ch eller 5Dh och OLED:en på 3Ch; ADS1115 kan bara ha 48h–4Bh, så ingen strappning krockar. `rssi_checks` i skriptet kontrollerar det.
+- **Matning 3,3 V**, som I2C-pull-upparna, med 0,1 µF vid VDD. Ingångarna tål GND − 0,3 V till VDD + 0,3 V.
+- **Filtret:** 100 kΩ pull-down vid kontakten ger 0 V utan mottagare (samma värde som FENIX). 10 kΩ och 0,1 µF ger τ = 1 ms: en fading syns inom samma fält, och radfrekvensens rippel (15,7 kHz) dämpas cirka 40 dB. 10 kΩ begränsar också strömmen in i ADC:ns skyddsdioder till under 0,2 mA om RSSI skulle nå 5 V.
+- **Fälttakt räcker nu.** Core läser båda kanalerna en gång per fält (50–60 Hz; uppgift 14 i navets arbetsplan). Det räcker för tidig varning till mixern, kanalscanning och loggen. Vid 475 SPS tar två omvandlingar cirka 4 ms av fältets 17–20 ms.
+- **Radtakt är rev B.** RSSI för varje rad, som FENIX använder för antennbyte, kräver minst 15–30 kSPS. Det betyder en SPI-ADC eller en FPGA med inbyggd ADC, inte en I2C-krets.
+- **Kalibrering:** inga två RX5808 har samma RSSI-omfång. Core sparar min och max per mottagare (uppgift 14 och 15). Testpunkten på RSSI-nätet gör det möjligt att jämföra ADC-värdet med en multimeter.
+- **Inte kontrollerat:** RSSI-stiftets spänningsomfång och utgångsimpedans hos de mottagare som ska användas, och om de har ett RSSI-stift som går att nå. Mät det innan ADC:ns mätområde väljs i Core.
 
 ## Filer
 
@@ -32,12 +53,12 @@ mottagare B ─ CVBS ─┘                    (samma)                          
 ## Kontroller som körs varje gång
 
 1. **SKiDL ERC**: inga fel och inga varningar (medvetet oanslutna stift är markerade NC).
-2. **Databladsregler** (`design_checks`): alla 32 TVP-stift anslutna, rätt matning per stift (IO_DVDD 3,3 V, DVDD 1,8 V digital, CH_AVDD/PLL_AVDD 1,8 V bakom egna ferriter), ingen 3,3 V/5 V-del på XTAL1-näten, exakt en pull-up per I2C-linje.
+2. **Databladsregler** (`design_checks`): RSSI-ADC:n på dekoder A:s buss med en ledig adress, 3,3 V och filter plus pull-down på varje RSSI-ingång (`rssi_checks`, med negativa kontroller i testet: fel SDA, 5 V, ombytta ingångar, adresskrock, ingen pull-down, ingen filterkondensator); alla 32 TVP-stift anslutna, rätt matning per stift (IO_DVDD 3,3 V, DVDD 1,8 V digital, CH_AVDD/PLL_AVDD 1,8 V bakom egna ferriter), ingen 3,3 V/5 V-del på XTAL1-näten, exakt en pull-up per I2C-linje.
 3. **Mot gateware**: varje dekodersignal på stiftlisterna jämförs separat med FPGA-stiften i `m3_probe.cst`, `m4_dual_mix.cst` och `m6_puck_proto.cst`. Saknade, dubbla eller kolliderande relevanta stiftbegränsningar avvisas. Core kräver dessutom entydig direkt RESETB/SPI-tilldelning till LED3/4/5 i M3/M4/M6. Negativa kontroller lämnar RESETB oansluten, byter D0/D1 på M3/M6, flyttar båda klockor och alla I2C-signaler på varje topp, tar bort/dubblerar stiftbegränsningar och tar bort kontraktskontrollen. Alla avvisas. En äldre Core utan kontraktet kan inte godkännas genom enbart stiftnummer.
 
 Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
 
-Utdata: 114 delar, 83 anslutna nät. Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
+Utdata: 124 delar, 87 anslutna nät (114 och 83 före RSSI). Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
 
 ## Granskning
 
@@ -62,6 +83,7 @@ Utdata: 114 delar, 83 anslutna nät. Två körningar gav samma innehåll när ge
 | Antialiasfilter | **0,47 µH** (0603, SRF > 100 MHz) i serie + **1 nF C0G** mot jord | att välja | Se nedan. |
 | Kristall | YXC **X32251431818MSB4SI**, 14,31818 MHz, CL 20 pF, ±10 ppm (±20 ppm över −40…85 °C), SMD3225 | C34748 | TVP kräver ±50 ppm. |
 | Lastkondensatorer | **33 pF C0G** ×2 per kristall | basic | CL1 = CL2 = 2·20 pF − ~5 pF strökapacitans ≈ 35 pF. Trimmas efter uppmätt SCLK om det behövs. |
+| RSSI-ADC | TI **ADS1115IDGSR**, VSSOP-10 | — | Två av fyra ingångar, 48h, 3,3 V. Se "RSSI". |
 | TVP5150AM1 | TVP5150AM1**I**PBSR (industriklass, −40…85 °C) | — | Bytt från handelsklassen PBSR (0…70 °C) i Puck #3: kortet sitter i ett slutet hus bredvid två mottagare och ett FPGA-kort. C10013 gäller handelsklassen och är inte kontrollerat för I-klassen; leverantör och lagerstatus okontrollerade. |
 
 Alternativ som noterats: LCSC har en 14,31818 MHz-oscillator för **1,8 V** (C16851, CTS, ±25 ppm). Den gör en gemensam klocka till båda XTAL1 säker, om det någon gång behövs.

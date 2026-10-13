@@ -15,6 +15,11 @@ hence a crystal per decoder, never a 3.3 V oscillator), application example
 figure 6-1 (2 x 37.4 ohm divider/termination, 0.1 uF coupling, REFP/REFM 1 uF,
 10 k pull-down on INTREQ/GPCL/VBLK, PDN high, I2CSEL pull).
 
+RSSI: both receivers' RSSI pins (pin 4 of the receiver connector) go through a
+100 k pull-down and a 10 k / 0.1 uF RC filter to a TI ADS1115 on decoder A's
+I2C bus (TI SBAS444E table 4-1, table 7-2, section 9.1.4). It is read once per
+field; per-line RSSI needs a faster ADC and is left for rev B.
+
 Outputs: KiCad netlist (importable into Pcbnew once footprints are
 assigned/checked), BOM CSV, ERC log, connection report. Values marked TBD
 need a part choice; LCSC numbers are only given where checked.
@@ -39,6 +44,11 @@ FP_0402C = 'Capacitor_SMD:C_0402_1005Metric'
 FP_0603C = 'Capacitor_SMD:C_0603_1608Metric'
 FP_0805C = 'Capacitor_SMD:C_0805_2012Metric'
 FP_0603L = 'Inductor_SMD:L_0603_1608Metric'
+
+# I2C addresses (7 bit) already on the buses the FPGA drives: the decoders (I2CSEL low or high) and the OLED.
+BUS_ADDRESSES = {0x5C: 'TVP5150AM1, I2CSEL low', 0x5D: 'TVP5150AM1, I2CSEL high', 0x3C: 'SSD1306 OLED'}
+# ADS1115 target address by the net its ADDR pin is tied to (SBAS444E table 7-2)
+ADS1115_ADDR = {'GND': 0x48, '+3V3': 0x49, 'I2C_SDA_A': 0x4A, 'I2C_SCL': 0x4B}
 
 
 # ---------------------------------------------------------------- part helpers
@@ -90,6 +100,20 @@ def tvp5150am1():
              pins=[Pin(num=n, name=nm, func=f) for n, nm, f in pins])
     p.fields['note'] = ('TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-grade code '
                         'and has NOT been checked for this grade (Other Suppliers, per design/REV_A_KONCEPT.md)')
+    return p
+
+
+def ads1115():
+    """TI ADS1115, 16-bit 4-input I2C ADC, VSSOP-10 (DGS); pinout from SBAS444E table 4-1."""
+    pins = [(1, 'ADDR', T.INPUT), (2, 'ALERT_RDY', T.OPENCOLL), (3, 'GND', T.PWRIN), (4, 'AIN0', T.INPUT),
+            (5, 'AIN1', T.INPUT), (6, 'AIN2', T.INPUT), (7, 'AIN3', T.INPUT), (8, 'VDD', T.PWRIN),
+            (9, 'SDA', T.BIDIR), (10, 'SCL', T.INPUT)]
+    p = Part(tool=SKIDL, name='ADS1115', ref_prefix='U', value='ADS1115IDGSR',
+             footprint='Package_SO:VSSOP-10_3x3mm_P0.5mm',
+             pins=[Pin(num=n, name=nm, func=f) for n, nm, f in pins])
+    p.fields['note'] = ('TI ADS1115IDGSR: RSSI A on AIN0, RSSI B on AIN1, read once per field; 8-860 SPS, '
+                        'conversion time 1/DR. ADDR to GND = 48h (table 7-2). AIN2/AIN3 to GND and ALERT/RDY open '
+                        '(section 9.1.4). VDD 3.3 V like the I2C pull-ups')
     return p
 
 
@@ -262,8 +286,8 @@ def build():
         C('1u', refp, refm, f'REFP-REFM {ch}', FP_0603C)
 
         # video input: connector -> ESD -> 37.4 + 37.4 ohm (75 ohm termination, /2) -> AAF footprint -> 0.1 uF
-        jin = conn(3, f'VIDEO_IN_{ch}', 'Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical',
-                   f'Receiver {ch}: 1 = +5 V out (fused), 2 = GND, 3 = CVBS')
+        jin = conn(4, f'VIDEO_IN_{ch}', 'Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical',
+                   f'Receiver {ch}: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI')
         cvbs = Net(f'CVBS_{ch}')
         mid = Net(f'CVBS_DIV_{ch}')
         aaf = Net(f'CVBS_AAF_{ch}')
@@ -272,6 +296,7 @@ def build():
         jin[1] += v5rx
         jin[2] += GND
         jin[3] += cvbs
+        jin[4] += Net(f'RSSI_{ch}')          # to the RSSI ADC (after this loop, so earlier refs keep their numbers)
         # Hold current, not trip: the receiver draws ~0.45 A. A 0.5 A hold part is derated to ~0.44 A at 40 C
         # and ~0.35 A at 60 C (Bourns MF-NSMF curves, as cited in the review of #2), which is below the load.
         # 0.75 A hold scales to roughly 0.66 A / 0.53 A on the same curve (estimate, not read from a datasheet).
@@ -378,6 +403,35 @@ def build():
         tpg.fields['note'] = f'GND pad next to header {j.ref} (SCLK {ch}): probe ground for the 27 MHz clock'
         tpg[1] += GND
 
+    # ---- RSSI ADC on decoder A's I2C bus (shared SCL, SDA_A)
+    # Each RSSI: 100 k pull-down at the connector (0 V with no receiver; FENIX uses the same value), then a
+    # 10 k / 0.1 uF low-pass to the ADC. tau = 1 ms (159 Hz): a fade still shows within a field, the
+    # line-rate ripple (15.7 kHz) is ~40 dB down, and the ADC averages over its conversion time on top.
+    # The 10 k also limits the current into the ADC's input clamps to < 0.2 mA if RSSI ever reached 5 V
+    # (abs. max 10 mA). Source impedance 10 k against >= 6 Mohm common-mode input impedance at
+    # FSR >= +-2.048 V: < 0.2 % gain error, calibrated out per receiver anyway.
+    for ch in 'AB':
+        rssi = Net.get(f'RSSI_{ch}')
+        rssi_f = Net(f'RSSI_ADC_{ch}')
+        R('100k', rssi, GND, f'RSSI {ch} pull-down at the connector')
+        R('10k', rssi, rssi_f, f'RSSI {ch} low-pass, series (with 0.1 uF: 1 ms)')
+        C('0.1u', rssi_f, GND, f'RSSI {ch} low-pass, shunt (with 10 k: 1 ms)')
+        tpr = Part(tool=SKIDL, name='TP', ref_prefix='TP', value='TestPoint',
+                   footprint='TestPoint:TestPoint_Pad_D1.0mm', pins=[Pin(num=1, name='1', func=T.PASSIVE)])
+        tpr[1] += rssi          # calibration: compare the ADC reading with a meter here
+    adc = ads1115()
+    adc['VDD'] += V3
+    adc['GND'] += GND
+    C('0.1u', V3, GND, 'ADS1115 VDD decoupling (table 4-1)')
+    adc['ADDR'] += GND                       # 48h
+    adc['SDA'] += sda[0]
+    adc['SCL'] += SCL
+    adc['AIN0'] += Net.get('RSSI_ADC_A')
+    adc['AIN1'] += Net.get('RSSI_ADC_B')
+    adc['AIN2'] += GND
+    adc['AIN3'] += GND
+    adc['ALERT_RDY'] += NC                   # not used: the FPGA polls the conversion register
+
     for k in range(4):
         Part(tool=SKIDL, name='MH', ref_prefix='H', value='MountingHole_M2', footprint='MountingHole:MountingHole_2.2mm_M2',
              pins=[])
@@ -467,9 +521,57 @@ def check_against_gateware(circuit, gw=None):
     return problems
 
 
+def rssi_checks(circuit):
+    """The RSSI ADC: one ADS1115 on 3.3 V on decoder A's bus, an address no other device on the bus uses,
+    and each receiver's RSSI through the pull-down and the RC filter to its own input."""
+    problems = []
+    adcs = [p for p in circuit.parts if p.name == 'ADS1115']
+    if len(adcs) != 1:
+        return [f'{len(adcs)} RSSI ADCs, expected 1']
+    adc = adcs[0]
+    net = {pin.name: (pin.net.name if pin.net is not None and pin.net.name else None) for pin in adc.pins}
+    if net['VDD'] != '+3V3' or net['GND'] != 'GND':
+        problems.append(f'{adc.ref} supply VDD={net["VDD"]} GND={net["GND"]}, expected +3V3 / GND')
+    if net['SDA'] != 'I2C_SDA_A' or net['SCL'] != 'I2C_SCL':
+        problems.append(f'{adc.ref} on SDA={net["SDA"]} SCL={net["SCL"]}, expected decoder A bus')
+    addr = ADS1115_ADDR.get(net['ADDR'])
+    if addr is None:
+        problems.append(f'{adc.ref} ADDR on {net["ADDR"]}: no defined I2C address')
+    elif addr in BUS_ADDRESSES:
+        problems.append(f'{adc.ref} address {addr:02X}h collides with {BUS_ADDRESSES[addr]}')
+    for n in ('AIN2', 'AIN3'):
+        if net[n] not in (None, 'GND'):
+            problems.append(f'{adc.ref} unused {n} on {net[n]}, expected GND or open')
+
+    def parts_on(name, prefix):
+        return [p.part for nn in circuit.nets if nn.name == name for p in nn.pins if p.part.ref.startswith(prefix)]
+
+    def far(part, name):
+        return [p.net.name for p in part.pins if p.net is not None and p.net.name != name]
+
+    for ch, ain in (('A', 'AIN0'), ('B', 'AIN1')):
+        want, src = f'RSSI_ADC_{ch}', f'RSSI_{ch}'
+        if net[ain] != want:
+            problems.append(f'{adc.ref} {ain} on {net[ain]}, expected {want}')
+            continue
+        if not [p for nn in circuit.nets if nn.name == src for p in nn.pins
+                if p.part.name == f'VIDEO_IN_{ch}' and str(p.num) == '4']:
+            problems.append(f'{src} not on pin 4 of VIDEO_IN_{ch}')
+        pull = [r.value for r in parts_on(src, 'R') if far(r, src) == ['GND']]
+        if pull != ['100k']:
+            problems.append(f'{src} pull-down {pull}, expected one 100k to GND')
+        series = [r.value for r in parts_on(src, 'R') if far(r, src) == [want]]
+        if series != ['10k']:
+            problems.append(f'{src} series {series}, expected one 10k to {want}')
+        shunt = [c.value for c in parts_on(want, 'C') if far(c, want) == ['GND']]
+        if shunt != ['0.1u']:
+            problems.append(f'{want} filter capacitor {shunt}, expected one 0.1u to GND')
+    return problems
+
+
 def design_checks(circuit):
     """Rules from the datasheet that ERC cannot know, plus the gateware pin plan."""
-    problems = check_against_gateware(circuit)
+    problems = check_against_gateware(circuit) + rssi_checks(circuit)
     nets = {n.name: n for n in circuit.nets}
     for ch in 'AB':
         x1 = nets[f'XTAL1_{ch}']

@@ -2,7 +2,7 @@
   (version "D")
   (design
     (source "dekoderkort.py")
-    (date "10/06/2026 11:31 AM")
+    (date "10/13/2026 09:13 AM")
     (tool "SKiDL (2.3.0)")
     (sheet
       (number 1)
@@ -787,6 +787,54 @@
       (component_classes)
       (tstamps "a44c6131-94f0-55c4-a73a-c1de6dd4270a"))
     (comp
+      (ref "C38")
+      (value "0.1u")
+      (description "")
+      (footprint "Capacitor_SMD:C_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI A low-pass, shunt (with 10 k: 1 ms)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_SMD:C_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C38"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "be52583c-0c6c-5a62-aaf2-00548deb9ef7"))
+    (comp
+      (ref "C39")
+      (value "0.1u")
+      (description "")
+      (footprint "Capacitor_SMD:C_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI B low-pass, shunt (with 10 k: 1 ms)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_SMD:C_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C39"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "9232ff12-9695-5e05-9fed-a2f9376f63f8"))
+    (comp
       (ref "C4")
       (value "1u")
       (description "")
@@ -810,6 +858,30 @@
         (tstamps "/"))
       (component_classes)
       (tstamps "6f9a1813-19d4-5d20-adea-8868e7232e30"))
+    (comp
+      (ref "C40")
+      (value "0.1u")
+      (description "")
+      (footprint "Capacitor_SMD:C_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "ADS1115 VDD decoupling (table 4-1)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Capacitor_SMD:C_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "C40"))
+      (libsource
+        (lib "NO_LIB")
+        (part "C"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "0081ecb2-1219-5a6b-829c-b1719e0c4f05"))
     (comp
       (ref "C5")
       (value "10u")
@@ -1286,14 +1358,14 @@
       (ref "J4")
       (value "VIDEO_IN_A")
       (description "")
-      (footprint "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical")
+      (footprint "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical")
       (fields
         (field
-          (name "note") "Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS")
+          (name "note") "Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI")
         (field
           (name "Description"))
         (field
-          (name "Footprint") "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical")
+          (name "Footprint") "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical")
         (field
           (name "Datasheet"))
         (field
@@ -1310,14 +1382,14 @@
       (ref "J5")
       (value "VIDEO_IN_B")
       (description "")
-      (footprint "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical")
+      (footprint "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical")
       (fields
         (field
-          (name "note") "Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS")
+          (name "note") "Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI")
         (field
           (name "Description"))
         (field
-          (name "Footprint") "Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical")
+          (name "Footprint") "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical")
         (field
           (name "Datasheet"))
         (field
@@ -1337,7 +1409,7 @@
       (footprint "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm")
       (fields
         (field
-          (name "note") "Close to join SDA_A/SDA_B into one bus (then set decoder B to BAh, see R I2CSEL)")
+          (name "note") "Default open: split SDA, both decoders 5Ch. Shared SDA/5Ch+5Dh needs a separately verified two-address firmware configuration; current M3/M4/M6 do not support it.")
         (field
           (name "Description"))
         (field
@@ -2123,6 +2195,102 @@
       (component_classes)
       (tstamps "c18b3153-aa22-515a-8b39-79a9493340a7"))
     (comp
+      (ref "R36")
+      (value "100k")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI A pull-down at the connector")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R36"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "87cf79d8-165a-5e0a-99b1-dc37c80f4ff2"))
+    (comp
+      (ref "R37")
+      (value "10k")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI A low-pass, series (with 0.1 uF: 1 ms)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R37"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "92df088b-f6e6-5813-b0bc-b368d50d4392"))
+    (comp
+      (ref "R38")
+      (value "100k")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI B pull-down at the connector")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R38"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "c1ee90a8-14ab-5f9c-a674-53f5cc8bac55"))
+    (comp
+      (ref "R39")
+      (value "10k")
+      (description "")
+      (footprint "Resistor_SMD:R_0402_1005Metric")
+      (fields
+        (field
+          (name "note") "RSSI B low-pass, series (with 0.1 uF: 1 ms)")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Resistor_SMD:R_0402_1005Metric")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "R39"))
+      (libsource
+        (lib "NO_LIB")
+        (part "R"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "05ba47c2-b500-57b8-adeb-d243301192fa"))
+    (comp
       (ref "R4")
       (value "37.4")
       (description "")
@@ -2400,6 +2568,50 @@
         (tstamps "/"))
       (component_classes)
       (tstamps "d65c6246-ec18-5b5d-bdaa-42ed9f327646"))
+    (comp
+      (ref "TP15")
+      (value "TestPoint")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D1.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP15"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "8e3bc712-45e2-5a15-9359-dc14204f8bab"))
+    (comp
+      (ref "TP16")
+      (value "TestPoint")
+      (description "")
+      (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+      (fields
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "TestPoint:TestPoint_Pad_D1.0mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "TP16"))
+      (libsource
+        (lib "NO_LIB")
+        (part "TP"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "630824d8-a5d4-56fa-a563-f220442a5e69"))
     (comp
       (ref "TP2")
       (value "TestPoint")
@@ -2699,6 +2911,30 @@
       (component_classes)
       (tstamps "6254ed11-c784-58f8-9988-ecfc74740e7c"))
     (comp
+      (ref "U6")
+      (value "ADS1115IDGSR")
+      (description "")
+      (footprint "Package_SO:VSSOP-10_3x3mm_P0.5mm")
+      (fields
+        (field
+          (name "note") "TI ADS1115IDGSR: RSSI A on AIN0, RSSI B on AIN1, read once per field; 8-860 SPS, conversion time 1/DR. ADDR to GND = 48h (table 7-2). AIN2/AIN3 to GND and ALERT/RDY open (section 9.1.4). VDD 3.3 V like the I2C pull-ups")
+        (field
+          (name "Description"))
+        (field
+          (name "Footprint") "Package_SO:VSSOP-10_3x3mm_P0.5mm")
+        (field
+          (name "Datasheet"))
+        (field
+          (name "SKiDL Tag") "U6"))
+      (libsource
+        (lib "NO_LIB")
+        (part "ADS1115"))
+      (sheetpath
+        (names "/")
+        (tstamps "/"))
+      (component_classes)
+      (tstamps "aee7dbbb-30a2-5780-a35b-54386b8e659f"))
+    (comp
       (ref "Y1")
       (value "X32251431818MSB4SI")
       (description "")
@@ -2824,6 +3060,10 @@
         (pin "1")
         (pintype "PASSIVE"))
       (node
+        (ref "C40")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
         (ref "C6")
         (pin "1")
         (pintype "PASSIVE"))
@@ -2882,6 +3122,10 @@
       (node
         (ref "U5")
         (pin "10")
+        (pintype "POWER-IN"))
+      (node
+        (ref "U6")
+        (pin "8")
         (pintype "POWER-IN")))
     (net
       (code 4)
@@ -3544,7 +3788,19 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
+        (ref "C38")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C39")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
         (ref "C4")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "C40")
         (pin "2")
         (pintype "PASSIVE"))
       (node
@@ -3616,6 +3872,14 @@
         (pin "2")
         (pintype "PASSIVE"))
       (node
+        (ref "R36")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R38")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
         (ref "R5")
         (pin "2")
         (pintype "PASSIVE"))
@@ -3676,6 +3940,22 @@
         (pin "7")
         (pintype "POWER-IN"))
       (node
+        (ref "U6")
+        (pin "1")
+        (pintype "INPUT"))
+      (node
+        (ref "U6")
+        (pin "3")
+        (pintype "POWER-IN"))
+      (node
+        (ref "U6")
+        (pin "6")
+        (pintype "INPUT"))
+      (node
+        (ref "U6")
+        (pin "7")
+        (pintype "INPUT"))
+      (node
         (ref "Y1")
         (pin "2")
         (pintype "PASSIVE"))
@@ -3734,7 +4014,11 @@
       (node
         (ref "U5")
         (pin "21")
-        (pintype "BIDIRECTIONAL")))
+        (pintype "BIDIRECTIONAL"))
+      (node
+        (ref "U6")
+        (pin "10")
+        (pintype "INPUT")))
     (net
       (code 46)
       (name "I2C_SDA_A")
@@ -3754,6 +4038,10 @@
       (node
         (ref "U4")
         (pin "22")
+        (pintype "BIDIRECTIONAL"))
+      (node
+        (ref "U6")
+        (pin "9")
         (pintype "BIDIRECTIONAL")))
     (net
       (code 47)
@@ -3929,6 +4217,78 @@
         (pintype "PASSIVE")))
     (net
       (code 58)
+      (name "RSSI_A")
+      (class "Default")
+      (node
+        (ref "J4")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R36")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R37")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP15")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 59)
+      (name "RSSI_ADC_A")
+      (class "Default")
+      (node
+        (ref "C38")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R37")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U6")
+        (pin "4")
+        (pintype "INPUT")))
+    (net
+      (code 60)
+      (name "RSSI_ADC_B")
+      (class "Default")
+      (node
+        (ref "C39")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R39")
+        (pin "2")
+        (pintype "PASSIVE"))
+      (node
+        (ref "U6")
+        (pin "5")
+        (pintype "INPUT")))
+    (net
+      (code 61)
+      (name "RSSI_B")
+      (class "Default")
+      (node
+        (ref "J5")
+        (pin "4")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R38")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "R39")
+        (pin "1")
+        (pintype "PASSIVE"))
+      (node
+        (ref "TP16")
+        (pin "1")
+        (pintype "PASSIVE")))
+    (net
+      (code 62)
       (name "TVPA_D0")
       (class "Default")
       (node
@@ -3940,7 +4300,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 59)
+      (code 63)
       (name "TVPA_D1")
       (class "Default")
       (node
@@ -3952,7 +4312,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 60)
+      (code 64)
       (name "TVPA_D2")
       (class "Default")
       (node
@@ -3964,7 +4324,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 61)
+      (code 65)
       (name "TVPA_D3")
       (class "Default")
       (node
@@ -3976,7 +4336,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 62)
+      (code 66)
       (name "TVPA_D4")
       (class "Default")
       (node
@@ -3988,7 +4348,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 63)
+      (code 67)
       (name "TVPA_D5")
       (class "Default")
       (node
@@ -4000,7 +4360,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 64)
+      (code 68)
       (name "TVPA_D6")
       (class "Default")
       (node
@@ -4012,7 +4372,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 65)
+      (code 69)
       (name "TVPA_D7")
       (class "Default")
       (node
@@ -4024,7 +4384,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 66)
+      (code 70)
       (name "TVPA_SCLK")
       (class "Default")
       (node
@@ -4040,7 +4400,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 67)
+      (code 71)
       (name "TVPB_D0")
       (class "Default")
       (node
@@ -4052,7 +4412,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 68)
+      (code 72)
       (name "TVPB_D1")
       (class "Default")
       (node
@@ -4064,7 +4424,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 69)
+      (code 73)
       (name "TVPB_D2")
       (class "Default")
       (node
@@ -4076,7 +4436,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 70)
+      (code 74)
       (name "TVPB_D3")
       (class "Default")
       (node
@@ -4088,7 +4448,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 71)
+      (code 75)
       (name "TVPB_D4")
       (class "Default")
       (node
@@ -4100,7 +4460,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 72)
+      (code 76)
       (name "TVPB_D5")
       (class "Default")
       (node
@@ -4112,7 +4472,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 73)
+      (code 77)
       (name "TVPB_D6")
       (class "Default")
       (node
@@ -4124,7 +4484,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 74)
+      (code 78)
       (name "TVPB_D7")
       (class "Default")
       (node
@@ -4136,7 +4496,7 @@
         (pin "2")
         (pintype "PASSIVE")))
     (net
-      (code 75)
+      (code 79)
       (name "TVPB_SCLK")
       (class "Default")
       (node
@@ -4152,7 +4512,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 76)
+      (code 80)
       (name "TVP_RESETB")
       (class "Default")
       (node
@@ -4168,7 +4528,7 @@
         (pin "8")
         (pintype "INPUT")))
     (net
-      (code 77)
+      (code 81)
       (name "VSYNC_PALI_A")
       (class "Default")
       (node
@@ -4180,7 +4540,7 @@
         (pin "24")
         (pintype "OUTPUT")))
     (net
-      (code 78)
+      (code 82)
       (name "VSYNC_PALI_B")
       (class "Default")
       (node
@@ -4192,7 +4552,7 @@
         (pin "24")
         (pintype "OUTPUT")))
     (net
-      (code 79)
+      (code 83)
       (name "XTAL1_A")
       (class "Default")
       (node
@@ -4212,7 +4572,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 80)
+      (code 84)
       (name "XTAL1_B")
       (class "Default")
       (node
@@ -4232,7 +4592,7 @@
         (pin "1")
         (pintype "PASSIVE")))
     (net
-      (code 81)
+      (code 85)
       (name "XTAL2_A")
       (class "Default")
       (node
@@ -4252,7 +4612,7 @@
         (pin "3")
         (pintype "PASSIVE")))
     (net
-      (code 82)
+      (code 86)
       (name "XTAL2_B")
       (class "Default")
       (node
