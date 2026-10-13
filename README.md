@@ -55,11 +55,12 @@ so compatibility with a chosen display must be checked before an XR build.
 
 ## Pinned Core
 
-The `core/` submodule pins `46a1e4f284605a9521f592faff33068986e92d25`.
-Its 728 simulation tests and eight formal proofs passed in source-bound review.
-Fresh M0/M4/M6 default builds, separate M4/M6 VINTERP builds and separate
-M0/M4/M6 HDMI builds passed the 75 MHz timing and TMDS fuse checks, with seeds
-0/0/2 and the unchanged I/O-register defaults. [Review receipts](https://github.com/LAP87/OpenVRX/blob/cb65b9afd377c0af9956797c1a864b63dcf55e0f/docs/overnight/2026-10-08/STATUS.md).
+The `core/` submodule pins `072dbdef3afe53384be19008768661bad20524d6`.
+The suite is 757 tests, green on Core `main` `2b67dea` (both Core READMEs name the
+commit of the suite and of every build). Core `main` since the previous pin
+`46a1e4f` adds work-plan tasks 4-15 (VINTERP, AVI-infoframe, LOW row placement,
+RSSI reading/calibration/mixer health, SCAN and settings in flash) and the night-pass
+tasks 16-20 (campaign reruns, BRINGUP, status lines).
 
 Vertical interpolation remains off, the transmitter defaults to DVI, and the
 varying LOW line stays after vsync. VINTERP=1 with HDMI=1 has not been built in
