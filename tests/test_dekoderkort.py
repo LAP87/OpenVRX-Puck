@@ -20,7 +20,7 @@ def test_schema_gateware_contract_and_negative_controls(tmp_path):
     schema.build()
     circuit = builtins.default_circuit
     assert not schema.design_checks(circuit)
-    assert len(circuit.parts) == 114
+    assert len(circuit.parts) == 124
     isolated = tmp_path / 'gateware'
     for directory in ('boards', 'top', 'tools'):
         (isolated / directory).mkdir(parents=True)
@@ -100,3 +100,42 @@ def test_all_supported_tops_check_decoder_and_board_pin_maps(tmp_path):
     problems = schema.check_against_gateware(circuit, isolated)
     assert any('m4_dual_mix' in p and 'tvpb_d[0]' in p and 'duplicate' in p for p in problems), problems
     path.write_text(original)
+
+
+def test_rssi_adc_and_negative_controls():
+    """The RSSI ADC on decoder A's bus with a free address, and each receiver's RSSI through the
+    pull-down and the RC filter. Each fault below must be reported by rssi_checks."""
+    builtins.default_circuit.reset()
+    spec = importlib.util.spec_from_file_location('dekoderkort_rssi', ROOT / 'design/rev_a/dekoderkort.py')
+    schema = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(schema)
+    schema.build()
+    circuit = builtins.default_circuit
+    assert not schema.rssi_checks(circuit)
+    nets = {n.name: n for n in circuit.nets}
+    adc = [p for p in circuit.parts if p.name == 'ADS1115'][0]
+    assert adc['ADDR'].net.name == 'GND' and schema.ADS1115_ADDR['GND'] == 0x48
+
+    def moved(pin, to):
+        old = pin.net
+        pin.disconnect()
+        nets[to] += pin
+        problems = schema.rssi_checks(circuit)
+        pin.disconnect()
+        old += pin
+        assert not schema.rssi_checks(circuit)
+        return problems
+
+    assert any('decoder A bus' in p for p in moved(adc['SDA'], 'I2C_SDA_B'))
+    assert any('supply' in p for p in moved(adc['VDD'], '+5V'))
+    assert any('AIN0' in p for p in moved(adc['AIN0'], 'RSSI_ADC_B'))
+    # an address another device on the bus uses
+    schema.BUS_ADDRESSES[0x48] = 'test device'
+    assert any('collides' in p for p in schema.rssi_checks(circuit))
+    del schema.BUS_ADDRESSES[0x48]
+    # no pull-down on RSSI B, and the filter capacitor missing on RSSI A
+    pull = [p.part for p in nets['RSSI_B'].pins if p.part.ref.startswith('R') and p.part.value == '100k'][0]
+    assert any('RSSI_B pull-down' in p for p in moved(pull[2], 'RSSI_B'))
+    cap = [p.part for p in nets['RSSI_ADC_A'].pins if p.part.ref.startswith('C')][0]
+    gnd_pin = [p for p in cap.pins if p.net.name == 'GND'][0]
+    assert any('RSSI_ADC_A filter' in p for p in moved(gnd_pin, 'RSSI_ADC_A'))

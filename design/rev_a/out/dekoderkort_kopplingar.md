@@ -186,8 +186,26 @@ _CL2 B_
 - 1 1: XTAL2_B
 - 2 2: GND
 
+## C38 0.1u
+_RSSI A low-pass, shunt (with 10 k: 1 ms)_
+
+- 1 1: RSSI_ADC_A
+- 2 2: GND
+
+## C39 0.1u
+_RSSI B low-pass, shunt (with 10 k: 1 ms)_
+
+- 1 1: RSSI_ADC_B
+- 2 2: GND
+
 ## C4 1u
 _LDO in (X5R/X7R)_
+
+- 1 1: +3V3
+- 2 2: GND
+
+## C40 0.1u
+_ADS1115 VDD decoupling (table 4-1)_
 
 - 1 1: +3V3
 - 2 2: GND
@@ -325,21 +343,23 @@ _Mirror of Tang Nano 20K J5: connect pin n to J5-n_
 - 20 20: __NOCONNECT
 
 ## J4 VIDEO_IN_A
-_Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS_
+_Receiver A: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI_
 
 - 1 1: +5V_RX_A
 - 2 2: GND
 - 3 3: CVBS_A
+- 4 4: RSSI_A
 
 ## J5 VIDEO_IN_B
-_Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS_
+_Receiver B: 1 = +5 V out (fused), 2 = GND, 3 = CVBS, 4 = RSSI_
 
 - 1 1: +5V_RX_B
 - 2 2: GND
 - 3 3: CVBS_B
+- 4 4: RSSI_B
 
 ## JP1 SolderJumper_2_Open
-_Close to join SDA_A/SDA_B into one bus (then set decoder B to BAh, see R I2CSEL)_
+_Default open: split SDA, both decoders 5Ch. Shared SDA/5Ch+5Dh needs a separately verified two-address firmware configuration; current M3/M4/M6 do not support it._
 
 - 1 1: I2C_SDA_A
 - 2 2: I2C_SDA_B
@@ -536,6 +556,30 @@ _series termination B SCLK_
 - 1 1: B_SCLK_U
 - 2 2: TVPB_SCLK
 
+## R36 100k
+_RSSI A pull-down at the connector_
+
+- 1 1: RSSI_A
+- 2 2: GND
+
+## R37 10k
+_RSSI A low-pass, series (with 0.1 uF: 1 ms)_
+
+- 1 1: RSSI_A
+- 2 2: RSSI_ADC_A
+
+## R38 100k
+_RSSI B pull-down at the connector_
+
+- 1 1: RSSI_B
+- 2 2: GND
+
+## R39 10k
+_RSSI B low-pass, series (with 0.1 uF: 1 ms)_
+
+- 1 1: RSSI_B
+- 2 2: RSSI_ADC_B
+
 ## R4 37.4
 _fig. 6-1 R1/R5: series half of the 2x37.4 ohm termination (A); 47 ohm = hot-video alternative (SLEU044)_
 
@@ -596,6 +640,14 @@ _series termination A D0_
 _GND pad next to header J3 (SCLK B): probe ground for the 27 MHz clock_
 
 - 1 1: GND
+
+## TP15 TestPoint
+
+- 1 1: RSSI_A
+
+## TP16 TestPoint
+
+- 1 1: RSSI_B
 
 ## TP2 TestPoint
 
@@ -726,6 +778,20 @@ _TI TVP5150AM1IPBSR, industrial grade -40..85 C; LCSC C10013 is the commercial-g
 - 30 REFM: REFM_B
 - 31 CH_AGND: GND
 - 32 CH_AVDD: AVDD_B
+
+## U6 ADS1115IDGSR
+_TI ADS1115IDGSR: RSSI A on AIN0, RSSI B on AIN1, read once per field; 8-860 SPS, conversion time 1/DR. ADDR to GND = 48h (table 7-2). AIN2/AIN3 to GND and ALERT/RDY open (section 9.1.4). VDD 3.3 V like the I2C pull-ups_
+
+- 1 ADDR: GND
+- 2 ALERT_RDY: __NOCONNECT
+- 3 GND: GND
+- 4 AIN0: RSSI_ADC_A
+- 5 AIN1: RSSI_ADC_B
+- 6 AIN2: GND
+- 7 AIN3: GND
+- 8 VDD: +3V3
+- 9 SDA: I2C_SDA_A
+- 10 SCL: I2C_SCL
 
 ## Y1 X32251431818MSB4SI
 _YXC 14.31818 MHz, CL 20 pF, +-10 ppm at 25 C / +-20 ppm over -40..85 C, SMD3225-4P (TVP needs +-50 ppm); LCSC C34748. CL1 = CL2 = 2*CL - Cstray = 40 - ~5 -> 33 pF (section 3.16)_
