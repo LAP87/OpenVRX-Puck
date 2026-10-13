@@ -59,7 +59,7 @@ mottagare B, stift 4  (samma) ───────────────┴�
 
 Vid regel- eller ERC-fel avslutas scriptet före netlista/BOM/kopplingsrapport skrivs över. Del- och nättaggar är stabila mellan körningar; netlistans genereringsdatum kan ändras. Regression: `.venv/bin/python -m pytest -q tests` från Pucks rot.
 
-Utdata: 124 delar, 87 anslutna nät (114 och 83 före RSSI). Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
+Utdata: 126 delar, 87 anslutna nät (124 före den andra ESD-klampen 2026-10-13; 114 och 83 före RSSI). Två körningar gav samma innehåll när genereringsdatumet normaliserades. Netlisteloggen har separata varningar om saknade KiCad-footprintbibliotek och den tomma rot-tagg som KiCad kräver; inga slumpmässiga del-/nättaggar genereras. ERC-resultatet verifierar därför inte footprints eller layout.
 
 ## Granskning
 
