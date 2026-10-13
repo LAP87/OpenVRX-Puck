@@ -50,6 +50,7 @@ mottagare B, stift 4  (samma) ───────────────┴�
 | `out/dekoderkort_bom.csv` | Stycklista grupperad per värde/footprint |
 | `out/dekoderkort_kopplingar.md` | Läsbar lista: varje dels stift → nät |
 | `review/` | Underlag för extern granskning (databladsutdrag + uppdrag) |
+| `LAYOUT.md` | Underlag för layouten: mått och sandwich mot Tang Nano 20K, lagerstack, placering per block, ledningsregler, jord, värme, mekanik (2026-10-13) |
 
 ## Kontroller som körs varje gång
 
@@ -124,5 +125,5 @@ Grundkontrollen är från 2026-10-04. Industrivarianten TVP5150AM1IPBSR kontroll
 
 - PTC:n är bytt till minst 0,75 A hold (Puck #2); serie, footprint och verkligt strömdrag mot temperatur återstår att kontrollera. ESD-kedja behöver granskas före layout (Puck #2–#3).
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
-- Layout: analog jord och retur nära ingången, kristall och REFP/REFM tätt intill respektive TVP, 0,1 µF vid varje matningsstift. Mekaniskt mått för att sätta kortet direkt på Tang Nano 20K som en "sköld" (båda stiftlisterna) är inte kontrollerat — därför sladdar i rev A.
+- Layout: underlaget står i [LAYOUT.md](LAYOUT.md). Måtten för att sätta kortet direkt på Tang Nano 20K (båda stiftlisterna) är inte kontrollerade mot Sipeeds måttritning, och en sandwich kräver kontakter för OLED och RX5808-SPI som schemat saknar (LAYOUT.md, avsnitt 7).
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.
