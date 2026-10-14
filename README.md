@@ -13,8 +13,9 @@ omni antennas.
 board (2x TVP5150AM1 to pin headers) that plugs into a Tang Nano 20K running
 [OpenVRX-Core](https://github.com/LAP87/OpenVRX-Core)'s `m6_puck_proto`. Its
 schematic exists as a script (SKiDL), passes ERC and is checked against the
-gateware pin plan and shared RESETB/SPI roles. It has no KiCad project or
-layout yet, and no hardware has been tested.
+gateware pin plan and shared RESETB/SPI roles. It has a KiCad 9 project
+(design/rev_a/kicad/, board file with all 126 parts, outline, holes and net
+classes; no routing) but no layout yet, and no hardware has been tested.
 
 ## Why
 
