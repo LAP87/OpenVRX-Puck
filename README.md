@@ -55,15 +55,17 @@ so compatibility with a chosen display must be checked before an XR build.
 
 ## Pinned Core
 
-The `core/` submodule pins `46a1e4f284605a9521f592faff33068986e92d25`.
-Its 728 simulation tests and eight formal proofs passed in source-bound review.
+The `core/` submodule pins `bf05ac0feed58c3295949a6f3b4ee55c886cd1e2`.
+Its 757 simulation tests and eight formal proofs passed in source-bound review.
 Fresh M0/M4/M6 default builds, separate M4/M6 VINTERP builds and separate
 M0/M4/M6 HDMI builds passed the 75 MHz timing and TMDS fuse checks, with seeds
-0/0/2 and the unchanged I/O-register defaults. [Review receipts](https://github.com/LAP87/OpenVRX/blob/cb65b9afd377c0af9956797c1a864b63dcf55e0f/docs/overnight/2026-10-08/STATUS.md).
+0/0/2 and unchanged I/O-register defaults. M6's completed pack calls include
+`--mspi_as_gpio` for the onboard flash ports. [Review receipts](https://github.com/LAP87/OpenVRX/blob/eb8d7029292d6cdaf3f2d13afd12695cee871091/docs/overnight/2026-10-08/STATUS.md).
 
 Vertical interpolation remains off, the transmitter defaults to DVI, and the
-varying LOW line stays after vsync. VINTERP=1 with HDMI=1 has not been built in
-this review. SDRAM pin timing and HDMI compatibility remain unmeasured on hardware.
+varying LOW line stays after vsync. With VINTERP=1 and HDMI=1, M4 routed at the
+unchanged requirement, but M6 failed placement; the combined build package is
+not accepted. SDRAM pin timing and HDMI compatibility remain unmeasured on hardware.
 
 ```sh
 git clone --recurse-submodules https://github.com/LAP87/OpenVRX-Puck
