@@ -127,3 +127,17 @@ Grundkontrollen är från 2026-10-04. Industrivarianten TVP5150AM1IPBSR kontroll
 - LCSC-nummer för kristall och spole, PTC-säkring och kontaktvarianter.
 - Layout: underlaget står i [LAYOUT.md](LAYOUT.md). Måtten för att sätta kortet direkt på Tang Nano 20K (båda stiftlisterna) är inte kontrollerade mot Sipeeds måttritning, och en sandwich kräver kontakter för OLED och RX5808-SPI som schemat saknar (LAYOUT.md, avsnitt 7).
 - KiCad är inte installerat på datorn; netlistan har inte importerats ännu.
+
+## KiCad-projekt (tillagt 2026-10-14)
+
+`kicad/dekoderkort.kicad_pro` och `kicad/dekoderkort.kicad_pcb` görs av `kicad/make_board.py` ur netlistan, med KiCad 9:s egen python (`pcbnew`), inte projektets venv:
+
+```
+python3 design/rev_a/kicad/make_board.py
+kicad-cli pcb drc --severity-error -o drc.rpt design/rev_a/kicad/dekoderkort.kicad_pcb
+```
+
+Vad som ligger i kortfilen: konturen 66 × 58 mm och Tang Nano 20K:s kontur som kommentar, de fyra M2-hålen 3,5 mm från hörnen, hylslisterna J2 och J3 där Tang-kortets J6 och J5 landar när det sitter centrerat (radavstånd 20,32 mm; inte kontrollerat mot Sipeeds måttritning, och stift 1-änden är antagen, se `LAYOUT.md` avsnitt 1), alla övriga 120 delar i rader utanför konturen i blockordningen från `LAYOUT.md` avsnitt 3 med blocknamnet intill, alla 86 nät på sina lödytor, fyra kopparlager, tillverkningsgränserna 0,15/0,15 mm och via 0,6/0,3, och nätklasserna 27M (0,35 mm, avstånd 0,7), CVBS (0,15 mm, avstånd 1,2), POWER5 (0,8 mm) och POWER (0,5 mm) som mönster i projektfilen. Ingen ledning är dragen; DRC med KiCad 9.0.9 ger 0 fel och 245 oanslutna lödytor, vilket är de ledningar som ska dras. Placeringen innanför konturen och routningen görs för hand i Pcbnew efter `LAYOUT.md`. Filerna är genererade; ändra skriptet, inte filerna, tills layouten börjar. `tests/test_kicad_project.py` kontrollerar kortfilen mot netlistan (delar, footprints, nät) och projektfilens nätklasser utan `pcbnew`, med en negativ kontroll.
+
+KiCad 9.0.9 finns i WSL (Ubuntu) sedan 2026-10-14 (ägarens beslut 8); Pcbnew går att öppna därifrån med WSLg (`pcbnew design/rev_a/kicad/dekoderkort.kicad_pcb`), eller installeras på Windows.
+
