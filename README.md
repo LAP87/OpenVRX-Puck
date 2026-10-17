@@ -13,8 +13,10 @@ omni antennas.
 board (2x TVP5150AM1 to pin headers) that plugs into a Tang Nano 20K running
 [OpenVRX-Core](https://github.com/LAP87/OpenVRX-Core)'s `m6_puck_proto`. Its
 schematic exists as a script (SKiDL), passes ERC and is checked against the
-gateware pin plan and shared RESETB/SPI roles. It has no KiCad project or
-layout yet, and no hardware has been tested.
+gateware pin plan and shared RESETB/SPI roles. A KiCad 9 project with the
+netlist imported (126 parts, outline, mounting holes, net classes; DRC without
+errors, the unconnected pads are the routing still to do) is in
+`design/rev_a/kicad/`. Nothing is routed, and no hardware has been tested.
 
 ## Why
 
@@ -49,23 +51,27 @@ so compatibility with a chosen display must be checked before an XR build.
 | Path | What |
 |---|---|
 | `core/` | [OpenVRX-Core](https://github.com/LAP87/OpenVRX-Core) as a git submodule, pinned to a tested version |
-| `design/rev_a/` | Decoder board schematic script, generated netlist/BOM/connection list, design notes |
+| `design/rev_a/` | Decoder board schematic script, generated netlist/BOM/connection list, KiCad project (`kicad/`), layout and lifecycle notes |
 | `design/PUCK_2027_KONCEPT.md` | Product concept: outputs, power, enclosure, EMI, antennas (Swedish) |
 | `design/REV_A_KONCEPT.md` | Earlier integrated-board concept, now rev B (Swedish) |
 
 ## Pinned Core
 
-The `core/` submodule pins `bf05ac0feed58c3295949a6f3b4ee55c886cd1e2`.
-Its 757 simulation tests and eight formal proofs passed in source-bound review.
-Fresh M0/M4/M6 default builds, separate M4/M6 VINTERP builds and separate
-M0/M4/M6 HDMI builds passed the 75 MHz timing and TMDS fuse checks, with seeds
-0/0/2 and unchanged I/O-register defaults. M6's completed pack calls include
-`--mspi_as_gpio` for the onboard flash ports. [Review receipts](https://github.com/LAP87/OpenVRX/blob/eb8d7029292d6cdaf3f2d13afd12695cee871091/docs/overnight/2026-10-08/STATUS.md).
+The `core/` submodule pins Core `ff2efcebdde148515d1f35d460ab64cb03586f0d`, the commit Core's
+tag `v0.1-prehw` points to; this repository's tag of the same name is on the commit that pins it.
+Together they are the baseline before hardware, described in the hub's
+[docs/RELEASE_v0.1-prehw.md](https://github.com/LAP87/OpenVRX/blob/main/docs/RELEASE_v0.1-prehw.md).
+On that commit the full Core suite has 772 tests: 769 pass and 3 are strict expected failures
+for open findings of the second adversarial review (Core #21-#23), one process per
+simulation test. M0, M3, M2a, M4 and M6 are built from it with default options (seed 2 for
+M6, 0 for the others), every clock above its 75 MHz requirement after routing, and the
+HDMI pairs of M4 and M6 packed as in M0; M6's pack call includes `--mspi_as_gpio` for the
+onboard flash ports. LUT4 counts, clocks and bitstream hashes are in the release note.
 
 Vertical interpolation remains off, the transmitter defaults to DVI, and the
-varying LOW line stays after vsync. With VINTERP=1 and HDMI=1, M4 routed at the
-unchanged requirement, but M6 failed placement; the combined build package is
-not accepted. SDRAM pin timing and HDMI compatibility remain unmeasured on hardware.
+varying LOW line stays after vsync. M6 with both `VINTERP=1` and `HDMI=1` places since
+Core c822606 (the mixer FIFOs moved to block RAM). SDRAM pin timing and HDMI
+compatibility remain unmeasured on hardware.
 
 ```sh
 git clone --recurse-submodules https://github.com/LAP87/OpenVRX-Puck
